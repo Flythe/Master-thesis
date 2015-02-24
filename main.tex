@@ -1,4 +1,4 @@
-\documentclass[a4paper]{article}
+\documentclass[a4paper]{report}
 
 % Packages
 \usepackage{enumitem}
@@ -13,6 +13,7 @@
 \usepackage{longtable}
 \usepackage[british]{babel}
 \usepackage{caption}
+\usepackage{csquotes}
 
 % Settings
 \setlist[itemize]{noitemsep}
@@ -39,22 +40,27 @@
 	%\tableofcontents
 	%\clearpage
 	
-	\section{Security}
+	\chapter{Introduction}
+	\label{introduction}
+	\input{partials/introduction}
+	
+	\chapter{Security}
 	\label{security}
 	\input{partials/security}
 	\input{partials/security-interviews}
 	\input{partials/security-summary}
 	
-	\section{Data Model}
+	\chapter{Data Model}
+	\label{data-model}
 	\input{partials/datamodel}
 	
 	\clearpage
 	
 	\printbibliography
 	
-	\clearpage
-	
-	\section{Appendices}
-	\input{partials/appendix-1}
+	\appendix
+	\chapter{Security Checklists}
+	\label{security-appendix}
+	\input{partials/security-checklists-appendix}
 
 \end{document}
