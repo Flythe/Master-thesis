@@ -1,0 +1,132 @@
+\subsection{Literature Review}
+\label{security-literature}
+
+\paragraph{Medical big data ethics and security}
+\label{security-ethics}
+
+We could start with answering the question 'how do I secure data?', but before doing this it is important to describe what the incentives are for using the data.
+We do this to give context to the found security issues and proposed solutions for them.
+
+In 2013 \cite{s20Groves2013} estimated big data strategies could increase profits in US healthcare by \$100 billion \cite{s13Patil2014}.
+However to make this possible healthcare management have to change their business model.
+Old models worked with increasing or decreasing the amount of patients while the outcome (quality) remained the same, \cite{s13Patil2014} calls this a volume-based business model.
+To make the increase in profits possible new models revolving around cost versus quality are used, called a value-based business model.
+Much more is written about the pros and cons of this type of healthcare management by gurus like M.E. Porter, but this is outside the scope of this paper.
+In order to measure the quality indicators in the new strategies big data can be applied \cite{s6West2009}, through data mining patient outcomes can be linked directly with treatment, environmental factors, or any other data sets.
+Choosing the right treatment for any given new patient will then be a matter of checking the charts.
+This way of delivering healthcare is also supported by the European Union which describes it as "Free Movement" and obtaining quality and efficient healthcare \cite{s8FernandezAleman2013}.
+The new set-up closely fits to a standard research set-up.
+Data in patient records is mainly used to provide information for caretakers but can be very valuable in research\cite{s15Fenz2014}.
+The extraction of data is not very straightforward and should be done with caution as there are security and privacy pitfalls.
+
+According to Fenz \cite{s15Fenz2014} patients will not withhold their data for research purposes.
+However, there are concerns that data can be accessed by persons with unwanted intentions: marketing, insurance, or data loss through breaches.
+It is positive that big data can help the improvement of healthcare \emph{and} patients are willing to give their data towards this end.
+However, data breaches should never be dismissed, which makes the application of big data an ethical question: Does the benefit of the big data overcome the possible negative effects of a data breach.
+
+\cite{s7Kluge2007} took "What should be the driver of its development and implementation?" as the context and split the ethical issue into four different questions, respectively: Should it be the technology itself? Should it be the interests of service providers? Should it be the interests of governments? Should it be the interests of patients?
+Each of these questions should be dealt with in the \project{}:
+
+\begin{itemize}
+	\item \textbf{Should it be the technology itself? -} Because this system is developed in the interest of a research the technology has a stake in the driver of development.
+	However, it should not become the main driver as that would destroy the initial idea of improving quality and efficiency of care.
+	\item \textbf{Should it be the interests of service providers? -} Service providers are accounted for as they will finally be able to get a impartial comparison between each other.
+	If the feedback to providers is delivered in the right manner this should provide both the incentive \emph{and} the knowledge to improve efficiency.
+	\item \textbf{Should it be the interests of governments? -} Because the \project{} is the first to look into the coupling of outcome data with \IVF{} data the holy grail to be reached is that the system provides the same services as registries like the NICE\footnote{https://www.stichting-nice.nl/} or  BHN\footnote{https://www.bhn-registratie.nl/}.
+	These services include reporting back to the government, these reports make it possible to make informed guidance decision.
+	\item \textbf{Should it be the interests of patients? -} The main outcome of the \project{} is to provide insight in outcomes on different \IVF{} treatments.
+	A study with these outcome measurements and this size has not been performed yet in the Netherlands. %(of wereld??? checken met Martina) 
+	The outcomes of a study like this will determine what the best treatment is, and to conduct a study like this the \ivfsystem{} will support the researchers.
+\end{itemize}
+
+There are some ethical issues that also involve legal issues like the USA Patriot Act, this will be touched upon in the paragraph \emph{the legal side of security}.
+
+\paragraph{The 'how?' and 'why?' of security}
+\label{security-how-why}
+
+When speaking of security in the medical sector the topic can be discerned into several fields according to Perakslis \cite{s2Perakslis2014}: data loss, monetary theft, attacks on medical devices, and attack on infrastructure.
+Because the main scope of this study is clinical research data, and thus protecting patient privacy, we will focus on data loss (\ie{} data security).
+The use of technology is emerging in the healthcare sector, this results in systems with increased complexity, diversity, and timeliness \cite{s13Patil2014}.
+As these systems grow it becomes harder and harder to prevent data breaches.
+Furthermore, the healthcare domain is being heavily targeted, 94\% of all institutions have had to deal with attacks on their systems \cite{s2Perakslis2014}.
+It is reported that there is more risk of insider attackers, both intentional and unintentional (\eg{} regular employees not following policies) \cite{s1Zamosky2014}.
+Only 7\% of all breaches are caused by hacking, mundane errors like stolen laptops are more common \cite{s1Zamosky2014}.
+The most common breaches are unauthorised access of data (63 \%) and exposure of sensitive data (57\%) \cite{s18Kum2014}.
+
+About 48\% of data breaches can be traced back to theft with identity theft being the most important one \cite{s1Zamosky2014}.
+An obvious factor in this is that the value of stolen data is much higher than in other domains.
+The per-record value is directly bound to the amount of data in the record, medical records contain more information than for example financial records which makes them more valuable \cite{s1Zamosky2014}.
+It has been estimated that the cost per-record is approximately \$233 in healthcare, while the mean of all industries was \$136 \cite{s2Perakslis2014}.
+Next to financial gain there are also hackers that seek to crack a system to deface an institution or to prove that not enough security was in place to start with.
+The question we seek to answer in the section is what regulations and conventions should be taken into account when storing and processing data specific to our \ivfsystem{}?
+
+There are three goals that work towards achieving a secure system: confidentiality, integrity, and availability \cite{s8FernandezAleman2013}.
+Confidentiality refers to the rights of the patient concerning their personal medical data, what these are will be described in the next paragraph.
+Integrity refers to completeness and correctness of data, and availability is reached when the correct person can access the correct data at the correct time (\eg{} clinician accesses a patients' file during a consult).
+
+As the \ivfsystem{} does not influence patient care directly integrity and availability are of less importance.
+The importance of confidentiality is also reflected in the following quote: "They wanted to help achieve these benefits but also wanted to be sure that patients' rights were protected and that clinicians were not in danger of breaking patient confidentiality and the law" taken from Sanderson \cite{s5Sanderson2004}.
+Clinicians see the benefits of systems supporting them in their daily work but they need to be sure that they are safe to work with.
+Furthermore, \cite{s4Layman2008} states that the chance of achieving success with a health informatics system decreases when confidentiality is violated.
+The next paragraph will go into the laws and regulations which help to achieve the security goals.
+
+\paragraph{The legal side of security}
+\label{security-legal}
+
+While systems grow and hackers become more eager in hacking them lawmakers have put regulations and laws in place to protect patients.
+The IT is agile while regulations (unfortunately) are mostly slow-moving \cite{s20Groves2013}, this makes it difficult to cover every important point of privacy in regulations.
+Therefore, it should be noted that compliance to these regulations will not necessarily be sufficient for good security \cite{s20Groves2013}.
+This paragraph will describe what regulations are in place, only major points will be given as an in-depth explanation is outside of the scope of this research.
+
+Healthcare institutions have to comply to regulations like the EU or US privacy directive.
+If they do not there are acts in place that allow government bodies to impose fines.
+These fines are becoming larger as the importance of protection of privacy is growing \cite{s1Zamosky2014}.
+Respectively the EU directive is 95/46/EG and the US directive Health Insurance Portability and Accountability Act (HIPAA).
+For Dutch institutions only the EU directives apply but the HIPAA also gives a good overview of what topics are important for privacy protection.
+Also, the EU and US directives are comparable to each other which makes it easier to find technical privacy solutions (described in \ref{security-summarisation}).
+The EU directives are implemented in the Netherlands and supplemented with other acts, these are listed with the important parts as described by Mouw \cite{s19Mouw2012}.
+
+\begin{itemize}
+	\item Data Protection Act (WBP) - Wet Bescherming Persoonsgegevens (WBP), this is the implementation of the EU directive.
+	A government body is granted permission to enforce this implementation and impose fines.
+	This act describes when and how data can be collected from a person.
+	The most important point to take from this regulation is that specific consent is required before data can be collected and processed.
+	\item Medical Contract Bill (WGBO) - Wet Geneeskundige Behandelingsovereenkomst (WGBO), this is an overall act for medical treatment but it also describes regulations for record keeping.
+	The most important regulation here is article 458: statistical or medical research in the benefit of public health are exempted from consent regulations if the consent required is impossible or unreasonable to obtain.
+	\item Medical Research Involving Human Subjects Act (WMO) - Wet Medisch-wetenschappelijk Onderzoek met mensen (WMO), this regulation is an extension to the WGBO and requires an ethical committees approval for each new medical research.
+	\item Code of Conduct for Medical Research (FMWV) - This code of conduct provides concrete examples and implementations of each law mentioned above.
+	This makes it easier for medical researchers to comply to each of these laws.
+	The code requires that personal data is only accessible by the researcher or those directly under their authority.
+\end{itemize}
+
+Furthermore, there is one US act that is also of interest for institutions world-wide, namely the US-based Patriot Act.
+The Patriot Act is an odd act in this section, it is mentioned because it endangers patient privacy from countries outside of the US.
+If a third party is used for data storage, and this third party has its head quarter in the US, government bodies of the US can request (and will most likely receive) insight into this data \cite{s7Kluge2007}.
+This issue should be considered while developing a system that handles patient data.
+
+%Need to find those standards and examine them
+Next to legal items there are also some standards that can be applied, these are ISO EN13606 and the NEN7510.
+For example the EN13606 defines confidentiality as 'process that ensures that information is accassible only to those authorised to have access to it' \cite{s8FernandezAleman2013}.
+
+Summarising, the laws state that in principle patient data cannot be stored or processed.
+However if there is a public interest, like public health, some data may be used \cite{s19Mouw2012}.
+In any case personal (\ie{} identifying) data should always be separated from the rest of the data.
+Types of data such as religion, race, and sexual preference are excluded and may only be stored when the law explicitly permits it \cite{s19Mouw2012}.
+When there is a public interest data usage is possible when each included patient gives his/her explicit consent.
+When consent is asked a clear description of the goals for the data should be given.
+Also, the patient remains the right to inspection and removal of his/her data from the dataset.
+An exception to the consent rule is made when requests are impossible or unreasonable to make.
+Furthermore, the law states that medical research can only be done when : "(I) new scientific insights in medicine are expected, (II) those insights cannot be gained in another, less risky way, and (III) the risks for and interest of the participants is well balanced against the importance of the research." \cite{s19Mouw2012}.
+
+The FMWV code of conduct describes the following points which are applicable to this research:
+
+\begin{itemize}
+	\item For personal data, the reason of use should be described.
+	\item The persons authorised to view personal data should be listed.
+	\item Provisions taken to protect the data should be listed.
+\end{itemize}
+
+Lastly, an ethical committee is needed to check the usage of data versus the goal of the research.
+If it is found that the means do not serve the goal the research cannot continue.
+
+The intent of these laws can be described in a great quote from Aleman \cite{s8FernandezAleman2013}: "the claim of individuals, groups, or institutions to determine for themselves when, how, and to what extent information about them is communicated to others".

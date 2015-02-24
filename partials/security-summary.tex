@@ -1,0 +1,42 @@
+\subsection{Technical \& Procedural Cornerstones of Security}
+\label{security-summarisation}
+
+The outcomes of the interviews were combined with the literature study to compile a practical list with security issues and solutions.
+This list is described in table \ref{tab:security-list}, ordered by type and paper.
+
+% Security table with a list of all found problems and solutions in literature and interviews
+\input{partials/table-security}
+
+\subsubsection{Summary}
+\label{security-summarisation-subsub}
+
+Some overall points taken from this security analysis will be described and reviewed in the context of the \ivfsystem{}.
+
+Consent is a difficult problem to tackle in research.
+When it is required patients need to know what they are signing for and handling data outside of the procedure described is forbidden.
+However consent can be avoided by using historical datasets for which it is unreasonable to acquire consent from each patient in them.
+This last regulation is what the \ivfsystem{} leans on, which uses historical data.
+
+In order to fulfil regulations and ethical needs a dataset should be minimised so that no superfluous items are left in the dataset.
+For each of the data items in the dataset a purpose should be described. 
+A proper purpose is leading in ethical discussions about whether to accept a data item in the dataset or not.
+Having a well-defined protocol with the \ivfsystem{} can provide more confidence in the system by users.
+
+For data linkage some identifying (\ie{} private) data items are needed.
+This can be described in the purpose of the data item, but there are also methods for avoiding these data items.
+Hashing of data with the application of Bloom filters make it possible to link two datasets without revealing the identifying data.
+Data linkage is only mentioned as a future reference for the \ivfsystem{}, in the first implementation linkage is provided by external sources.
+
+Anonymisation and pseudonymisation should be used to de-identify individuals.
+While identification through data aggregation and cross-referencing is still possible to happen these steps should make it more difficult.
+The \ivfsystem{} will use both techniques to provide privacy, datasets are mostly kept clean by removing all identifying data.
+Whatever identifying data is left (through linkage) will be pseudonymised.
+
+In order to decrease the chances of cross-referencing and data breaches in general provenance of data should be kept.
+This means keeping logs on who uses what data at what point in time and what that data looked like at that time.
+Apart from privacy this also makes it possible to keep people accountable and to provide data management functionality.
+As the \ivfsystem{} is mainly a system to manage data this opens up many implementation possibilities.
+
+Lastly, exploring and using present day standard security measures are a must-have for a good system.
+During the software engineering cycle of the \ivfsystem{} searches will be done for the appropriate security measures for each part of the system.
+Also the expertise of developers, engineers, and system administrators with multiple years of experience each will be used.

@@ -1,0 +1,60 @@
+\documentclass[a4paper]{article}
+
+% Packages
+\usepackage{enumitem}
+\usepackage[pdftex]{graphicx}
+\usepackage{array}
+\usepackage{float}
+\usepackage{url}
+\usepackage[maxbibnames=5,style=numeric,backend=bibtex,sorting=nty,firstinits=true]{biblatex} \bibliography{ref}
+\usepackage[noabbrev,capitalise]{cleveref} 
+\usepackage{tabularx}
+\usepackage{tabu}
+\usepackage{longtable}
+\usepackage[british]{babel}
+\usepackage{caption}
+
+% Settings
+\setlist[itemize]{noitemsep}
+
+% Commands
+\newcommand{\ie}{i.e.,}
+\newcommand{\eg}{e.g.,}
+\newcommand{\IVF}{IVF}
+\newcommand{\project}{IVF-PRN project}
+\newcommand{\ivfsystem}{IVF-PRN system}
+
+\title{Thesis}
+
+\author{
+	Allard J. van Altena\\
+	University of Amsterdam\\
+	Email: a.j.vanaltena@amc.uva.nl
+}
+
+\begin{document}
+
+	%\maketitle
+	
+	%\tableofcontents
+	%\clearpage
+	
+	\section{Security}
+	\label{security}
+	\input{partials/security}
+	\input{partials/security-interviews}
+	\input{partials/security-summary}
+	
+	\section{Data Model}
+	\input{partials/datamodel}
+	
+	\clearpage
+	
+	\printbibliography
+	
+	\clearpage
+	
+	\section{Appendices}
+	\input{partials/appendix-1}
+
+\end{document}
