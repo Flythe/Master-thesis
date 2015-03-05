@@ -14,16 +14,26 @@
 \usepackage[british]{babel}
 \usepackage{caption}
 \usepackage{csquotes}
+\usepackage{color}
 
 % Settings
+% Margins in lists
 \setlist[itemize]{noitemsep}
+% Margins in tables
+\renewcommand{\arraystretch}{1.3}
 
 % Commands
 \newcommand{\ie}{i.e.,}
 \newcommand{\eg}{e.g.,}
 \newcommand{\IVF}{IVF}
+\newcommand{\PRN}{PRN}
 \newcommand{\project}{IVF-PRN project}
 \newcommand{\ivfsystem}{IVF-PRN system}
+
+% Commenting commands
+\newcommand{\sil}[1]{\textcolor{red}{\textbf{*Silvia: }\textit{#1}}}
+\newcommand{\allard}[1]{\textcolor{red}{\textbf{*Allard: }\textit{#1}}}
+\newcommand{\note}[1]{\textcolor{cyan}{\textit{#1}}}
 
 \title{Thesis}
 
@@ -38,29 +48,38 @@
 	%\maketitle
 	
 	%\tableofcontents
-	%\clearpage
+	
+	\allard{
+		Does the order of chapters make sense now, I'm trying to get a logical 'path' of information leading up to the software engineering part.		
+		I've added stubs chapters with points I want to cover there. And as I started with the security first I'd like to get that chapter done first.
+	}
 	
 	\chapter{Introduction}
 	\label{introduction}
 	\input{partials/introduction}
-	
+
 	\chapter{Security}
 	\label{security}
 	\input{partials/security}
 	\input{partials/security-interviews}
 	\input{partials/security-summary}
 	
+	\chapter{System Functionality}
+	\label{system-functionality}
+	\input{partials/functionality}
+	
 	\chapter{Data Model}
-	\label{data-model}
-	\input{partials/datamodel}
+	\label{datamodel}
+	\allard{Removed for now, will focus on this as the next chapter to write.}
+	%\input{partials/datamodel}
 	
 	\clearpage
 	
-	\printbibliography
+	%\printbibliography
 	
 	\appendix
 	\chapter{Security Checklists}
 	\label{security-appendix}
-	\input{partials/security-checklists-appendix}
+	%\input{partials/security-checklists-appendix}
 
 \end{document}

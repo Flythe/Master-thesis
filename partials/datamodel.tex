@@ -4,8 +4,8 @@ Firstly the current data used in the \project{} will be described after that the
 \section{Data Description}
 \label{datamodel-data-description}
 
-There are two types of data in the \project{}, data coming from the PRN and data coming from the clinics.
-The PRN data is fairly structured, there are some changes in the data model over time but overall not much is added or removed.
+There are two types of data in the \project{}, data coming from the \PRN{} and data coming from the clinics.
+The \PRN{} data is fairly structured, there are some changes in the data model over time but overall not much is added or removed.
 This differs from the clinics which have a great variance in datasets between each other.
 During the \project{} a transition is happening, most (if not all) of the clinics will be adopting a new patient record system (LSFD\footnote{http://stichting-saf.nl/lsfd/}).
 This system is developed in coordination with the Dutch foundation for automation of fertility clinics (Dutch: Stichting Automatisering Fertiliteit, SAF\footnote{http://stichting-saf.nl/}).
@@ -18,7 +18,7 @@ The data itself is provided in a table-like format with columns and rows.
 Data was gathered retrospectively and it is retrieved for the year 1999 up to 2010.
 Each of the rows contain a pregnancy and each pregnancy consist of data items that are related to it (columns), \eg{} BMI at the time of impregnation.
 Between clinics the provided columns differ from each other, during data gathering there was a protocol describing the requested data items but not all clinics were able to provide these.
-Data gathered from the PRN registry is available for each of the rows as the requested data items have not changed over the time period (1999 - 2010).
+Data gathered from the \PRN{} registry is available for each of the rows as the requested data items have not changed over the time period (1999 - 2010).
 Most of the identifying data has been stripped and those items that remain are pseudonymised, \eg{} the pseudonym for date of birth is age in years.
 After this is done the dataset is received by the \ivfsystem{}.
 
@@ -29,7 +29,7 @@ Datasets that have been cleaned will be stored in the \ivfsystem{} an abstract m
 \section{Model Description}
 \label{datamodel-model-description}
 
-Initially in the \project it is the case that two datasets (IVF and PRN data) will be linked and stored together.
+Initially in the \project it is the case that two datasets (\IVF{} and \PRN{} data) will be linked and stored together.
 However, the data model has to be flexible in order to make arrangements for future extensions. 
 Both in adding new datasets and in extending existing datasets with more data items.
 
@@ -55,7 +55,7 @@ Complying to requirement 1, 2, 6, and 7 was straightforward, each of the require
 Data entities are respectively: {\tt User}, {\tt Provenance}, {\tt Linkage}, and {\tt Data agreements}.
 
 Requirement 3 and 4 both have a need for {\tt Sub collections}, these implement a minimum data item set.
-For example, one of the {\tt sub collections} is the IVF dataset, the cross section of available data items for all IVF datasets is the minimum data item set.
+For example, one of the {\tt sub collections} is the \IVF{} dataset, the cross section of available data items for all \IVF{} datasets is the minimum data item set.
 This set-up makes it possible to add other (different) datasets but also to extend existing datasets with new data items.
 
 Requirement 5 needs some background information.
@@ -89,3 +89,8 @@ For now it will suffice to say that the identified requirement 3 asks for a sche
 \label{datamodel-gathering}
 
 %TODO: compile list of problems
+
+%TODO: what is provenance (literature) and how do I model this?
+
+\section{Data Provenance}
+\label{datamodel-provenance}
