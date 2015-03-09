@@ -30,6 +30,9 @@
 \newcommand{\project}{IVF-PRN project}
 \newcommand{\ivfsystem}{IVF-PRN system}
 
+% Block comment command
+\long\def\/*#1*/{}
+
 % Commenting commands
 \newcommand{\sil}[1]{\textcolor{red}{\textbf{*Silvia: }\textit{#1}}}
 \newcommand{\allard}[1]{\textcolor{red}{\textbf{*Allard: }\textit{#1}}}
@@ -49,11 +52,6 @@
 	
 	%\tableofcontents
 	
-	\allard{
-		Does the order of chapters make sense now, I'm trying to get a logical 'path' of information leading up to the software engineering part.		
-		I've added stubs chapters with points I want to cover there. And as I started with the security first I'd like to get that chapter done first.
-	}
-	
 	\chapter{Introduction}
 	\label{introduction}
 	\input{partials/introduction}
@@ -70,8 +68,12 @@
 	
 	\chapter{Data Model}
 	\label{datamodel}
-	\allard{Removed for now, will focus on this as the next chapter to write.}
-	%\input{partials/datamodel}
+	\allard{Removed text for now.}
+	\input{partials/datamodel}
+	
+	\chapter{Software Engineering}
+	\label{engineering}
+	\input{partials/softwareengineering}
 	
 	\clearpage
 	
