@@ -38,6 +38,12 @@
 \newcommand{\allard}[1]{\textcolor{red}{\textbf{*Allard: }\textit{#1}}}
 \newcommand{\note}[1]{\textcolor{cyan}{\textit{#1}}}
 
+% Flag for document style switch, set to true or false
+\newif\ifstructure
+
+\structuretrue
+% \structurefalse
+
 \title{Thesis}
 
 \author{
@@ -54,26 +60,52 @@
 	
 	\chapter{Introduction}
 	\label{introduction}
-	\input{partials/introduction}
+	
+	\ifstructure
+		\input{structure/introduction}
+	\else
+		\input{partials/introduction}
+	\fi
 
 	\chapter{Security}
 	\label{security}
-	\input{partials/security}
-	\input{partials/security-interviews}
-	\input{partials/security-summary}
+	
+	\ifstructure
+
+	\else
+		\input{partials/security}
+		\input{partials/security-interviews}
+		\input{partials/security-summary}
+	\fi
 	
 	\chapter{System Functionality}
 	\label{system-functionality}
-	\input{partials/functionality}
+	
+	\ifstructure
+		\input{structure/functionality}	
+	\else
+		\input{partials/functionality}
+	\fi
 	
 	\chapter{Data Model}
 	\label{datamodel}
 	\allard{Removed text for now.}
-	\input{partials/datamodel}
+	
+	\ifstructure
+		\input{structure/datamodel}
+	\else
+		\input{partials/datamodel}
+		\input{partials/datamodel-provenance}
+	\fi
 	
 	\chapter{Software Engineering}
 	\label{engineering}
-	\input{partials/softwareengineering}
+	
+	\ifstructure
+		\input{structure/softwareengineering}	
+	\else
+		\input{partials/softwareengineering}
+	\fi
 	
 	\clearpage
 	
