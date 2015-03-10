@@ -42,7 +42,7 @@
 \newif\ifstructure
 
 \structuretrue
-% \structurefalse
+%\structurefalse
 
 \title{Thesis}
 
@@ -89,7 +89,6 @@
 	
 	\chapter{Data Model}
 	\label{datamodel}
-	\allard{Removed text for now.}
 	
 	\ifstructure
 		\input{structure/datamodel}
@@ -114,6 +113,9 @@
 	\appendix
 	\chapter{Security Checklists}
 	\label{security-appendix}
-	%\input{partials/security-checklists-appendix}
+	\ifstructure
+	\else 
+		\input{partials/security-checklists-appendix}
+	\fi
 
 \end{document}
