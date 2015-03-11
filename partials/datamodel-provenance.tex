@@ -1,8 +1,96 @@
-\/*
+% Styling commands for the used terms
+\newcommand{\agent}{{\tt agent}}
+\newcommand{\entity}{{\tt entity}}
+\newcommand{\activity}{{\tt activity}}
+\newcommand{\relation}{{\tt relation}}
+\newcommand{\relations}{{\tt relations}}
+\newcommand{\attributes}{{\tt attributes}}
 
 \section{Data Provenance}
 \label{datamodel-provenance}
 
+A topic with growing interest in the \escience{} field is provenance, sometimes also referred to as lineage or pedigree.
+It has been borrowed from the world of art where it describes the `life' of an artwork.
+Mostly this will be the record of ownership but it can also describe things like restorations.
+From provenance data the quality, state, and originality of the work can be discerned.
+
+In \escience{} the same can be applied on a piece of data \cite{dsp4moreau}.
+Concerning data, provenance is stored metadata describing the process by which the data got to a certain state from a specific source \cite{dsp4moreau,dsp2buneman}.
+To describe the path data has taken W3C has made a standard described in the PROV Model Primer \cite{dsp8gil}.
+The gist of provenance is that it is build from a small set of assertions made by the different services that are involved in  the data process \cite{dsp4moreau}.
+
+To actually \emph{use} provenance data a standard for schemas is described which are usable for human consumption, an example is shown in figure \ref{fig:provenance-large-schema}.
+Because these schemas can run from the starting point where provenance data was kept (or actually the beginning of all time) user-tailored queries should be applied \cite{dsp4moreau}.
+These frame the specific question a user has and only display the applicable part of the schema.
+
+\paragraph{The `why?' of provenance}
+\label{provenance-why}
+
+When collecting provenance various metadata has to be captured at different steps in the data process.
+This creates a overhead when using a system for a specific task.
+Capturing and keeping provenance data is almost never the main functionality of a system.
+However, exposing the data may help users (\ie{} researchers).
+
+In \escience{} data is gathered and generated at a fast pace.
+Provenance kept of this data can help researchers determine whether data is:
+
+\begin{itemize}
+	\item Usable in a certain context, the metadata stored can describe the different uses of a specific data item \cite{dsp1simmhan}, \eg{} types of software that accept a data item as input.
+	\item Acceptable, the path a piece of data has taken to get to its current form can tell a researcher if they trust the accuracy and timeliness and accept if for further use \cite{dsp1simmhan,dsp3buneman}.
+	\item Protected by intellectual property (IP) or should be credited, as for the acceptability of data the path can also be backtracked to the original creators and/or IP holders \cite{dsp1simmhan}.
+\end{itemize}
+
+\paragraph{The `how?' of provenance}
+\label{provenance-how}
+
+The provenance building blocks (as described by the W3C \cite{dsp8gil}) are the three core data types (\agent{}, \entity{}, and \activity{}) and a few of the possible \relations{} between them as shown in figure \ref{fig:provenance-overview}.
+Furthermore, \attributes{} (not shown) can be assigned to provide more metadata for data types or \relations{}.
+Provenance output is also standardised, figure \ref{fig:provenance-overview} shows the display methods for the data types and \relations{}, \attributes{} are displayed with a `document' symbol as shown in figure \ref{fig:provenance-large-schema}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{images/provenance-overview}
+	\caption{Example model showing the three core data types (\agent{}, \entity{}, and \activity{}) and a few of all possible \relations{} between them. 
+		Taken from PROV Model Primer \cite{dsp8gil}.}
+	\label{fig:provenance-overview}
+\end{figure}
+
+List of used concepts as described in PROV Model Primer \cite{dsp8gil}:
+
+\begin{itemize}
+	\item Entity, physical, digital, conceptual, or another type of `thing'.
+	\item Activity, the process of instantiating or the process of changing an entity.
+	\item Agent, holds (a part of) the responsibility for activities and entities.
+	\item Relation, describes the interaction between two instances of the three core data types.
+\end{itemize}
+
+\begin{figure}[!t]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/provenance-large-schema}
+	\caption{
+		Real life example model which implements the model as shown in figure \ref{fig:provenance-overview}.
+		This example describes the creation of a chart, the original data used, the intermediate data generated during the process, the used software, who was responsible for the work, and who this person was working for.
+		An addition to figure \ref{fig:provenance-overview} is the use of \attributes{}, these are displayed with document icons and provide metadata on the object they are bound to.
+		In this case that is the name and email address for one the agents and the company name for the other agent.
+		Taken from PROV Model Primer \cite{dsp8gil}.
+		}
+	\label{fig:provenance-large-schema}
+\end{figure}
+
+An provenance example is given in figure \ref{fig:provenance-large-schema}.
+Here is shown what the provenance of a certain `chart' is.
+The chart (\entity) is shown at the far right side of the figure; it was generated by (\relation) some illustration software (\activity); which in its turn used data from a composition dataset; the data was generated by composing software; two datasets where used in the process, data set 1 and region list.
+The agent executing this process is Derek (\agent), he was associated with the composing and illustration software and is attributed to the creation of the resulting chart.
+However, Derek is acting on behalf of the company chart gen (\eg{} he is a contractor or employee).
+Both agents in this example have \attributes{} assigned to them to further describe them (\eg{} the full name of the company).
 
 
-*/
+
+HOW
+1 Publications are a common form of representing the provenance of experimental data and results.
+1 DOIs are used to cite data used in experiments so that the papers can relate the experimental process and analysis to the actual data used an produced.
+1 Several applications of provenance: Data quality (based on the provenance meta data a user can check the quality of data), audit trail (who did what with which data), replication recipes (what was done to get a certain data item), attribution (copyright, ownership, citation, liability), informational (data discovery, context for data). 
+1 If provenance depends on users manually adding annotations instead of automatically collecting it, the burden on the user may prevent complete provenance from being recorded and available in a machine accessible form that has semantic value.
+3 why and where provenance, why is data in the output? where does some data in output come from?
+4 In order to minimize its effect on application performance, documentation must be structured so it can be constructed and recorded autonomously by services on a piecemeal basis.
+4 three types of assertions: relationship (B was retrieved by applying func1 to A), interaction (received A, sent B), service state (it took 3 seconds to send B after receiving A).

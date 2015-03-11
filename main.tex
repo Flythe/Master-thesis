@@ -2,9 +2,9 @@
 
 % Packages
 \usepackage{enumitem}
-\usepackage[pdftex]{graphicx}
+\usepackage{graphicx}
 \usepackage{array}
-\usepackage{float}
+%\usepackage{float}
 \usepackage{url}
 \usepackage[maxbibnames=5,style=numeric,backend=bibtex,sorting=nty,firstinits=true]{biblatex} \bibliography{ref}
 \usepackage[noabbrev,capitalise]{cleveref} 
@@ -12,7 +12,7 @@
 \usepackage{tabu}
 \usepackage{longtable}
 \usepackage[british]{babel}
-\usepackage{caption}
+\usepackage[font=footnotesize]{caption}
 \usepackage{csquotes}
 \usepackage{color}
 
@@ -22,16 +22,17 @@
 % Margins in tables
 \renewcommand{\arraystretch}{1.3}
 
-% Commands
+% Text replacement commands
 \newcommand{\ie}{i.e.,}
 \newcommand{\eg}{e.g.,}
 \newcommand{\IVF}{IVF}
 \newcommand{\PRN}{PRN}
 \newcommand{\project}{IVF-PRN project}
 \newcommand{\ivfsystem}{IVF-PRN system}
+\newcommand{\escience}{e-Science}
 
 % Block comment command
-\long\def\/*#1*/{}
+%\long\def\/*#1*/{}
 
 % Commenting commands
 \newcommand{\sil}[1]{\textcolor{red}{\textbf{*Silvia: }\textit{#1}}}
@@ -41,8 +42,8 @@
 % Flag for document style switch, set to true or false
 \newif\ifstructure
 
-\structuretrue
-%\structurefalse
+%\structuretrue
+\structurefalse
 
 \title{Thesis}
 
@@ -85,6 +86,7 @@
 		\input{structure/functionality}	
 	\else
 		\input{partials/functionality}
+		\input{partials/functionality-brainstorm}
 	\fi
 	
 	\chapter{Data Model}
@@ -113,6 +115,7 @@
 	\appendix
 	\chapter{Security Checklists}
 	\label{security-appendix}
+	
 	\ifstructure
 	\else 
 		\input{partials/security-checklists-appendix}
