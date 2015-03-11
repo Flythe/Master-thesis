@@ -47,7 +47,7 @@ The provenance building blocks (as described by the W3C \cite{dsp8gil}) are the 
 Furthermore, \attributes{} (not shown) can be assigned to provide more metadata for data types or \relations{}.
 Provenance output is also standardised, figure \ref{fig:provenance-overview} shows the display methods for the data types and \relations{}, \attributes{} are displayed with a `document' symbol as shown in figure \ref{fig:provenance-large-schema}.
 
-\begin{figure}[h]
+\begin{figure}[!tbhp]
 	\centering
 	\includegraphics[width=0.5\linewidth]{images/provenance-overview}
 	\caption{Example model showing the three core data types (\agent{}, \entity{}, and \activity{}) and a few of all possible \relations{} between them. 
@@ -64,7 +64,7 @@ List of used concepts as described in PROV Model Primer \cite{dsp8gil}:
 	\item Relation, describes the interaction between two instances of the three core data types.
 \end{itemize}
 
-\begin{figure}[!t]
+\begin{figure}[!b]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/provenance-large-schema}
 	\caption{
@@ -84,13 +84,19 @@ The agent executing this process is Derek (\agent), he was associated with the c
 However, Derek is acting on behalf of the company chart gen (\eg{} he is a contractor or employee).
 Both agents in this example have \attributes{} assigned to them to further describe them (\eg{} the full name of the company).
 
+\allard{Maybe move the text below to another place, possibly the analysis?}
 
+Three types of assertions can be described which account to provenance: relationship (object B was retrieved by applying function X to object A), interaction (received object A, sent object B), and service state (it took three seconds to send object B after receiving object A) \cite{dsp4moreau}.
+Different applications of provenance can be accomplished with these assertions \eg{} data quality, audit trail, replication recipes, attribution, and informational \cite{dsp1simmhan}.
+Data quality uses the provenance metadata as a check, like described with the art example at the beginning of this subsection, the user tries to discover who did what with the data.
+The same applies for an audit trail, but it is used for other ends, being able to maintain responsibilities.
+Replication recipes are an extension of data quality, a user can execute the exact same steps on the same or a different piece of data to check the work or to improve on the work done.
+In the case of data ownership attribution can be used to trace who should be contacted for consent on data usage.
+Lastly, informational provenance helps with data discovery and providing context for data, which helps with (for example) reuse.
 
-HOW
-1 Publications are a common form of representing the provenance of experimental data and results.
-1 DOIs are used to cite data used in experiments so that the papers can relate the experimental process and analysis to the actual data used an produced.
-1 Several applications of provenance: Data quality (based on the provenance meta data a user can check the quality of data), audit trail (who did what with which data), replication recipes (what was done to get a certain data item), attribution (copyright, ownership, citation, liability), informational (data discovery, context for data). 
-1 If provenance depends on users manually adding annotations instead of automatically collecting it, the burden on the user may prevent complete provenance from being recorded and available in a machine accessible form that has semantic value.
-3 why and where provenance, why is data in the output? where does some data in output come from?
-4 In order to minimize its effect on application performance, documentation must be structured so it can be constructed and recorded autonomously by services on a piecemeal basis.
-4 three types of assertions: relationship (B was retrieved by applying func1 to A), interaction (received A, sent B), service state (it took 3 seconds to send B after receiving A).
+Furthermore, there were three points of interest found regarding the implementation of provenance: data object identifiers, manual versus automated data entry, effect on performance.
+Data object identifiers (DOI) can be used to identify and cite data \cite{dsp1simmhan}.
+When these DOIs are used in publications the provenance can be easily gathered later when an interested party wants to check the process of an experiment.
+If provenance metadata is entered manually be users there is a high risk of losing value from missing values and non-standardised input \cite{dsp1simmhan}.
+Manual versus automated is an issue because of performance, provenance creates a overhead both in computational resources as data storage.
+Therefore, metadata should be gathered and stored on a `piecemeal basis' \cite{dsp4moreau}.
