@@ -65,29 +65,12 @@ This is where requirement 6 comes in to play, keeping the {\tt Linkage} separate
 Incorporating these possibilities into the data model opens up chances for more functionality in the \ivfsystem{}.
 
 Requirement 8 is based on both security as functional considerations.
-The security literature tells us that the raw dataset should be protected against direct access as much as possible.
-Therefore, when research is performed on the extracted data certain key data items can be aggregated.
+The literature on security tells us that the raw dataset should be protected against direct access as much as possible.
+Therefore, when research is performed on the extracted data certain key items can be aggregated.
 This creates a protection layer against identifying individuals in the extracted data.
 For example, (most of the time) it is unnecessary to know the exact age for each of the included patients in a research, in those cases the aggregated mean age of all patients can suffice.
 
-\begin{figure}[!b]
-	\centering
-	\includegraphics[width=1.0\linewidth]{images/small-structure-v2}
-	\caption{Initial drawing of the data model} %TODO: write more caption
-	\label{fig:model-drawing}
-\end{figure}
-
-\paragraph{Schema(less)}
-\label{datamodel-schema}
-
-A choice which is made later in the software engineering part of the project is whether or not to pick a schemaless database.
-This point will be elaborated further on in this thesis.
-For now it will suffice to say that the identified requirement 3 asks for a schemaless database.
-
-%Part of introduction?
 \section{Data Gathering}
 \label{datamodel-gathering}
 
 %TODO: compile list of problems
-
-%TODO: what is provenance (literature) and how do I model this?
