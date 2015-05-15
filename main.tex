@@ -68,46 +68,33 @@
 	\else
 		\input{partials/introduction}
 	\fi
-
-	\chapter{Security}
-	\label{security}
 	
-	\ifstructure
-		\input{structure/security}
-	\else
-		\input{partials/security}
-		\input{partials/security-interviews}
-		\input{partials/security-summary}
-	\fi
-	
-	\chapter{System Functionality}
-	\label{system-functionality}
+	\chapter{System Requirements}
+	\label{requirements}
 	
 	\ifstructure
 		\input{structure/functionality}	
+		\input{structure/security}
+		\input{structure/provenance}
 	\else
 		\input{partials/functionality-brainstorm}
-		\input{partials/functionality-rosemary}
 		\input{partials/functionality}
-	\fi
-	
-	\chapter{Data Model}
-	\label{datamodel}
-	
-	\ifstructure
-		\input{structure/datamodel}
-	\else
-		\input{partials/datamodel}
+		\input{partials/security}
+		\input{partials/security-interviews}
+		\input{partials/security-summary}
 		\input{partials/datamodel-provenance}
 	\fi
 	
-	\chapter{Software Engineering}
-	\label{engineering}
+	\chapter{System Design \& Implementation}
+	\label{system-functionality}
 	
 	\ifstructure
-		\input{structure/softwareengineering}	
+		\input{structure/systemdesign}	
+		\input{structure/datamodel}
 	\else
-		\input{partials/softwareengineering}
+		\input{partials/systemdesign}
+		\input{partials/systemdesign-rosemary}
+		\input{partials/datamodel}
 	\fi
 	
 	\chapter{Evaluation}
@@ -128,11 +115,29 @@
 		\input{partials/discussion}
 	\fi
 	
+	\chapter{Data Management Position}
+	\label{position}
+	
+	\ifstructure
+		\input{structure/position}
+	\else
+		\input{partials/position}
+	\fi
+	
 	\clearpage
 	
+	References go here
 	%\printbibliography
 	
 	\appendix
+	\chapter{Abbreviations}
+	\label{abbreviations}
+	
+	\ifstructure
+	\else 
+	\input{partials/abbreviations}
+	\fi
+	
 	\chapter{Security Checklists}
 	\label{security-appendix}
 	
