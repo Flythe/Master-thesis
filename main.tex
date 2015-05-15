@@ -58,7 +58,7 @@
 
 	%\maketitle
 	
-	%\tableofcontents
+	\tableofcontents
 	
 	\chapter{Introduction}
 	\label{introduction}
@@ -69,13 +69,13 @@
 		\input{partials/introduction}
 	\fi
 	
-	\chapter{System Requirements}
+	\chapter{Requirement Analysis}
 	\label{requirements}
 	
 	\ifstructure
-		\input{structure/functionality}	
-		\input{structure/security}
-		\input{structure/provenance}
+		\input{structure/requirements-functionality}
+		\input{structure/requirements-security}
+		\input{structure/requirements-provenance}
 	\else
 		\input{partials/functionality-brainstorm}
 		\input{partials/functionality}
@@ -89,8 +89,10 @@
 	\label{system-functionality}
 	
 	\ifstructure
-		\input{structure/systemdesign}	
-		\input{structure/datamodel}
+		\input{structure/design-functionality}
+		\input{structure/design-rosemary}
+		\input{structure/design-implementation}
+		%\input{structure/design-datamodel}
 	\else
 		\input{partials/systemdesign}
 		\input{partials/systemdesign-rosemary}
@@ -106,7 +108,7 @@
 		\input{partials/evaluation}
 	\fi
 	
-	\chapter{Discussion}
+	\chapter{Discussion \& Conclusion}
 	\label{discussion}
 	
 	\ifstructure
