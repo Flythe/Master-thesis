@@ -41,9 +41,9 @@
 \newcommand{\note}[1]{\textcolor{cyan}{\textit{#1}}}
 
 % Flag for document style switch, set to true or false
-\newif\ifstructure
+%\newif\ifstructure
 
-\structuretrue
+%\structuretrue
 %\structurefalse
 
 \title{Developing a Data Management System for Obstetric Research Into Long Term Effect of In Vitro Fertilisation Techniques}
@@ -56,96 +56,78 @@
 
 \begin{document}
 
-	\maketitle
+%	\maketitle
 	
 	\tableofcontents
 	
 	\chapter{Introduction}
 	\label{introduction}
 	
-	\ifstructure
-		\input{structure/introduction}
-	\else
-		\input{partials/introduction}
-	\fi
+	\input{partials/introduction}
 	
 	\chapter{Requirement Analysis}
 	\label{requirements}
 	
-	\ifstructure
-		\input{structure/requirements-functionality}
-		\input{structure/requirements-security}
-		\input{structure/requirements-provenance}
-	\else
-		\input{partials/functionality-brainstorm}
-		\input{partials/functionality}
-		\input{partials/security}
-		\input{partials/security-interviews}
-		\input{partials/security-summary}
-		\input{partials/datamodel-provenance}
-	\fi
+	\input{partials/requirements/process-analysis}
+	
+	\input{partials/requirements/brainstorm}
+	
+	\input{partials/requirements/security-introduction}
+	\input{partials/requirements/security-interviews}
+	\input{partials/requirements/security-analysis}
+	
+	\input{partials/requirements/provenance}
 	
 	\chapter{System Design \& Implementation}
 	\label{system-functionality}
 	
-	\ifstructure
-		\input{structure/design-functionality}
-		\input{structure/design-rosemary}
-		\input{structure/design-implementation}
-		%\input{structure/design-datamodel}
-	\else
-		\input{partials/systemdesign}
-		\input{partials/systemdesign-rosemary}
-		\input{partials/datamodel}
-	\fi
+	\input{partials/design-implementation/function-design}
+	
+	\input{partials/design-implementation/reuse-review}
+	\input{partials/design-implementation/reuse-rosemary}
+	
+	\input{partials/design-implementation/implementation-processes}
+	\input{partials/design-implementation/implementation-rosemary}
 	
 	\chapter{System Evaluation}
 	\label{evaluation}
 	
-	\ifstructure
-		\input{structure/evaluation}
-	\else
-		\input{partials/evaluation}
-	\fi
+	\input{partials/evaluation/evaluation-structure}
+	\input{partials/evaluation/evaluation-analysis}
 	
 	\chapter{Discussion \& Conclusion}
 	\label{discussion}
 	
-	\ifstructure
-		\input{structure/discussion}
-	\else
-		\input{partials/discussion}
-	\fi
+	\input{partials/discussion-conclusion/overview-implications}
+	
+	\input{partials/discussion-conclusion/appraisal}
+	
+	\input{partials/discussion-conclusion/conclusion}
 	
 	\chapter{Data Management Position}
 	\label{position}
 	
-	\ifstructure
-		\input{structure/position}
-	\else
-		\input{partials/position}
-	\fi
+	\input{partials/position/introduction}
+	
+	\input{partials/position/background}
+	
+	\input{partials/position/discussion}
+	
+	\input{partials/position/conclusion}
 	
 	\clearpage
 	
-	References go here
-	%\printbibliography
+%	\printbibliography
 	
 	\appendix
 	\chapter{Abbreviations}
 	\label{abbreviations}
 	
-	\ifstructure
-	\else 
-	\input{partials/abbreviations}
-	\fi
+%	\input{partials/abbreviations}
 	
 	\chapter{Security Checklists}
 	\label{security-appendix}
 	
-	\ifstructure
-	\else 
-		\input{partials/security-checklists-appendix}
-	\fi
+	\input{partials/security-checklists-appendix}
 
 \end{document}
