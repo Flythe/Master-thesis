@@ -16,6 +16,8 @@
 \usepackage{csquotes}
 \usepackage{color}
 
+\newcommand{\allard}[1]{\textcolor{red}{\textbf{*Allard: }\textit{#1}}}
+
 % Settings
 % Margins in lists
 \setlist[itemize]{noitemsep}
@@ -31,20 +33,6 @@
 \newcommand{\project}{IVF-PRN project}
 \newcommand{\ivfsystem}{IVF-PRN system}
 \newcommand{\escience}{e-Science}
-
-% Block comment command
-%\long\def\/*#1*/{}
-
-% Commenting commands
-\newcommand{\silnote}[1]{\textcolor{red}{\textbf{*Silvia: }\textit{#1}}}
-\newcommand{\allard}[1]{\textcolor{red}{\textbf{*Allard: }\textit{#1}}}
-\newcommand{\note}[1]{\textcolor{cyan}{\textit{#1}}}
-
-% Flag for document style switch, set to true or false
-\newif\ifstructure
-
-\structuretrue
-%\structurefalse
 
 \title{Developing a Data Management System for Obstetric Research Into Long Term Effect of In Vitro Fertilisation Techniques}
 
@@ -63,68 +51,36 @@
 	\chapter{Introduction}
 	\label{introduction}
 	
-	\ifstructure
-		\input{structure/introduction}
-	\else
-		\input{partials/introduction}
-	\fi
+	\input{structure/introduction}
 	
 	\chapter{Requirement Analysis}
 	\label{requirements}
 	
-	\ifstructure
-		\input{structure/requirements-functionality}
-		\input{structure/requirements-security}
-		\input{structure/requirements-provenance}
-	\else
-		\input{partials/functionality-brainstorm}
-		\input{partials/functionality}
-		\input{partials/security}
-		\input{partials/security-interviews}
-		\input{partials/security-summary}
-		\input{partials/datamodel-provenance}
-	\fi
+	\input{structure/requirements-functionality}
+	\input{structure/requirements-security}
+	\input{structure/requirements-provenance}
 	
 	\chapter{System Design \& Implementation}
 	\label{system-functionality}
 	
-	\ifstructure
-		\input{structure/design-functionality}
-		\input{structure/design-rosemary}
-		\input{structure/design-implementation}
-		%\input{structure/design-datamodel}
-	\else
-		\input{partials/systemdesign}
-		\input{partials/systemdesign-rosemary}
-		\input{partials/datamodel}
-	\fi
+	\input{structure/design-functionality}
+	\input{structure/design-rosemary}
+	\input{structure/design-implementation}
 	
 	\chapter{System Evaluation}
 	\label{evaluation}
 	
-	\ifstructure
-		\input{structure/evaluation}
-	\else
-		\input{partials/evaluation}
-	\fi
+	\input{structure/evaluation}
 	
 	\chapter{Discussion \& Conclusion}
 	\label{discussion}
 	
-	\ifstructure
-		\input{structure/discussion}
-	\else
-		\input{partials/discussion}
-	\fi
+	\input{structure/discussion}
 	
 	\chapter{Data Management Position}
 	\label{position}
 	
-	\ifstructure
-		\input{structure/position}
-	\else
-		\input{partials/position}
-	\fi
+	\input{structure/position}
 	
 	\clearpage
 	
@@ -135,17 +91,7 @@
 	\chapter{Abbreviations}
 	\label{abbreviations}
 	
-	\ifstructure
-	\else 
-	\input{partials/abbreviations}
-	\fi
-	
 	\chapter{Security Checklists}
 	\label{security-appendix}
-	
-	\ifstructure
-	\else 
-		\input{partials/security-checklists-appendix}
-	\fi
 
 \end{document}
