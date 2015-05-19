@@ -6,24 +6,24 @@
 		\hline
 			\multicolumn{2}{c}{Procedural problems \& risks} \\
 		\hline
-			\cite{s4Layman2008}, \ref{security-first-interview}	&	Data aggregation and cross referencing makes the identification of individuals possible. \\
+			\cite{s4Layman2008}, \ref{security-interviews} &	Data aggregation and cross referencing makes the identification of individuals possible. \\
 			\cite{s18Kum2014}	&	Applying secondary data analysis makes it difficult to cover purpose in the consent process. \\
 			\cite{s18Kum2014}	&	Data linkage without identifying data is impossible, data linkage with identifying data is unsafe. \\
 			\cite{s18Kum2014}	&	In data linkage, even if the linked dataset has no need of person identification, privacy has to be temporarily breached in order to identify matching entities in two datasets. \\
 			\cite{s18Kum2014}	&	Finding the right amount of identifying data for linkage is a difficult task. \\
-			\ref{security-first-interview}	&	Determining what identifying data is, is open to interpretation. \\
+			\ref{security-interviews}	&	Determining what identifying data is, is open to interpretation. \\
 		\\ %whitespace
 			\multicolumn{2}{c}{Procedural solutions} \\
 		\hline
 			\cite{s3Herveg2014}	&	Personal data can only be used for the purposes described when the consent was given by the subject. \\
-			\cite{s3Herveg2014, s6West2009, s18Kum2014}, \ref{security-first-interview}	&	Data being used should be in a minimum dataset, no superfluous data should be present. \\
+			\cite{s3Herveg2014, s6West2009, s18Kum2014}, \ref{security-interviews} &	Data being used should be in a minimum dataset, no superfluous data should be present. \\
 			\cite{s3Herveg2014, s15Fenz2014}	&	After the purpose described in the consent has been reached, identifying data should be removed from the dataset. \\
 			\cite{s3Herveg2014}	&	The purpose of data usage should be: ``specified, explicit, and legitimate''. \\
 			\cite{s8FernandezAleman2013}	&	At any point in time an audit of data should be kept. \\
 			\cite{s8FernandezAleman2013}	&	Accountability is a central part of security. \\
 			\cite{s15Fenz2014, s13Patil2014}	&	Apply anonymisation and pseudonymisation to protect identifiable data.
 			Or make it impossible to use this data to identify individuals while still being able to use this data for analytical purposes. \\
-			\ref{security-first-interview}	&	For each sensitive data item describe the purpose it fulfils. \\
+			\ref{security-interviews}	&	For each sensitive data item describe the purpose it fulfils. \\
 		\\ %whitespace
 			\multicolumn{2}{c}{Technical solutions} \\
 		\hline
@@ -32,8 +32,8 @@
 			\cite{s11Rauscher2014}	&	Declassify data when output is requested by the user, hereby removing identifiable data. \\
 			\cite{s16Ma2013}	&	Separate identifying data from the dataset, used in Ma \cite{s16Ma2013}  to optimise search algorithms. Non-identifying data is available for fast search, after making a selection identifying data is appended before outputting. \\
 			\cite{s18Kum2014}	&	Hashes can be used together with (for example) Bloom filters to provide a solution to using identifiable data in data linkage. \\
-			\ref{security-first-interview}	&	Take note of standard security measures of the present and implement those. \\
-ance	\end{longtabu}
+			\ref{security-interviews} 	&	Take note of standard security measures of the present and implement those. \\
+	\end{longtabu}
 	\par \bigskip
 	This table describes the procedural and technical problems and solutions that were found. 
 	The list is sorted according to type of point (either procedural or technical and either a problem or a solution).
