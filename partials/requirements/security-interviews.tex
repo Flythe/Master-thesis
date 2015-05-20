@@ -1,15 +1,13 @@
 \subsection{Interview}
 \label{security-interviews}
 
-Next to the literature search an interview was held to provide examples for the laws and regulations which are quite abstract.
-
 \paragraph{Set-up} 
 \label{security-set-up}
 
-An semi-structured interview was performed with a system security and medical registration system expert.
+Next to the literature search an semi-structured interview was held with a system security and medical registration system export to provide examples for the laws and regulations which are quite abstract.
 This interview technique leaves the interviewee free to roam to other subjects which might prove useful in the design of the \ivfsystem{}.
 During the interview firstly the vision of the \ivfsystem{} was explained in a few sentences.
-After this the following questions were used to give structure to the interview:
+The following questions were used to give structure to the interview:
 
 \begin{itemize}
 	\item What can we do to make sure we are not processing personal data?
@@ -24,10 +22,12 @@ After this the following questions were used to give structure to the interview:
 
 In the following section the term \emph{personal data} refers to identifying data which can lead back to one patient.
 
+\paragraph{Interpreted transcript}
+\label{security-interview-transcript}
+
 The interview was with an expert on the topic of an intensive care registry in the Netherlands, loosely translated: National Intensive Care Evaluation (NICE).
 The NICE contains sensitive data where normally consent is required. 
 However, patients at the IC are generally non-responsive which means that getting consent is an unreasonable requirement and can be disregarded.
-\allard{Talk about family consent or not as it might add confusion and I'm not sure how the law is applied in the case of the NICE (why they don't need consent).}
 
 Considering consent there is a difference between historical data and \emph{active} data.
 When using historical data it is difficult to get consent from each patient, which provides more room in the interpretation of the law.
@@ -46,7 +46,7 @@ A well described protocol and the application of standards (\eg{} NEN7510) are o
 It is impossible to guarantee that privacy is kept at all times.
 This is due to factors like public datasets, news, and all other sorts of information sources.
 When aggregating these datasets into one big dataset it becomes easier to discern individuals. 
-For example, the Dutch queen is hospitalised and this information is published in a newspaper, from other sources (Wikipedia, etc.) age and gender can be gathered.
+For example, the Dutch queen is hospitalised and this information is published in a newspaper, from other sources (\eg{} Wikipedia) age and gender can be gathered.
 With this information, even though the NICE registry is considered anonymous, the subset of possible patients can be reduced until only one patient remains that could compare to the queen.
 
 In order to avoid these kinds of data breaches some precautions can be taken, but these will never be completely safe as there is a human factor.
