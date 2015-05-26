@@ -1,6 +1,7 @@
 %TODO: Check if terminology is explained, IVF, PRN, clinical audit registration, \ivfsystem{}, \project.
 
 \paragraph{The domain and background}
+\allard{change this first block}
 Reproduction is a fundamental building block of life.
 For the human species this means that two individuals, with a different sex each, produce offspring.
 The offspring contains the genetic material of both the parents.
@@ -12,20 +13,22 @@ Where subfertility is defined as ``failure to become pregnant after twelve month
 
 Luckily there are several fertility treatments.
 Some of these lead to both the parents being biological parents. 
-Others make use of donor material or surrogates, meaning that the child does not contain the genetic material of one or both of the `parents'.
+Others make use of donor material or surrogates, meaning that the child does not contain the genetic material of one of the `parents'.
 Commonly used treatments include intrauterine insemination (IUI) and in vitro fertilisation (IVF) \cite{treatmentExplanation}.
-Often in literature there is a fresh and frozen group, material of the male or female is then kept in (frozen) storage before being used.
+Of these IUI is closer to regular impregnation, sperm cells are collected and injected deep in the uterus, while IVF happens `in vitro' (\ie{} in glass, outside of the body).
+
+Often in research there is a fresh and frozen group, material of the male or female is then kept in (frozen) storage before being used.
 IVF can be further divided into more specific treatment types (\eg{} intracytoplasmic sperm injection, ICSI).
 The difference between these being the used technique or the type of paternal materials used.
 
-Each treatment follows about the same steps: egg maturation stimulation, egg retrieval, fertilisation, and embryo transfer.
-The stimulation phase can be called the start of a new cycle, in the Netherlands (according to the NVOG) 14562 of these cycli were started in 2013 \cite{ivfReportNVOG2013}.
+Each treatment follows about the same steps: egg maturation stimulation, egg retrieval, fertilisation, and embryo transfer \cite{treatmentExplanation}.
+The stimulation phase can also be called the start of a new \emph{cycle}, in the Netherlands (according to the NVOG) 14,562 of these cycli were started in 2013 \cite{ivfReportNVOG2013}.
 Approximately 30\% of these cycli resulted in a ongoing pregnancy.
 It is fairly well known what the success rate is for a given fertility clinic.
 However, outcome quality indicators related to the (born) child are either sparse or unknown.
 
-All births in the Netherlands have to be registered in the perinatal registry (PRN\footnote{http://www.perinatreg.nl/}).
-This data is completely separated from the clinic's patient data.
+All births in the Netherlands have to be entered into the perinatal registry (perinatale registratie Nederland, PRN\footnote{http://www.perinatreg.nl}).
+For research ends however this data is completely separated from the clinic's patient data.
 The Dutch healthcare system is quite exceptional as fertility clinics are in the public domain.
 Meaning that there is pressure for disclosing patient data for research (and governance) ends.
 
@@ -33,16 +36,55 @@ With minimal identifying data from both the fertility clinics and the PRN, treat
 To execute this the \project{} was established.
 During the project, data from each of the thirteen Dutch fertility clinics from between 1999 and 2010 is gathered and linked.
 This data covers ongoing pregnancies as a child has to be born in order to link to the PRN.
-In the given date range about 44164 ongoing pregnancies were registered in the clinic data \cite{ivfReportNVOG}.
-Linkage will result in a loss of a few percent where no appropriate match can be found.
-But a considerate amount of pregnancy outcomes should be available for research.
+In the given date range about 44,164 ongoing pregnancies were registered in the clinic data \cite{ivfReportNVOG}.
+Linkage will inevitably result in a loss of a few percent where no appropriate match can be found.
+But a considerate amount of pregnancies should be available for research.
 
 \paragraph{What is big data?}
+2 - The Age of Big Data
+What is Big Data? A meme and a marketing term, for sure, but also shorthand for advancing trends in technology that open the door to a new approach to understanding the world and making decisions
+1 - Big data the management revolution
+``Isn't `big data' just another way of saying `analytics'?'' volume, velocity, variety
+5 - The pathologies of big data
+In Columbia's configuration, it stored a total of around 100GB. It was already on its way out by the time I got my hands on it, but in its heyday, the early- to mid- 1980s, it had been used to support access by social scientists to what was unquestionably “big data” at the time: the entire 1980 u.s. Census database.
+Should that still be considered “big data?” It depends, of course, on what you're trying to do with it
+2 - The Age of Big Data
+Most of the Big Data surge is data in the wild — unruly stuff like words, images and video on the Web and those streams of sensor data. It is called unstructured data and is not typically grist for traditional databases.
+5 - The pathologies of big data
+The pathologies of big data are primarily those of analysis. This may be a slightly controversial assertion, but I would argue that transaction processing and data storage are largely solved problems.
+%The trouble with seeking a meaningful needle in massive haystacks of data, says Trevor Hastie, a statistics professor at Stanford, is that “many bits of straw look like needles.”
+3 - Big data- How do your data grow?
+But research data can also be big by being of lasting significance — a clinical-trial result, or the observation of a unique event
+Data can be big because of descriptive challenges that may require context such as the experimental set-up.
+1 - Big data the management revolution
+The cultural challenges are enormous, and, of course, privacy concerns are only going to become more significant
+
+3 - Big data- How do your data grow?
+To enable reuse, data must be well preserved. In some cases the effects of data loss are economic, because experiments have to be re-run. In other cases, data loss represents an opportunity lost forever.
+
 Why is big data of importance for this problem?
 Introduce that data is being collected and should be shared/used in research.
 Move towards the point that there is a problem with data processes.
 
 \paragraph{The data problem}
+3 - Big data- How do your data grow?
+They demand that researchers and host institutions document and implement data-management and data-sharing plans that address the full life cycle of data — including what happens after a grant finishes
+These include deciding responsibilities, funding, resource allocation, what data should be kept and for how long.
+And there are vast numbers of scientific research projects producing at most a few terabytes per year of big data, or data that can be aggregated into a big data resource
+Funding, support expertise and structuring the data for long-term management can be problematic for these projects
+But longer term, data preservation can only be done by institutions. If data are to be consolidated or shared on a frequent basis, there is a lot to be said for moving to institutional control sooner rather than later
+
+1 - Big data the management revolution
+Smart leaders across industries will see using big data for what it is: a management revolution.
+Data-driven decisions are better decisions — it's as simple as that. using big data enables managers to decide on the basis of evidence rather than intuition.
+Researchers at the Johns Hopkins school of Medicine, for example, found that they could use data from google Flu trends (a free, publicly available aggregator of relevant search terms) to predict surges in flu-related emergency room visits a week
+
+1 - Big data the management revolution
+When it comes to knowing which problems to tackle, of course, domain expertise remains critical
+few things are more powerful for changing a decision-making culture than seeing a senior executive concede when data have disproved a hunch.
+They'll be valued not for their HiPPO-style answers but because they know what questions to ask
+Big data's power does not erase the need for vision or human insight.
+
 Most of the clinics are using the same database software called LSFD. 
 To extract data it is no problem to create a query on the system but knowledge of the system is needed before we can do this, thats why we need an appointment with someone who has this knowledge. 
 At this appointment I will try to find out if a direct extraction from a automated system without involvement of personnel is possible.
@@ -82,39 +124,12 @@ How should the system help with the problem (link back to big data problems)?
 	\end{itemize}
 \end{itemize}
 
-1 - Big data the management revolution
-Smart leaders across industries will see using big data for what it is: a management revolution.
-``Isn't `big data' just another way of saying `analytics'?'' volume, velocity, variety
-Data-driven decisions are better decisions — it's as simple as that. using big data enables managers to decide on the basis of evidence rather than intuition.
-Researchers at the Johns Hopkins school of Medicine, for example, found that they could use data from google Flu trends (a free, publicly available aggregator of relevant search terms) to predict surges in flu-related emergency room visits a week
-few things are more powerful for changing a decision-making culture than seeing a senior executive concede when data have disproved a hunch.
-When it comes to knowing which problems to tackle, of course, domain expertise remains critical
-They'll be valued not for their HiPPO-style answers but because they know what questions to ask
-Big data's power does not erase the need for vision or human insight.
-Perhaps even more important are skills in cleaning and organizing large data sets; the new kinds of data rarely come in structured formats. Visualization tools and techniques are also increasing in value.
-The best data scientists are also comfortable speaking the language of business and helping leaders reformulate their challenges in ways that big data can tackle
-The technologies are new and in some cases exotic. 
-It's too easy to mistake correlation for causation and to find misleading patterns in the data. 
-The cultural challenges are enormous, and, of course, privacy concerns are only going to become more significant
+%3 - Big data- How do your data grow?
+%It also includes defining and recording appropriate metadata — such as experimental parameters and set-up — to allow for data interpretation
+%This is best done when the data are captured. Indeed, descriptive metadata are often integrated within the experimental design. Description includes tracing provenance 
 
-2 - The Age of Big Data
-What is Big Data? A meme and a marketing term, for sure, but also shorthand for advancing trends in technology that open the door to a new approach to understanding the world and making decisions
-Most of the Big Data surge is data in the wild — unruly stuff like words, images and video on the Web and those streams of sensor data. It is called unstructured data and is not typically grist for traditional databases.
-The trouble with seeking a meaningful needle in massive haystacks of data, says Trevor Hastie, a statistics professor at Stanford, is that “many bits of straw look like needles.”
-
-3 - Big data- How do your data grow?
-But research data can also be big by being of lasting significance — a clinical-trial result, or the observation of a unique event
-Data can be big because of descriptive challenges that may require context such as the experimental set-up.
-To enable reuse, data must be well preserved. In some cases the effects of data loss are economic, because experiments have to be re-run. In other cases, data loss represents an opportunity lost forever.
-They demand that researchers and host institutions document and implement data-management and data-sharing plans that address the full life cycle of data — including what happens after a grant finishes
-These include deciding responsibilities, funding, resource allocation, what data should be kept and for how long.
-And there are vast numbers of scientific research projects producing at most a few terabytes per year of big data, or data that can be aggregated into a big- data resource
-Funding, support expertise and structuring the data for long-term management can be problematic for these projects
-But longer term, data preservation can only be done by institutions. If data are to be consolidated or shared on a frequent basis, there is a lot to be said for moving to institutional control sooner rather than later
- It also includes defining and recording appropriate metadata — such as experimental parameters and set-up — to allow for data interpretation
- This is best done when the data are captured. Indeed, descriptive metadata are often integrated within the experimental design. Description includes tracing provenance 
- 
- 5 - The pathologies of big data
- In Columbia's configuration, it stored a total of around 100GB. It was already on its way out by the time I got my hands on it, but in its heyday, the early- to mid- 1980s, it had been used to support access by social scientists to what was unquestionably “big data” at the time: the entire 1980 u.s. Census database.
- Should that still be considered “big data?” It depends, of course, on what you're trying to do with it
- The pathologies of big data are primarily those of analysis. This may be a slightly controversial assertion, but I would argue that transaction processing and data storage are largely solved problems.
+%1 - Big data the management revolution
+%Perhaps even more important are skills in cleaning and organizing large data sets; the new kinds of data rarely come in structured formats. Visualization tools and techniques are also increasing in value.
+%The best data scientists are also comfortable speaking the language of business and helping leaders reformulate their challenges in ways that big data can tackle
+%The technologies are new and in some cases exotic. 
+%It's too easy to mistake correlation for causation and to find misleading patterns in the data. 
