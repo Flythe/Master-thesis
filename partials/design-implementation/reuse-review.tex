@@ -1,9 +1,44 @@
 \section{Re-use}
+\label{reuse}
 
 \subsection{Review}
+\label{reuse-review}
+
+For the reuse portion of this system the main criteria was data management.
+This is the most significant part of the \ivfsystem{} and therefore should be well implemented.
+Also implementation had to be done in a short time due to study planning restrictions.
+
+Multiple systems were considered and evaluated.
+Because extensions were needed the system preferably had to be open-source.
+Three systems were included in an more in-depth evaluation, two externally developed open-source systems and one in-house project.
+The external software was identified through the paper of Leroux \cite{leroux2011}.
+
 \paragraph{External system evaluations}
-Describe what systems were encountered and why they do not meet our needs and/or why Rosemary/home-brew was a better choice.
+The external systems identified were OpenClinica and DADOS Prospective.
+Both are open-source and for OpenClinica a demo is available.
+These software packages are called clinical trial management systems, which quickly becomes apparent when using the system.
+Focus lies on data entry and retrieval for low-level (researcher) users, and on research overview for high-level (management) users.
+Overview meaning displaying statistics on participants and the clinics they belong to, how many inclusions were made, follow-up percentages, etc.
+
+Per study data collection protocols can be defined, when starting a new study the definition functionality is very flexible, .
+After the protocol has been defined it is fixed for each of the study participants.
+This is very useful in longer running (prospective) studies where collection should be standardised for quality, analysis, and reuse purposes.
+In principle, as far as notable for OpenClinica, there are no features supporting data sharing and/or reuse.
 
 \paragraph{In-house development}
-What is it now = neuroscience data management and processing system.
-Describe what Rosemary is and use that as a starting point to compare the other systems to (home-brew is our starting point in this).
+A system named Rosemary has been developed in-house at the same department this study was performed.
+Handling data, applications, submissions, and input and output of these submissions is what it was build for.
+The context domain is neuroscience, the data used comes from MRI machines and are mainly references to images and their metadata.
+These are then submitted for processing by applications resulting in outcomes (also stored in the system) used in further analysis.
+
+Considering the data management part, there is data input, filtering, and reuse possibilities.
+Input is restricted to automated functions and there are no manual input user interfaces available.
+However, once data is in the system it allows for each data item to be used in access restricted subsets.
+
+\paragraph{The better pick}
+It quickly became apparent that no existing system would be able to cover all the needed functionality, even when looking at only data management.
+The decision was made to use the in-house Rosemary project for further development.
+The choice was made based on several considerations.
+Flexibility in the code was an important item \ie{} open-source, extensible, easy to develop.
+Next to this short lines on expertise were useful for a quick development process, once a (coding) problem was encountered it could be solved in a matter of hours.
+Lastly, during the evaluation process it became clear that the data model could be reused with minimal effort.
