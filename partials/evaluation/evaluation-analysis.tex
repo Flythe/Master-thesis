@@ -1,6 +1,59 @@
 \section{Analysis}
-Summary, positives and negatives. Where does the system fully support the users? What are the hard parts for the users?
+
+As with brainstorming creating a user interface is not an exact science.
+For evaluation ends design heuristics are used, and the found problems can be mapped against these.
+The used list are ten famous heuristics from Nielsen \cite{designHeuristics}:
+
+\begin{enumerate}
+	\item Visibility of system status;
+	\item Match between system and the real world;
+	\item User control and freedom;
+	\item Consistency and standards;
+	\item Error prevention;
+	\item Recognition rather than recall;
+	\item Flexibility and efficiency of use;
+	\item Aesthetic and minimalist design;
+	\item Help users recognise, diagnose and recover from errors;
+	\item Help and documentation.
+\end{enumerate}
+
 \paragraph{System hits}
-Positive points, successes, opportunities.
+Based on the system's process and the potential as a supporting factor in doing research the system got positive feedback.
+One of the testers mentioned that the system as a prototype might be used for demoing purposes.
+Relatively simple functions from the system can show that thought went into the workflow of data security.
+The demo fulfilling the goal of persuading data deliverers and providing more trust in the organisation that is gathering the data.
+
+The biggest hit being the request management process.
+From multiple perspectives the system can show what requests are in progress and information is available to make interesting request `dashboards' for management purposes.
+Which also brings possibilities for monitoring by data owners.
+A system like this with these management functions does not exist yet.
+
+Furthermore, the flexibility and speed of the system are plus points.
+A good example of this is the search function, when used with a basic text search term the search is fuzzy.
+It searches over all the available fields and returns whatever matches to it.
+However, the search precision can be extended by restricting each term to a specific field (\eg{} description:pregnant).
+These specific searches can then be coupled with and/or keywords (\eg{} description:pregnant and keywords:embryo).
+This shows the flexibility of this function, because the search is wrapped with an engine it is fast as well.
+The engine used is Lucene\footnote{https://lucene.apache.org/}, it can provide results in a matter of milliseconds.
+
+Design-wise the data view is a perfect example for the following heuristics: 3, 7, 8.
+There are three ways of viewing namely: raw data, graph, aggregated.
+The user may switch between these views and can pick whichever they prefer for their current task.
+
 \paragraph{System misses}
-Missed opportunities, missing functions.
+One of the plus points, the fact that a system like this does not exists yet, is also one of the stumbling points.
+There is no template to follow and as almost everything is possible users expect a lot from the system.
+During the brainstorm a lot of functions came up which were never implemented because of time restrictions.
+Also, no user-centred process was used, which means that most of the identified flaws in the system are simply differences in interpretation by the designer of the system.
+
+To develop this system into a well performing demo some work is required.
+Almost none of the functions shows its full potential, performing management tasks is still a mostly manual process.
+In order to use this system as a demo some more `fancy bits' are needed to win over the customers.
+
+Design-wise there are a lot of things to clean up, most of the encountered problems can be related to the system status visibility.
+For example, when the user is in the data dictionary the buttons on the basket do not account for this.
+Which means that two out of the three buttons are completely out of context for what the user is doing.
+This is also reflected in the fact that testers tried to `start' the search by hitting enter and not noticing that the results had already updated.
+
+All in all the conclusion of each of the testers was that the system shows potential but needs a lot of polishing.
+If time allowed it a second iteration of the system might clean up a lot of the found problems as most of them are relatively easy to fix.
