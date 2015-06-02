@@ -1,9 +1,27 @@
+\section{Overview and Implications}
+
+In the Netherlands about 5\% to 8\% of all couples remain childless due to infertility or subfertility.
+There are several treatments used to assist in reproduction these are among others: IUI, IVF, and ICSI.
+While it is known how many treatments result in a pregnancy it is relatively unknown what the outcomes are for children born out of these pregnancies.
+For this end the \project{} was started to gather and analyse data from both the fertility clinics as the national birth registry.
+
+Because considerable effort went into data gathering reuse of data should be supported to get the most gain out of it.
+From this the idea for the \ivfsystem{} was formulated, a system supporting data management.
+During the requirement analysis it appeared that there are many more aspects which lead to effective research (and thus, data reuse).
+Identified requirements were separated into management groups: user, request, data, and publication.
+
+Data management still remained the most extensive requirement group, thus for software reuse three systems were evaluated for this.
+An in-house developed project was chosen as a starting point for back-end and front-end.
+With minimal changes to the data model it was possible to store and use the \project{} data.
+Due to time restrictions user, request, and data management functions were implemented partly.
+Publication management was left unimplemented all together.
+
+During the evaluations it became clear that for a successful demo more `fancy bits' had to be added.
+Also one or two iterations of user-centred design should be applied to remove most of the fundamental confusions in the interface.
+
+\paragraph{Connecting the dots}
 \begin{itemize}
 	\item What are the biggest blocking factors in doing research with sensitive data and how can these be overcome?
 	\item What is the importance of supporting administrative tasks (provides security, better understanding, etc.)? 
 	\item How can this specific system be used in other settings/knowledge domains?
 \end{itemize}
-
-\section{Overview and Implications}
-Give short overview of all the chapters (outcomes/results).
-What are the outcome of the requirement analysis, design, software implementation, cases, and evaluation steps?

@@ -1,11 +1,69 @@
 \section{Appraisal}
+
 \paragraph{Strengths and limitations}
-One registry as example (no branching to other domains). 
-Limited time to program, thus less implemented functionality.
-However, this example provides many different angles to approach the problem.
+This section will be split into two, there are strengths and limitations considering the system but also the implementation itself.
+Starting with the implementation, the biggest limitation of the study is the limited time allowed for development.
+Resulting in many design flaws in the front-end and minimal implementation of security features.
+
+Features that are not directly visible in the front-end are not critical for a successful demo.
+But a clean user experience with the system should be reached before pitching all the benefits of the system.
+This will increase trust, where `invisible' back-end related functions can be expanded upon orally during a demo.
+
+Even though the thesis contains a rather extensive research into security most of the found solutions were not used in development.
+Even now after the first prototype is finished it would not be advisable to start introducing these to the system.
+First another iteration of function and design development should be ran before it becomes feasible to use intricate security constructs.
+For demo purposes this is not a big problem as long as security issues and solutions are kept in mind before starting to use the system in a live environment.
+
+While the system's prototype might be lacking it also shows what it is capable of after some more development effort.
+In the evaluation users noted that the ideas of process management can attract investors.
+Value of an investment into data gathering is increased when sharing and reuse capabilities are added.
+As found in the big data story these two things are vastly important in current day grant requests.
+
+On the other side the system also supports direct users (\ie{} researchers, data manager, committee members).
+Researchers are currently support along a big part of their research workflow.
+While the data manager and committee members have an all-in-one system for communication and management tasks.
+As said before with another development cycle this side of the system's potential can be fully shown.
+
+When considering the system itself and how it is currently placed in one specific domain it is hard to tell how it will extrapolate to other domains.
+Because the data model of the implementation is very flexible this should not lead to problems.
+However, the set-up is currently that the dataset is fixed after system initialisation.
+This implicates at least two things: there is no data input or edits, consent for data use is handled by the research committee.
+Data editing and input are functional requirements which are easily implemented.
+Consent and lawful procedures are quite the challenge and might change between domains.
+
+One last limitation of the system is that for reuse only open-source software was considered.
+This is also due to time restrictions.
+However, the drawbacks here are that well implemented existing systems with functions like data gathering or data export were not considered.
+Using these as building blocks in a larger cooperating framework might be more advantageous.
+This would also mean that a gateway has to be developed to encompass all the different systems into one interface, otherwise this might rebuff prospective users.
+
 \paragraph{Comparison with existing systems}
-Comparison with other existing software (OpenClinica, etc)
+Multiple systems exist which perform data management functions these are amongst others: OpenClinica and DADOS prospective.
+These systems were considered in the software reuse step because they were open-source.
+Of course there are many more systems that perform about the same functions, where each of them will have a slightly different implementation.
+For the sake of this section all these systems will be considered as Clinical Trial Management (CTM) software.
+
+Each of the reviewed CTM systems at least provide data gathering and data retrieval functionality.
+Most of them implement gathering with flexible input form creation which, after defined, are to be strictly followed during a certain trial.
+Data retrieval consists of a downloadable SPSS formatted file of the data.
+
+For the goals we are trying to reach with the system this only fulfils a small part.
+This especially became clear after the brainstorm which added many more requirements outside of the data management part.
+Therefore the CTM systems may be used as a building block in a system like the \ivfsystem{} it will never wholly fulfil the user's needs.
+Reuse of CTM software is advisable when the data model has to be well defined and supported (\ie{} many researchers use a specific CTM which proves that the data model is correct).
+
 \paragraph{Future research and development considerations}
-What functions need to be implemented to give the system an extra `boost'.
-How can the system manage the expectations of users better.
-How can the system better support users in their data management tasks.
+The \ivfsystem{} should be further developed and used in further data management research in the clinical domain.
+In this domain a vast network of interweaving interests, guidelines, and laws exists.
+Untangling this network should be the aim of further research into this area.
+Research can be done on different levels: government and lawmakers, hospitals and clinics, or patients but also in different fields: ethical, technical, or social.
+Furthermore, research into further development of the \ivfsystem{} can be performed.
+Examples of research questions are:
+
+\begin{itemize}
+	\item How can clinician be persuaded to provide patient data for research?
+	\item What type of technology can be used to improve data reuse considering patient consent?
+	\item How should data be structured to maximise research benefits while making sure privacy is kept?
+	\item How can user expectations for the \ivfsystem{} be managed?
+	\item How can the system provide better support to users while they perform data management tasks?
+\end{itemize}
