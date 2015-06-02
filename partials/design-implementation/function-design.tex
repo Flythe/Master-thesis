@@ -1,15 +1,16 @@
 \section{Function Design}
 \label{function-design}
 
-During the brainstorm many functions were discovered.
+During the brainstorm session many new functions were discovered.
 As described in section \ref{brainstorm} each of them was assigned to a certain function group, \ie{} user, request, data, or publication.
-With this knowledge the functions can be visualised based on simple ordering based on the groups and prospective users as seen in appendix \ref{identified-functions}.
-Each of the groups describe the management needs for the specific step in the research workflow.
-When also considering the workflow this simple ordering can be fitted on top of the workflow.
-The result of fitting is shown in figure \ref{fig:functions-workflow} and will be described in the following paragraph.
+With this knowledge the functions can be visualised with simple ordering based on the groups and prospective users as seen in appendix \ref{identified-functions}.
+Each of the groups describe the management needs for the specific step in the research workflow (as described in section \ref{brainstorm} figure \ref{fig:workflow-after}).
+When also considering the workflow the simple ordering can be fitted over it.
+The result of this is shown in figure \ref{fig:functions-workflow} and will be described in the following paragraph.
 
 \paragraph{Visualised}
-In figure \ref{fig:functions-workflow} each of the functions belong to a certain actor (user or system), this is depicted by the colour of the actor block (light shade) and the corresponding colour of the function block (dark shade).
+In figure \ref{fig:functions-workflow} each of the functions belong to a certain actor (human or system), this is depicted by the colour of the actor block (light shade) and the corresponding colour of the function block (dark shade).
+\allard{Think of some way to display without colours, not visible in black/white printing.}
 The function groups are exempted from this rule as they only exist to give structure to the figure.
 During the brainstorm session weight was given to the requirements, functions with less need for immediate implementation are displayed greyed-out (\ie{} change data, data curation, analyse, store outcomes).
 
@@ -24,9 +25,9 @@ Each of the functions are mapped out according to the following story:
 	He or she needs to register an account with the system which is then checked and approved by the data manager.
 	
 	Next, the researcher formulates a data request on the system.
-	From the data dictionary the researcher searches (filter) for the appropriate data items, names of data items are called headers.
+	From the data dictionary the researcher searches (filters) for the appropriate data items, names of data items are called headers.
 	The researcher creates the request with the necessary information that the committee needs to base their decision on.
-	The system provides feedback based on user entered or detected keywords.
+	The system provides feedback based on user entered or automatically detected keywords.
 	Based on this feedback the researcher can edit the request or send it on for approval.
 	The committee checks and approves the request.
 	

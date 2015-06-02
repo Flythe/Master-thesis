@@ -16,9 +16,9 @@
 As mentioned earlier in section \ref{reuse-rosemary} alterations had to be made to the original Rosemary data model.
 These can be divided into additions in the form of new objects and changes to already existing objects.
 
-The only existing object needing changes is the {\tt WorkspaceTag}.
+The only existing object that needs changing is the {\tt WorkspaceTag}.
 This tag is used to tell the system what subsets of data exist, where each subset is made up of one or more {\tt Datum}s (\ie{} each {\tt Datum} tagged with a certain workspace tag belongs in the subset).
-Each tag also has an owner and members, all the users in this set has access to the data in the workspace.
+Each tag also has an owner and members, all the users in this set have access to the data in the workspace.
 
 The original Rosemary implementation does not differentiate between different \emph{types} of workspaces. 
 The \ivfsystem{} has a \emph{master} workspace containing \emph{all} the raw data from every clinic, it has clinic workspaces containing data specific to a clinic, and it has request workspaces containing data for a specific request.
@@ -40,7 +40,7 @@ And the {\tt Approval} keeps record of the committee users that need to give per
 Lastly, the {\tt Research} object is used to capture information used to base a voting decision on, \eg{} research question, study description.
 
 \paragraph{Back-end and front-end}
-In Rosemary the back-end provides an RESTful API which the front-end can communicate with, meaning that the back-end is completely disjointed from the front-end.
+In Rosemary the back-end provides a RESTful API which the front-end can communicate with, meaning that the back-end is completely disjointed from the front-end.
 Communication is done with JSON\footnote{http://json.org/}, which leaves options open for a complete rebuild of the front-end without having to touch the back-end.
 For the \ivfsystem{} the existing back and front-end were both reused.
 
@@ -53,7 +53,7 @@ For each of the new objects a class was created with the necessary methods to st
 The most notable changes to existing code were in the data handling and security classes.
 Rosemary already supports basic user handling where a user creates an account and access to the system is restricted based on this.
 However the system needed user roles for a fine grated control of access to the system.
-To execute this control the system requires these roles to be read and acted upon.
+To execute this control the system requires these roles to be readable and actionable (\ie{} the system can act upon a specific role).
 This is reflected in the security class which now supplies this information.
 
 Data handling had to be changed in the sense that most of the time {\tt Datum}s would be retrieved with only a small selection of the available headers.

@@ -13,10 +13,10 @@
 \end{figure}
 
 \paragraph{Division of management tasks}
-Due to time restrictions in this study not all functions that were discovered in section \ref{brainstorm} could be implemented.
-A selection was made based on the programmers opinion what would be most profitable for a prototype system.
-Which selection was made can be seen in figure \ref{fig:functions-implemented}.
-Decisions were made based on the fact that the demo has to appeal to a wide variety of users, most importantly research and clinic management.
+Due to time restrictions in this study not all functions that were discovered in section \ref{brainstorm} can be implemented.
+A selection is made based on the programmers opinion what would be most profitable for a prototype system.
+The selection that is made can be seen in figure \ref{fig:functions-implemented}.
+Decisions are based on the fact that the demo has to appeal to a wide variety of users, most importantly research and clinic management.
 
 To start with the most basic system data management functions are implemented.
 These include search and filtering for the researcher user and data manager user, and the download function.
@@ -24,7 +24,7 @@ Data audit is implemented through placeholders to show the value of such an func
 Metadata handling is not implemented as data is considered \emph{fixed} after system initialisation.
 
 After this, request management is implemented.
-By removing direct access to data and adding more control for committee users (coming directly from each clinic), this is deemed to increase system trust by clinic management.
+Removing direct access to data and adding more control for committee users (coming directly from each clinic) is deemed to increase system trust by clinic management.
 Request creation, editing, and submission by researcher users is supported.
 Approval by committee users and automated subset creation by the system is also implemented.
 Not implemented are: annotation and feedback on requests, stale request detection, and keeping provenance.
@@ -33,10 +33,10 @@ All of these functions are mostly supporting users in performing tasks but are n
 User management is implemented with the addition of roles to user accounts and a dashboard for the data manager user.
 In this dashboard the manager can find all the users of the system and assign the appropriate roles to each of them.
 Lastly, publication management as closing stone of the research cycle is left out.
-The additional time that had to be spend including these functions does not outweigh the added value for prospective demo users.
+At this moment the additional time that has to be spend including these functions does not outweigh the added value for prospective demo users.
 
 \paragraph{Security}
-Even though security considerations are a big part of the requirement analysis (see section \ref{security}), the does not show itself that clearly in the system implementation.
+Even though security considerations are a big part of the requirement analysis (see section \ref{security}), it does not show itself that clearly in the system implementation.
 Most of the security measures were taken during the data gathering steps.
 Because the decision was made to have a fixed dataset for the system a lot of the discussed security measures do not need to apply anymore as described in section \ref{security-summarisation-analysis}.
 
