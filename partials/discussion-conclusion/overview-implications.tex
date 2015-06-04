@@ -1,9 +1,11 @@
-\section{Overview and Implications}
+\section{Implications}
+
+\subsection{Overview}
 
 In the Netherlands about 5\% to 8\% of all couples remain childless due to infertility or subfertility.
 There are several treatments used to assist in reproduction these are among others: IUI, IVF, and ICSI.
 While it is known how many treatments result in a pregnancy it is relatively unknown what the outcomes are for children born out of these pregnancies.
-For this end the \project{} was started to gather and analyse data from both the fertility clinics as the national birth registry.
+For this end the \project{} was started to gather and analyse data from both the fertility clinics as the national birth registry (\ie{} \PRN{}).
 
 Because considerable effort went into data gathering reuse of data should be supported to get the most gain out of it.
 From this the idea for the \ivfsystem{} was formulated, a system supporting data management.
@@ -19,9 +21,90 @@ Publication management was left unimplemented all together.
 During the evaluations it became clear that for a successful demo more `fancy bits' had to be added.
 Also one or two iterations of user-centred design should be applied to remove most of the fundamental confusions in the interface.
 
-\paragraph{Connecting the dots}
-\begin{itemize}
-	\item What are the biggest blocking factors in doing research with sensitive data and how can these be overcome?
-	\item What is the importance of supporting administrative tasks (provides security, better understanding, etc.)? 
-	\item How can this specific system be used in other settings/knowledge domains?
-\end{itemize}
+\subsection{Connecting the dots}
+
+%How do we implement a user-friendly system in a IVF medical domain which covers problems concerning: data security, data access, data browsing, and data querying?
+%What needs to be changed in the current attitude towards data usage to promote big data in a IVF medical domain?
+
+\paragraph{Supporting administrative tasks}
+
+During the development of the \ivfsystem{} many hurdles in the current research workflow came to light.
+Normally these might be hidden to outside spectators as researchers have found workarounds.
+This paragraph will discuss what the importance of supporting administrative tasks is.
+
+Starting with one of the most important aspects for sensitive data: security.
+It is known that when humans are involved errors are inevitable when time goes by.
+Humans make errors, but it is possible to help them in making less errors.
+Providing overviews and insights in the process they are working with can achieve prevention.
+
+As shown in the development of the \ivfsystem{} multiple actors are involved in the data management process.
+A lot of communication will run between these actors, currently this is mostly done asynchronously and sometimes even offline.
+This problem gives an clear example of security through structure.
+Providing the actors with a communication channel keeps the conversation encapsulated in a single system, and therefore in a single dataset.
+This dataset can be leveraged to provide managers with insight in the process and can help them spot possible errors and prevent these.
+
+Lastly, there is also inherent technical security from a well designed system.
+If all actors are involved in the development and execution of the system this will lead to a better technical security as well.
+In a properly executed development cycle all requirements should be identified and then analysed on whether they are important for the system.
+Because specific domain knowledge is necessary when creating a system in a clinical domain, in order to identify all requirements many experts should be involved.
+Each of these will input their ideas giving a better coverage on the flaws that should be expected.
+
+A well developed (and documented!) system also leads to another aspect: understanding of underlying processes.
+The system should be the embodiment of existing research processes, sometimes parts of these can be `black boxed'.
+Meaning that for people outside of the `box' it is unknown what is going on and what step the process is at.
+Supporting the black box processes gives the possibility to provide outsiders with cherry picked or aggregated data.
+
+This idea can prove useful for processes like: security, restriction, approval.
+Right now these are mostly hidden from data consumers but also from data deliverers.
+Involving these actors will lead to understanding and ultimately to trust.
+Trust can be directed towards the system but also the institution providing the system, in this study this is also the data gatherer and owner.
+
+In that sense the system can be used as a marketing product.
+Laying bare the inner workings of the institution and showing that errors might exist but also how they are resolved.
+Next to data providers institutions providing grants are highly important.
+Nowadays they require that their investment in data gathering should lead to high returns for the scientific community.
+Mostly this will mean that data reuse is of high priority. 
+Supporting a grant request with the \ivfsystem{} will show exactly how the requester plans to provide this.
+
+Ultimately the goal of the \ivfsystem{} is to provide reuse capabilities for datasets.
+Unfortunately in research (especially in the clinical domain) this is not something that comes naturally.
+Data has value, a lot of effort goes into gathering and upkeep.
+Researchers and institutions want to hold on to their data or at least gain something from reuse.
+
+When making data open access it is hard to check whether if the right references are used in publications.
+On the other hand data reuse can lead to better research, for example publications can be checked by an independent institute.
+With a \ivfsystem{} data can be restricted while the line of communication between data owner and consumer is short.
+This will bring all the benefits of data reuse while the data owner still has a grip on what happens with it.
+
+\paragraph{Extrapolate to other domains}
+%How can this specific system be used in other settings/knowledge domains?
+
+The previous section argued the benefits of a \ivfsystem{}, however it is specific to the domain of \IVF{} and \PRN{} data.
+There are other projects building towards something similar, but no complete system exists yet.
+Most follow a stepwise implementation of blocks, introducing user, data, request, and publication management one by one.
+Leaving each domain to their own experts however will create a fragmentation of many different implementations of (in principal) the same functionality.
+
+It is a good idea to work towards a modular solution which implements core elements of each of the management groups.
+Different domains can pick what they need and add their specific `sugar' while the functionality remains largely the same.
+This will require an investment into research on how to make the system's modules abstract enough for reuse in other domains.
+And even when abstract modules exist process and requirement analysis for each implementation project will take a considerable amount of time.
+
+Before the \ivfsystem{} is suitable for this type of reuse many hurdles are yet to be taken.
+These lie both in social fields as in regulation.
+The social aspects relate to building trust, managing expectancy, etc.
+Regulations in the Netherlands for sensitive data are strict (as to be expected).
+The \IVF{} and \PRN{} dataset is relatively light on sensitive data and skirts around some of the laws.
+When more interest is shown in the \ivfsystem{} these are some of the interesting areas for further research.
+
+Furthermore, the \ivfsystem{} is not ready for demoing purposes yet.
+The evaluation of the prototype shows there are areas that need improvement.
+Some are time consuming and are not directly visible, like integrating data provenance.
+Others will take less time and are highly visible, like updating the user interface.
+Once more, this study answers the question of what is needed to implement a successful system but does not deliver it.
+
+\paragraph{Blocking factors}
+\allard{TODO once position paper is done}
+%What are the biggest blocking factors in doing research with sensitive data and how can these be overcome?
+
+
+
