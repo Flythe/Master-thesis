@@ -1,29 +1,45 @@
 \section{Brainstorm}
 \label{brainstorm}
 
+we organized a session with key stake holders to discuss the "seed" functionality (which roles were represented, how many.
+
 \paragraph{The execution}
 Brainstorming is not an exact science, therefore there is no pre-defined schema to follow.
 However, there are a lot of gurus describing guidelines to manage sessions.
 The following list is an implementation of guidelines taken from Tyner Blain \cite{brainstormWebsite}:
 
+\silvia{use past or present tense consistently - i think it is better past}
+
 \begin{enumerate}
-	\item \textbf{Rules -} Make sure everyone is on the same level and understands what the point of the meeting is.
-	\item \textbf{Time limit -} Guidelines describe short sessions, but the complexity of the system meant that two sessions of one hour each were necessary.
-		The next step (seed) was repeated in the second session to refresh the idea of the system for everyone.
-	\item \textbf{Seed -} A starting point is needed, in this case an educated guess is used.
-		The system seed is described in \ref{process-analysis}.
-		During the session big (A2) pieces of paper are used on which the seed's functions are written down, figure \ref{fig:brainstorm-before} is a stylised version of this paper schema.
+	\item \textbf{Rules -} Make sure everyone is on the same level and understands what the point of the meeting is. \silvia{how}
+	\item \textbf{Time limit -} Guidelines describe short sessions, but due to the complexity of the system two sessions of one hour each were necessary.
+		Step 3 (seed) was repeated in the second session to refresh the idea of the system for everyone.
+	\item \textbf{Seed -} A starting point is needed, in this case we used the system seed described in \ref{process-analysis}.
+		During the session big (A2) pieces of paper were used on which the seed's functions are written down. Figure \ref{fig:brainstorm-before} is a stylised version of the used paper schema.
 	\item \textbf{Ideas -} The sessions are structured by the paper schema, each of the functions is discussed.
-		Ideas for new functionality or differences are shortly (vocally) summarised by the session leader and written on the same paper.
-	\item \textbf{Prioritise -} For this step the guidelines are disregarded, prioritisation is based on group agreement.
+		Ideas for new functionality or differences are shortly (vocally) summarised by the session leader \silvia{who} and written on the same paper.
+	\item \textbf{Prioritise -} For this step the guidelines are disregarded and prioritisation is based on group agreement.
 		Three levels are used: must have, should have, nice to have.
-		Any functions that are deemed unnecessary were already removed from the schema during the previous step.
+		Any functions that are deemed unnecessary were already removed from the schema during the previous step. \silvia{step 2? or from the seed design?}
 \end{enumerate}
 
-\paragraph{Results: differences and similarities}
-Outcomes of the brainstorm showed that a lot of functions were initially hidden when the system seed was defined.
-Next to data management there were also user, publication, and (more extensive) request management requirements.
-In the sense of the research workflow schema not much has changed visually, publication and user groups are added.
+
+\silvia{in the explanations below you give extensive information about the differences. im not sure that it is necessary (and it makes the text very long). 
+i think you could cut the chase into the following story for this chapter:
+you studied the research process of this group (describe people, roles, data, actions). 
+you also studied general requirements (not user-driven) for security and provenance.
+then you came up with an initial design (describe it well), 
+you evaluated with users suing brainstorm method, 
+and then you got a new design (describe it well). 
+at the end you can comment on the main differences and lessons learned in the requirement analysis process, for example, the fact that the complete datasets are external (not online), user management is different, the data cannot be actually downloaded, etc.}
+
+\paragraph{Results: differences and similarities.}
+
+
+Outcomes of the brainstorm showed that many functions were initially hidden when the system seed was defined.
+Next to data management there were also user, publication, and (more extensive) data request management and security requirements. \silvia{explain data request, which is a complex question that is formulated by the researchers and is evaluated and managed by the committee.}
+
+\silvia{i dont think you need this sentence here, because it is not clear in which way a user role solves the data request problem}: The original research workflow schema did not have to change much visually in the updated version: only publication and user groups are added.
 The publication functions support the last phase in research and the user functions underlay the whole system.
 
 \begin{figure}[hb]
@@ -36,23 +52,29 @@ The publication functions support the last phase in research and the user functi
 	\label{fig:workflow-after}
 \end{figure}
 
-When looking at the expanded view (figure \ref{fig:brainstorm-after}) however a lot more changes are visible.
+When looking at the expanded view in figure \ref{fig:brainstorm-after}, however, a lot more changes are visible respectively to figure \ref{fig:brainstorm-before}.
 In the external parts (services and users) some changes took place.
-Unlinked data has been removed from the input as it has no scientific value in the type of research that the system is going to support.
-This is because unlinked means that either no treatment was found for a particular birth or no birth was found for a treatment.
-Analysis on correlations in these groups (\ie{} \emph{why} could no link be found) might be interesting but are currently outside of the scope of the \project{}.
+Unlinked data has been removed, as it has no scientific value in the type of research that the system is going to support.
+This is because "unlinked" means that either no treatment was found for a particular birth or no birth was found for a treatment.
+Analysis on correlations in these groups (\ie{} \emph{why} could no link be found) might be interesting, but are currently outside of the scope of the \project{}.
 
-External parties and principal investigators (P.I.s) are removed from the list of users as this would bring too much complexity, both technically and procedural, to the system.
+External parties and principal investigators (P.I.s) are removed from the list of users, as this would bring too much complexity, both technical and procedural, to the system.
 However, a new group of users has been introduced: committee members.
-These users come from an external service, namely the research committee.
+These users come from an external service, namely the research committee. \silvia{maybe external service is not the proper word. what about source? or organization? in fact your system is not interacting with "services" on-line, just taking their data/configuration offline}
 
-To enable \textbf{request management} and \textbf{publication management} committee members can directly access the system.
-The system has to support some functions directed at these users which were not in the initial schema: search and approval of requests, and approval of papers.
+To enable \textbf{request management} and \textbf{publication management} committee members need to access the system, therefore some functions had to be added the initial seed: search and approval of data requests, and approval of papers.
 The data manager had to be enabled to support the request tasks, monitor requests was added for this purpose.
-Furthermore, researchers need the ability to upload outcomes in the form of papers, reflected with upload outcomes.
+Furthermore, researchers need the ability to upload outcomes in the form of papers, \silvia{?? reflected with upload outcomes.}
 
-Now a complete research life cycle exists: researcher submits a request, committee members check this request (supported by the search function) and either approves it or not, the system creates a subset of data which the researcher can access, after completion of the research the researcher uploads his/her paper, the committee members check this paper and either approves it or not, all the while the data manager keeps an overview of this process.
-This cycle needs to be kept as data in the system, reflected by adding `research' in the data section.
+\silvia{i think this should come much earlier because this explains the motivation for the details above. First explain the workflow, then the vision of how the system will support it. both for the seed and for the final one. the various steps need to be better explained (data, metadata, actors} The revised complete research life cycle for the XX project is:
+\silvia{itemize this} 
+researcher submits a request, 
+committee members check this request (supported by the search function) and either approves it or not, 
+the system creates a subset of data which the researcher can access, 
+after completion of the research the researcher uploads his/her paper, 
+the committee members check this paper and either approves it or not, 
+during the whole time the data manager keeps an overview of this process.
+\silvia{??This cycle needs to be kept as data in the system, reflected by adding `research' in the data section.}
 
 The new user group gave more importance to \textbf{user management}, but also a change in user registration stressed the need of more extensive management functions.
 Namely the move of user registration to the researcher and adding user approval to the data manager.
@@ -65,19 +87,25 @@ The linked set of data has to be made anonymous considering the clinic, making i
 
 To allow researcher to make proper requests a data dictionary has been added to the data search function.
 The contents are descriptions of each of the available data columns (headers) from the linked data set.
-This dictionary is accessible to all registered users, so that a user does not need to wait on the approval of the data manager.
+This dictionary is accessible to all registered users, so that a user does not need to wait on the approval of the data manager. 
+This feature van serve to promote data reuse, by allowing researchers to explore the rich content of this repository.
 
 A clear defined split had to be made between the users in what data they are able to view in the system.
 Researchers are only allowed to view the data subsets of approved requests.
 The data manager is allowed to view all (raw, linked) data in the system.
 These requirements are reflected in the schema with the terms search on `fields' for the researchers and search on `data level' for the data manager.
 Data searching and filtering is still an important requirement of the system, this was also the assumption in the system seed.
+\silvia{maybe the above could be summarized on a table/matrix? }
 
-\paragraph{Analysis}
+\paragraph{Discussion}
+\silvia{here you could concentrate all the differences}
+
 A lot of differences exist between the schema before and after the brainstorm, an side-by-side comparison is supplied in appendix \ref{brainstorm-before-after}.
 The main assumption of a data management system is made less important, but supplemented with increased request management and the addition of user and publication management.
 While data handling functions like searching, security restriction, auditing, or annotating with metadata are important in this system there are more side effects that have to be taken into account.
 This means that support of the whole research cycle is much more important for researchers dealing with data which is difficult to use (\ie{} permissions, access, re-use, etc.).
+
+\silvia{this is very important conclusion. needs to be better explained}
 The focus of the system switches from purely data support to also supporting other research related tasks.
 
 \begin{figure}[!h]
