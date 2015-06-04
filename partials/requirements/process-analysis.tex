@@ -1,36 +1,36 @@
-in this chapter ...
-first this, then that
-
-
 \silvia{general notes: 
-\\(1) need to give a name for the dataset "fertility data repository"? ivf/prn repo? ivf-repo something short that you can simply use in this section.
-\\(2) also need a name for the SG that is the main object in the thesis. 
-the terminology should be introduced in the intro and used consistently afterwards
-\\(3) explain stakeholders, what they do (with and without the system)
-\\(4) refer to components, module, function groups - not "blocks"
+	\\(1) need to give a name for the dataset "fertility data repository"? ivf/prn repo? ivf-repo something short that you can simply use in this section.
+	\\(2) also need a name for the SG that is the main object in the thesis. 
+	the terminology should be introduced in the intro and used consistently afterwards
+	\\(3) explain stakeholders, what they do (with and without the system)
+	\\(4) refer to components, module, function groups - not "blocks"
 }
+
+In this chapter first the process analysis will be described, this gives an overview of what the current situation is.
+Then an initial system design is proposed which is used in a brainstorm session where the final requirements are discovered.
+Besides these user defined requirements there are also lawful and security related requirements.
+These will be described in the security and provenance sections.
 
 \section{Process Analysis}
 \label{process-analysis}
 
-
-\paragraph{Research workflow}
+\paragraph{Research with the \project{} dataset}
 When doing research in the medical domain a well known workflow is often used. Nwogu \cite{nwogu} has formally described and defined this workflow for scientific reporting purposes (\ie{} writing scientific papers).
-Figure \ref{fig:research-workflow} shows the simplification of this workflow, which includes problem definition, formulation of research question, definition of methods, data aquisition, data analysis, statistical analysis and conclusions. \silvia{i dont understand "outcomes" - does it mean stats? or results?}
+Figure \ref{fig:research-workflow} shows the simplification of this workflow, which includes problem definition, formulation of research question, definition of methods, data aquisition, data analysis, statistical analysis, outcomes (\ie{} analysis results), and conclusions.
 
 Clinical research (\eg{} a trial) is well suited to follow this workflow, as each step can be executed in turn and data acquisition is often the most time-consuming part.
 However, acquisition of new data is not always necessary,  desirable or even possible. 
-\silvia{ "with the rise of cheap disk space and big data this does not have to be true" - this is not the motivation. data is valuable and needs to be reused, this is the motivation.}
-Research data of high quality and trustworthiness can be preserved and re-used endlessly, upon well controlled conditions. 
-This is the case of IVF-repo.
+Research data of high quality and trustworthiness is valuable and should be preserved and re-used, under well controlled conditions. 
+This is also the case with the \projectdata{}.
 
-\paragraph{Research Workflow using the IVF-repo}
-In the \project{} considerable time has been spend on gathering valuable data. The goal of this SG is to facilitate reuse of this data. 
+The goal of the proposed \ivfsystem{} is to facilitate reuse of this data.
 There is, however, one major restriction with data sharing and re-use: medical data is (almost always) highly sensitive and must be secured. 
 This imposes strong conditions for reusing the data, which needs to be taken into account by the system.
 
+\silvia{put something saying that the SG will support this process, in a case where data acquisition is actually done by consulting the XXX data repository. researchers need to find data, request it, get permission, receive the data. data managers need to keep track of all actions. 
+also explain and how you move on to detail from here (functionality design)}
 
-\begin{figure}[hb]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/research-workflow}
 	\caption{
@@ -39,9 +39,6 @@ This imposes strong conditions for reusing the data, which needs to be taken int
 	}
 	\label{fig:research-workflow}
 \end{figure}
-
-\silvia{put something saying that the SG will support this process, in a case where data acquisition is actually done by consulting the XXX data repository. researchers need to find data, request it, get permission, receive the data. data managers need to keep track of all actions. 
-also explain and how you move on to detail from here (functionality design)}
 
 \section{Initial concept}
 
@@ -69,7 +66,7 @@ Two direct users and several external users are planned each with their specific
 	\includegraphics[width=1.0\linewidth]{images/brainstorm-before}
 	\caption{
 		Initial concept for the \ivfsystem{}, encompassing data and user management. 
-		The system offers different sets of fuctions for three user roles (a,b,c) indicated by colors. 
+		The system offers different sets of functions for three user roles (a,b,c) indicated by colours. 
 		External services provide data according to regulations.
 	}
 	\label{fig:brainstorm-before}
