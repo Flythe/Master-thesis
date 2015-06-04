@@ -13,15 +13,15 @@ A topic with growing interest in the \escience{} field is provenance, sometimes 
 It has been borrowed from the world of art where it describes the `life' of an artwork.
 Mostly this will be the record of ownership but it can also describe things like restorations.
 From provenance data the quality, state, and originality of the work can be discerned.
-
 In \escience{} the same can be applied on a piece of data \cite{dsp4moreau}.
-Concerning data, provenance is stored metadata describing the process by which the data got to a certain state from a specific source \cite{dsp4moreau,dsp2buneman}.
-To describe the path data has taken W3C has made a standard described in the PROV Model Primer \cite{dsp8gil}.
-The gist of provenance is that it is build from a small set of assertions made by the different services that are involved in  the data process \cite{dsp4moreau}.
-To actually \emph{use} provenance data a standard for schemas is described which are usable for human consumption, an example is shown in figure \ref{fig:provenance-large-schema}.
 
-Provenance is explored here because it can be considered as an extension on data security.
-Since provenance directly monitors data and is consumable by humans it provides another level of security compared to the previously described solutions in \ref{security-summarisation}.
+Concerning data, provenance is stored metadata describing the process by which the data got to a certain state from a specific source \cite{dsp4moreau,dsp2buneman}.
+To describe the path data has taken, W3C \silvia{explain, ref} has made a standard described in the PROV Model Primer \cite{dsp8gil}.
+The gist of provenance is that it is built from a small set of assertions made by the different services that are involved in  the data process \cite{dsp4moreau}.
+To actually \emph{use} provenance data a standard for schemas is described which are usable for human consumption; an example is shown in figure \ref{fig:provenance-large-schema}.
+
+Provenance is explored here because it can be considered as an extension to data security.
+Since provenance directly contains data traceability information, and is can be consumable by humans, it provides another level of security compared to the previously described solutions in \ref{security-summarisation}.
 
 %TODO extra information about schemas, surplus/confusing
 %Because these schemas can run from the starting point where provenance data was kept (or actually the beginning of all time) user-tailored queries should be applied \cite{dsp4moreau}.
@@ -30,13 +30,13 @@ Since provenance directly monitors data and is consumable by humans it provides 
 \paragraph{The `why?' of provenance}
 \label{provenance-why}
 
-When collecting provenance various metadata has to be captured at different steps in the data process.
+When collecting provenance  metadata has to be captured at different steps in the data process.
 This creates a overhead when using a system for a specific task.
 Capturing and keeping provenance data is almost never the main functionality of a system.
-However, exposing the data may help users (\ie{} researchers).
+However, exposing the provenance data may help users (\ie{} researchers).
 
 In \escience{} data is gathered and generated at a fast pace.
-Provenance kept of this data can help researchers determine whether data is:
+Provenance of this data can help researchers determine whether data is:
 
 \begin{itemize}
 	\item Usable in a certain context, the metadata stored can describe the different uses of a specific data item \cite{dsp1simmhan}, \eg{} types of software that accept a data item as input.
@@ -60,7 +60,7 @@ Also, an applied provenance example is given in figure \ref{fig:provenance-large
 	\label{fig:provenance-overview}
 \end{figure}
 
-List of used concepts as described in PROV Model Primer \cite{dsp8gil}:
+The concepts as described in PROV Model Primer \cite{dsp8gil} are:
 
 \begin{itemize}
 	\item Entity, physical, digital, conceptual, or another type of `thing'.
@@ -90,7 +90,7 @@ List of used concepts as described in PROV Model Primer \cite{dsp8gil}:
 %However, Derek is acting on behalf of the company chart gen (\eg{} he is a contractor or employee).
 %Both agents in this example have \attributes{} assigned to them to further describe them (\eg{} the full name of the company).
 
-\paragraph{The use of provenance in security}
+\paragraph{The use of provenance for security}
 \label{provenance-use}
 
 Three types of assertions can be described which account to provenance: relationship (object B was retrieved by applying function X to object A), interaction (received object A, sent object B), and service state (it took three seconds to send object B after receiving object A) \cite{dsp4moreau}.
@@ -99,13 +99,13 @@ Different applications of provenance can be accomplished with these assertions \
 Data quality uses the provenance metadata as a check, like described with the art example at the beginning of this subsection, the user tries to discover who did what with the data.
 The same applies for an audit trail, but it is used for other ends, being able to maintain responsibilities.
 Replication recipes are an extension of data quality, a user can execute the exact same steps on the same or a different piece of data to check the work or to improve on the work done.
-In the case of data ownership attribution can be used to trace who should be contacted for consent on data usage.
+In the case of data ownership, attribution can be used to trace who should be contacted for consent on data usage.
 Lastly, informational provenance helps with data discovery and providing context for data, which helps with (for example) reuse.
 
-There are many applications of provenance in security, different levels can be supplied by mixing computerised surveillance with human insight.
+\silvia{this paragraph is good, but seems repetitive to stuff that were mentioned before} There are many applications of provenance in security, different levels can be supplied by mixing computerised surveillance with human insight.
 One of the clearest examples is the data audit functionality.
 The necessary metadata for an audit is collected automatically during the operation of the system.
-Outcomes of this audit can be partly analysed by a computer but can also be translated into an human understandable format.
+Outcomes of this audit can be partly analysed by a computer, but can also additionally be translated into an human understandable format.
 Further actions that lead to actual security should be captured in standardised processes, therefore provenance is only a tool and not an security end-point.
 
 %TODO implementation details, not necessary here might come back in implementation chapter

@@ -1,62 +1,68 @@
 \subsection{Interview}
 \label{security-interviews}
 
-\paragraph{Set-up} 
-\label{security-set-up}
+%\paragraph{Set-up} 
+%\label{security-set-up}
 
-Next to the literature search an semi-structured interview was held with a system security and medical registration system export to provide examples for the laws and regulations which are quite abstract.
+\silvia{need to explain better here why this person was chosen and how similar this case is to ivf}
+
+
+Next to the literature search a semi-structured interview was held with a system security and medical registration system \silvia{?export?} to provide examples for the laws and regulations which are quite abstract.
 This interview technique leaves the interviewee free to roam to other subjects which might prove useful in the design of the \ivfsystem{}.
 During the interview firstly the vision of the \ivfsystem{} was explained in a few sentences.
 The following questions were used to give structure to the interview:
 
 \begin{itemize}
-	\item What can we do to make sure we are not processing personal data?
-	\item What are the criteria for something to be personal data or not?
-	\item If personal data is being processed how can we comply to the extensive rules?
-	\item How are things handled in existing registries?
-	\item Are these registries also used for research?
-	\item Aggregate data in public databases can become individually identifiable when the databases are integrated or the data are cross referenced. 
-	How do you account for this?
-	\item Facing problems with getting go-ahead from ethical commissions for gathering data, how can a system like the \ivfsystem{} support in getting consent?
+  \item What can we do to make sure we are not processing personal data?
+  \item What are the criteria for something to be personal data or not?
+  \item If personal data is being processed how can we comply to the extensive rules?
+  \item How are things handled in existing registries?
+  \item Are these registries also used for research?
+  \item Aggregate data in public databases can become individually identifiable when the databases are integrated or the data are cross referenced. 
+  How do you account for this?
+  \item Facing problems with getting go-ahead from ethical commissions for gathering data, how can a system like the \ivfsystem{} support in getting consent?
 \end{itemize}
 
-In the following section the term \emph{personal data} refers to identifying data which can lead back to one patient.
+In the following section the term \emph{personal data} refers to identifying data which can lead back to one individual.
 
-\paragraph{Interpreted transcript}
+
+\paragraph{Interpreted transcript.}
 \label{security-interview-transcript}
 
-The interview was with an expert on the topic of an intensive care registry in the Netherlands, loosely translated: National Intensive Care Evaluation (NICE).
-The NICE contains sensitive data where normally consent is required. 
-However, patients at the IC are generally non-responsive which means that getting consent is an unreasonable requirement and can be disregarded.
 
-Considering consent there is a difference between historical data and \emph{active} data.
-When using historical data it is difficult to get consent from each patient, which provides more room in the interpretation of the law.
-For active data it is fairly easy to provide patients with a consent form when they visit the clinic, thereby binding the researchers to acquire consent.
+The interview was with an expert on the topic of an intensive care registry in the Netherlands: National Intensive Care Evaluation (NICE), 
+which contains sensitive data for which consent would normally be required. 
+However, patients at Intensity Care (IC) are generally non-responsive, which means that getting consent is an unreasonable requirement and can be disregarded.
+
+Considering consent, there is a difference between historical data and \emph{active} data.
+When using historical data it is difficult to get consent from each patient, which provides more room for the interpretation of the law.
+For active data it is fairly easy to provide patients with a consent form when they visit the healthcare provider, thereby binding the researchers to acquire consent. 
 
 It is difficult to avoid processing personal data, \ie{} what is defined by `personal data' is open to interpretation.
-Therefore, each of the used data items that might be debatable should be supported by a goal (\ie{} purpose of data).
+Therefore, each of the used data items that might be debatable should be supported by a goal (\ie{} purpose of data use).
 Goals may vary but most of the time they describe why a certain data item is inevitable to use when doing research with the dataset.
 
 A good guideline when creating a dataset is to take the minimum amount of data items while still being able to fulfil the research goal.
-Some categories of data weigh more in a decision than others.
+Some categories of data weight more in a decision than others.
 For example, \emph{sensitive} items (\eg{} race, sexual preference) are more likely to be turned down.
 Once more, for ethical commissions the purpose of data collection and processing is a leading factor in a decision. 
 A well described protocol and the application of standards (\eg{} NEN7510) are other factors.
 
 It is impossible to guarantee that privacy is kept at all times.
 This is due to factors like public datasets, news, and all other sorts of information sources.
-When aggregating these datasets into one big dataset it becomes easier to discern individuals. 
+When aggregating these datasets into one big dataset it becomes easier to identify individuals. 
 For example, the Dutch queen is hospitalised and this information is published in a newspaper, from other sources (\eg{} Wikipedia) age and gender can be gathered.
-With this information, even though the NICE registry is considered anonymous, the subset of possible patients can be reduced until only one patient remains that could compare to the queen.
+With this information, even though the NICE registry is considered anonymous, the subset of possible patients could hypothetically be reduced until only one patient remains that could compare to the queen.
 
 In order to avoid these kinds of data breaches some precautions can be taken, but these will never be completely safe as there is a human factor.
-Precautions that should be considered are: take notice of, and implement modern technical security techniques; keep external access to data either off-line or require to go through an internal administrator (\eg{} data extraction requests); aggregate data that is communicated to external sources which removes the likelihood of an individual being identified; when direct access to data is needed (\eg{} administrators, data mining research) use confidentiality documents; make direct access to data bound by location (\eg{} on one specific computer or inside a network).
+Precautions that should be considered are: take notice of, and implement, modern technical security techniques; keep external access to data either off-line or require to go through an internal administrator (\eg{} data extraction requests); aggregate data that is communicated to external sources which removes the likelihood of an individual being identified; when direct access to data is needed (\eg{} administrators, data mining research) use confidentiality documents; make direct access to data bound by location (\eg{} on one specific computer or inside a network).
 
-As a side note, while talking about confidence people have in a system two topics came up, accountability and integrity.
+As a side note, two topics came up while talking about trust that a people have in a system:  accountability and integrity.
+
 The NICE registry makes it possible for ICs to benchmark themselves against data of other clinics.
-However, all clinics remain anonymous, which avoids discussion about accountability. 
+However, all clinics remain anonymous, which avoids discussion about \emph{accountability}. 
 For example, it is highly likely that the worst ranked IC will receive less income once the ranking is known to others (less patients willing to go there, insurance is unwilling to pay, etc.).
 
-The second topic, integrity, refers to objectiveness of outcome measures.
+The second topic, \emph{integrity}, refers to objectiveness of outcome measures.
 Quality indicators that are presented by the system should never be directly influenced by humans as this introduces data playing problems. 
 When this happens clinics artificially try to improve their scores by giving patients better outcomes than they actually have.
