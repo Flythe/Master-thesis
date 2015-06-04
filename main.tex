@@ -36,7 +36,7 @@
 
 % Commenting commands
 \newcommand{\silvia}[1]{\textcolor{red}{\textbf{*Silvia: }\textit{#1}}}
-\newcommand{\allard}[1]{\textcolor{red}{\textbf{*Allard: }\textit{#1}}}
+\newcommand{\allard}[1]{\textcolor{green}{\textbf{*Allard: }\textit{#1}}}
 \newcommand{\note}[1]{\textcolor{cyan}{\textit{#1}}}
 
 %\title{Developing a Data Management System for Obstetric Research Into Long Term Effect of In Vitro Fertilisation Techniques}
@@ -70,9 +70,7 @@
 	
 	\input{partials/requirements/brainstorm}
 	
-	\input{partials/requirements/security-introduction}
-	\input{partials/requirements/security-interviews}
-	\input{partials/requirements/security-analysis}
+	\input{partials/requirements/security}
 	
 	\input{partials/requirements/provenance}
 	
@@ -127,6 +125,13 @@
 	\label{brainstorm-before-after}
 	
 	\input{partials/brainstorm-schemas-appendix}
+	
+	\chapter{Security Review}
+	\label{security-review-appendix}
+	
+	\input{partials/requirements/security-introduction}
+	\input{partials/requirements/security-interviews}
+	\input{partials/requirements/security-summary}
 	
 	\chapter{Security Checklists}
 	\label{security-appendix}
