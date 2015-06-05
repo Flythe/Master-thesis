@@ -1,5 +1,8 @@
-\subsection{Rosemary}
+%\subsection{Rosemary}
 
+\silvia{im missing system architecture, components, technologies used in the implementation. I also think that a much better explanation of the main concepts (tag, workspaces) is needed to enable understanding of the explanations below.}
+
+\silvia{this title reads like evaluation. but the contents seems to be part of "data model" in the previous section}
 \paragraph{Testing the data model's flexibility}
 \begin{figure}[!b]
 	\centering
@@ -8,7 +11,7 @@
 		Rosemary data model as implemented.
 		Describes workspace, tagging, datum, notification, and research models.
 		The original data model can be found in figure \ref{fig:reuse-rosemary-dm}.
-		Differences between the implemented model and the original model are shown in blue.
+		Differences between the implemented model and the original model are shown in blue. \silvia{keep only one of the two figures, with color for the differences}
 	}
 	\label{fig:implementation-rosemary-dm}
 \end{figure}
@@ -26,7 +29,7 @@ This is reflected by adding a workspace type field to the {\tt WorkspaceTag} obj
 
 Requests contain a limited set of data items (headers), the \emph{master} dataset contains all the available headers.
 To restrict the headers a researcher can view in his or her request workspace a visibility field was added to the {\tt WorkspaceTag}.
-This field contains a set of the accessible headers for a workspace, the system can then filters this data from the \emph{master} dataset before outputting the result to the user.
+This field contains a set of the accessible headers for a workspace, the system can then filter this data from the \emph{master} dataset before outputting the result to the user.
 
 Next to these two (minor) changes five new data objects were added to the data model.
 These are: {\tt Research}, {\tt Approval}, {\tt Data Request}, {\tt DownloadNotif}, {\tt RequestNotif}.
@@ -39,10 +42,12 @@ Where the {\tt Data Request} contains the requested headers and the {\tt Datum}s
 And the {\tt Approval} keeps record of the committee users that need to give permissions and what votes were already cast.
 Lastly, the {\tt Research} object is used to capture information used to base a voting decision on, \eg{} research question, study description.
 
-\paragraph{Back-end and front-end}
-In Rosemary the back-end provides a RESTful API which the front-end can communicate with, meaning that the back-end is completely disjointed from the front-end.
+
+\paragraph{Back-end and front-end.}
+\silvia{i think this would be the place for a diagram showing the components, interfaces and the technologies (maybe as notes)}
+In Rosemary the back-end provides a RESTful API for communication with the front-end, therefore the back- and the front-end are completely disjoint.
 Communication is done with JSON\footnote{http://json.org/}, which leaves options open for a complete rebuild of the front-end without having to touch the back-end.
-For the \ivfsystem{} the existing back and front-end were both reused.
+For the \ivfsystem{} the existing back and front-end were both reused. \silvia{i was thinking - how will you refer to the existing and the new system? it is still rosemary (as in framework for ...) but another system. if you define a name, referencing becomes clearer and shorter}
 
 Starting with the back-end, some structural changes were made.
 Firstly, classes and methods that were used for submission and application handling were removed.
@@ -61,10 +66,15 @@ All the read methods in the data class have been adapted to restrict access.
 This makes for easy access of data from the front-end, it just provides the back-end with a request for a workspace with a certain user.
 The back-end then filters data based on this and returns the restricted dataset.
 
-Design of front-end was done on an educated guess base.
+Design of front-end was done on an educated guess basis.
 There was no time available for a user-centred design approach where prototypes are iterated until the best design solution is achieved.
 The existing layout was mostly left in place, pages related to surplus functions (submission and application handling) were removed.
 For each of the new functions pages were created where necessary.
 
 To the architecture of the front-end no changes were made.
 The implementation of back-end communication and security was sufficient for a successful implementation of a prototype.
+
+
+\silvia{the lack of time to implement the prototype is not well explained. i think somehwere in your thesis you need to explain the data collection to build the repository. the different formats, difficukty to access, etc. this was the reason why you did not have timein the end to do what we planned - because the data was not there, which would make the whole requirement analysis exercise too abstract and futile. this experience also comes back in your position paper.}
+
+

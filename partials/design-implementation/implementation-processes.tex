@@ -12,19 +12,19 @@
 	\label{fig:functions-implemented}
 \end{figure}
 
-
+\silvia{instead of presenting what has been done, this section is about what has not been done. it does not seem useful to spend so much space on describing things that were not done.
+please make sure to describe the complete story (all requirements and all functions) in one place, and mark those that were not included in the prototype. the discussion about what was included and what was not can be part of discussion and conclusions - and not mixed in the implementation description. here you should clearly present what have been done, with technical details but with scientific language (methods, results, evaluation). }
 %\paragraph{Division of management tasks}
+\silvia{too long - just explain the prototype implementation here. it is not necesary to explain the dev along time, but just how the prototype became in the end}
 Due to time restrictions in this study not all functions that were discovered in chapter 2 can be implemented.
-\silvia{do you know the package clever references? cleverref - if not, ask Shayan ;-) }
 A selection is made based on the programmers opinion what would be most profitable for a prototype system.
 The selection that is made can be seen in figure \ref{fig:functions-implemented}.
 Decisions are based on the fact that the demo has to appeal to a wide variety of users, most importantly research and clinic management.
 
-\silvia{i stopped here for now, will continue later tonight}
-To start with the most basic system data management functions are implemented.
-These include search and filtering for the researcher user and data manager user, and the download function.
-Data audit is implemented through placeholders to show the value of such an function without the actual data processing back-end.
-Metadata handling is not implemented as data is considered \emph{fixed} after system initialisation.
+The most basic system data management functions are implemented, namely 
+search and filtering for the researcher and data manager roles, and the download function.
+Data audit is implemented through placeholders to show the value of such an function without the actual data processing back-end. \silvia{what do you mean by placeholders (my spelling says this word does not exist)? is this fake functions with pre-defined responses? or a no-op?}
+\silvia{??Metadata handling is not implemented, as data is considered \emph{fixed} after system initialisation.}
 
 After this, request management is implemented.
 Removing direct access to data and adding more control for committee users (coming directly from each clinic) is deemed to increase system trust by clinic management.
@@ -47,8 +47,10 @@ Provenance, as part of security, was not implemented either.
 It would be very useful to show the strength of the \ivfsystem{}, data protection through provenance can be made highly visible and easy to understand for humans.
 However, the goals to quickly support the provenance functions and develop an interface on top of the data could not be reached within the time frame.
 
+\silvia{move this to discussion}
 Lastly, in order to obtain a working system a few more things are needed.
 More functionality needs to be implemented, most notably better user interfaces for data filtering and selection (see section \ref{evaluation}).
 Furthermore, more design and programming iterations need to be done before the request and publication management have been fully developed.
 Then a big security iteration should be done to prepare the system for testing and certification.
 Right now security has been patched up in the front-end by hiding information for certain users, this should change to the back-end not \emph{providing} that information to begin with.
+

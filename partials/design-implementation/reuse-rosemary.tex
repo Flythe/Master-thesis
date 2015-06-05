@@ -21,15 +21,16 @@ Furthermore, request and publication management will need to be introduced into 
 	\label{fig:reuse-rosemary-dm}
 \end{figure}
 
-\silvia{i believe that from here you actually describe the prototype. keep clear what was rosemary, what is new }
+\silvia{i believe that from here you actually describe the prototype. keep clear what was rosemary, what is new, or what has been adapted. maybe it is not so relvant to stress the differences, but to have a complete and understandable explantion of what you have done}
 \paragraph{Data model}
 Figure \ref{fig:reuse-rosemary-dm} depicts the Rosemary data model where the (\ie{} domain specific) items are removed.
 %A full view of the data model can be seen in appendix \ref{unedited-datamodel}.
 Implementation is done in mongoDB, a document-oriented database \cite{}.
+\silvia{present the main entities of the model here. the figure should stay in the body}
 The data model and its implementation provide some interesting possibilities.
-What is described in figure \ref{fig:reuse-rosemary-dm} as a {\tt Datum} is a single piece of raw data, \ie{} a row in a relational database.
+%What is described in figure \ref{fig:reuse-rosemary-dm} 
+A {\tt Datum} is a single piece of raw data, \ie{} a row in a relational database.
 This data can be tracked and reused endlessly by applying a {\tt Tag} object.
 For example, access control can be applied by tagging a {\tt Datum} with a {\tt WorkspaceTag} which is owned by a {\tt User}.
-
 Many different constructs of this sort can be achieved without ever touching the structure of the actual model itself.
 The reuse in the \ivfsystem{} relies heavily on this concept, which means only slight changed had to be made to the original data objects.
