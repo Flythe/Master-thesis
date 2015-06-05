@@ -16,52 +16,31 @@ These will be described in the security and provenance sections.
 
 \paragraph{Research with the \project{} dataset}
 When doing research in the medical domain a well known workflow is often used. Nwogu \cite{nwogu} has formally described and defined this workflow for scientific reporting purposes (\ie{} writing scientific papers).
-Figure \ref{fig:research-workflow} shows the simplification of this workflow, which includes problem definition, formulation of research question, definition of methods, data aquisition, statistical analysis, analysis results, and conclusion.
+Figure \ref{fig:research-workflow} shows the simplification of this workflow, which includes problem definition, formulation of research question, definition of methods, data aquisition, data analysis, statistical analysis, outcomes (\ie{} analysis results), and conclusions.
 
-Clinical research (\eg{} a trial) is well suited to follow this workflow, as each step can be executed in turn.
-Of these steps data acquisition is often the most time-consuming part.
+Clinical research (\eg{} a trial) is well suited to follow this workflow, as each step can be executed in turn and data acquisition is often the most time-consuming part.
 However, acquisition of new data is not always necessary,  desirable or even possible. 
 Research data of high quality and trustworthiness is valuable and should be preserved and re-used, under well controlled conditions. 
 This is also the case with the \projectdata{}.
 
 The goal of the proposed \ivfsystem{} is to facilitate reuse of this data.
 There is, however, one major restriction with data sharing and re-use: medical data is (almost always) highly sensitive and must be secured. 
-This imposes strong conditions for reusing the data, which have to be taken into account by the system.
+This imposes strong conditions for reusing the data, which needs to be taken into account by the system.
 
-\paragraph{Study of the process}
-Identification of the process was mostly done through observation but also with interviews and a literature study.
-The literature study and interviews, which will be further described in section \ref{security}, resulted in descriptions of security issues and solutions.
-These are the underlying requirements of the \ivfsystem{} and have to be implemented as a result of the used data repository.
-Observations led to the concept of the work process that had to be supported.
-It boils down to data acquisition from a central data repository, namely the \projectdata{}.
+\silvia{put something saying that the SG will support this process, in a case where data acquisition is actually done by consulting the XXX data repository. researchers need to find data, request it, get permission, receive the data. data managers need to keep track of all actions. 
+also explain and how you move on to detail from here (functionality design)}
 
-To get to an acquisition first a researcher has to be able to find the data he/she needs.
-Then a data request is formulated and a permission granting process is initiated.
-This is reflected in figure \ref{fig:research-workflow} with the function group {\tt Request}.
-A request contains the necessary information to base a permission decision on, \eg{} problem background, research question, and perceived methods to answer question.
-Based on the permission the researcher receives the data, reflected with {\tt Data} in figure \ref{fig:research-workflow}.
-
-In the described workflow there is also an data manager.
-This person is responsible for the dataset, keeping an overview of everything that happens in the workflow, and most importantly is the central point of communication.
-An example showing all three of the responsibilities: requests are evaluated by a research committee, this evaluation is send to the manager who initiates the data acquisition for the researcher.
-
-With this process in mind a functionality design was made.
-It describes each of the necessary functions that need to be build in order to support the process on a system.
-The design, as described in the following section, was made with previous engineering experience and discussion with other experts. 
-
-\begin{figure}[t]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/research-workflow}
 	\caption{
-		This figure shows a simplification of the research workflow often used  in the medical domain (based on Nwogu \cite{nwogu}).
-		The workflow components are mapped by the identified system function groups.
-		%TODO: Remove note?
-		Note: the data acquisition component requires execution of acquisition methods defined in the methods component.
+		This figure shows a simplification of the research workflow often used  in the medical domain (based on \cite{nwogu}).
+		The workflow building blocks are mapped by the identified system function groups. Note that the data acquisition block requires execution of acquisition methods from the methods block.
 	}
 	\label{fig:research-workflow}
 \end{figure}
 
-\section{Initial Concept}
+\section{Initial concept}
 
 \silvia{this section is too difficult to understand, need a complete rewrite}
 
