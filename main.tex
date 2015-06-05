@@ -31,8 +31,8 @@
 \newcommand{\PRN}{PRN}
 \newcommand{\AMC}{AMC}
 \newcommand{\project}{DARTS!}
-\newcommand{\projectdata}{DDS}
-\newcommand{\ivfsystem}{DRG}
+\newcommand{\projectdata}{D-dataset}
+\newcommand{\ivfsystem}{D-gateway}
 \newcommand{\escience}{e-Science}
 
 % Commenting commands
@@ -57,8 +57,6 @@
 	
 	\chapter{Introduction}
 	\label{introduction}
-
-	%TODO: Check if terminology is explained, IVF, PRN, clinical audit registration, \ivfsystem{}, \project.
 	
 	\input{partials/introduction/introduction-domain}
 	\input{partials/introduction/introduction-big-data}
@@ -67,13 +65,27 @@
 	\chapter{Requirement Analysis}
 	\label{requirements}
 	
-	\input{partials/requirements/process-analysis}
+	In this chapter the requirement discovery for the \ivfsystem{} will be described.
+	Normally this would be done be performing a brainstorm session with a starting point, \eg{} `we want to design a new website house style'.
+	For the \ivfsystem{} this was harder as the system's concept was too abstract, meaning that no useful ideas could be formed.
 	
-	\input{partials/requirements/brainstorm}
+	%TODO fix order
+	Therefore, firstly a study was performed, consisting of literature studies, an interview, and observations.
+	The literature study, resulted in descriptions of security issues and solutions.
+	These are the underlying requirements of the \ivfsystem{} and have to be implemented as a result of the used data repository.
+	The interview tied abstract security concepts together with real-life situations.
+	And lastly observations led to the concept of the work process that had to be supported. 
+	
+	With this input an initial requirement analysis was created which in its place was used as input for a brainstorm session.
+	The results of this session were then used to update the requirements to form the final concept.
 	
 	\input{partials/requirements/security}
 	
 	\input{partials/requirements/provenance}
+	
+	\input{partials/requirements/process-analysis}
+	
+	\input{partials/requirements/brainstorm}
 	
 	\chapter{System Design \& Implementation}
 	\label{system-functionality}
