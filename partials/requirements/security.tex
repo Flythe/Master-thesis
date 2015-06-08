@@ -1,31 +1,27 @@
 \section{Security}
 \label{security}
 
-When doing research in the medical domain a well known workflow is often used. Nwogu \cite{nwogu} has formally described and defined this workflow for scientific reporting purposes (\ie{} writing scientific papers).
-This workflow includes: problem definition, formulation of research question, definition of methods, data aquisition, statistical analysis, analysis results, and conclusion.
-
-Clinical research (\eg{} a trial) is well suited to follow this workflow, as each step can be executed in turn.
-Of these steps data acquisition is often the most time-consuming part.
-However, acquisition of new data is not always necessary,  desirable or even possible. 
-Research data of high quality and trustworthiness is valuable and should be preserved and re-used, under well controlled conditions. 
-This is also the case with the \projectdata{}.
-
-The goal of the proposed \ivfsystem{} is to facilitate reuse of this data.
+The goal of the proposed \ivfsystem{} is to facilitate reuse of the \projectdata{}.
 There is, however, one major restriction with data sharing and re-use: medical data is (almost always) highly sensitive and must be secured. 
 This imposes strong conditions for reusing the data, which have to be taken into account by the system.
 
-The following section is the discussion portion of a security study.
-Literature was searched for security issues and solutions to these issues in systems related to the clinical domain.
-Found security (abstract) aspects were applied to real-life examples gathered in an interview with a software engineer working on systems supporting a big clinical registry in the Netherlands.
+The following section is the discussion portion of the security study.
+Literature was searched for security issues and solutions to these issues in systems used within the clinical domain.
+Found security aspects were applied to real-life examples gathered in an interview with a software engineer working on systems supporting a big clinical registry in the Netherlands.
 The full security review and interview transcript can be found in appendix \ref{security-review-appendix}.
 
-%TODO tekst inkorten, specifiek voor het systeem maken
 \paragraph{Security Analysis: the \ivfsystem{} case}
 \label{security-summarisation-analysis}
 
-Points taken from this security study will be described and reviewed here in the context of the \ivfsystem{}.
+In the review a multitude of security issues and solutions are listed.
+As a general rule exploring and using present day standard security measures are a must-have for a good system.
+During the software engineering cycle of the \ivfsystem{} searches will be done for the appropriate security measures for each part of the system.
+Also the expertise of developers, engineers, and system administrators with multiple years of experience each will be used.
 
-Starting with consent, for the \project{} it can be viewed from multiple perspectives: patient, clinic, and registry.
+But next to this there are a few highly important concepts of security, which are a mixture of technical, lawful, and ethical components.
+These concepts are interesting to look at as they have a high impact on how data may be used.
+
+Starting with the issue of consent, for the \project{} it can be viewed from multiple perspectives: patient, clinic, and registry.
 When a researcher wants to use the dataset available in the \ivfsystem{}, they will use data coming from the clinics, which in turn gather data from patients.
 This patient data is then linked to the PRN registry data.
 Each of the parties involved should to some extent be able to determine if they allow their data to be used.
@@ -38,7 +34,7 @@ It uses historical data for the years 2000 to 2010 and according to the nationwi
 Which means that there are about 40.000 patients in the dataset in total.
 Given the size and age of the dataset it was deemed unreasonable to require consent.
 To determine if consent is not a requirement, advice from external parties should be acquired.
-In this case these were: the \AMC{} chief privacy officer, medical ethical commissions of data suppliers, and the \PRN{} privacy commission.
+In this case these were: the \AMC{} chief privacy officer, medical ethical committee of data suppliers, and the \PRN{} privacy committee.
 
 Consent from clinics and registries can be compared to patient consent.
 They all give permission to use \emph{their} data for a specific cause as described in the consent.
@@ -55,9 +51,9 @@ Having a well-defined protocol with the \ivfsystem{} can provide more confidence
 
 For data linkage some identifying (\ie{} private) data items are needed.
 This can be described in the purpose of the data item, but there are also methods for avoiding these data items.
-Hashing of data with the application of Bloom filters \cite{something} makes it possible to link two datasets without revealing the identifying data.
-On-line data linkage is only mentioned as a future work for the \ivfsystem{}.
-In the first implementation, linkage is provided by a third-party and the linked data itself is seen as an external service in figure xx.
+Hashing of data with the application of Bloom filters \cite{s22schnell2009} makes it possible to link two datasets without revealing the identifying data.
+Online data linkage is only mentioned as a future work for the \ivfsystem{}.
+In the first implementation, linkage is provided by a third-party and the delivery of linked data itself is seen as an offline external component of the system.
 
 Anonymisation and pseudonymisation should be used to de-identify individuals.
 While identification through data aggregation and cross-referencing is still possible to happen, these steps should make it more difficult.
@@ -65,9 +61,29 @@ The \ivfsystem{} will use both techniques to provide privacy, datasets are mostl
 Whatever identifying data is left (through linkage) will be pseudonymised before it is accepted into the system.
 
 In order to decrease the chances of cross-referencing and data breaches in general, auditing should be applied.
-This means keeping logs on who uses what data at what point in time and \silvia{?? what that data looked like at that time}.
+This means keeping logs on who uses what data at what point in time and what that data looked like at that time.
 Apart from privacy this also makes it possible to keep people accountable and to provide research data management functionalities such as archival and provenance.
 
-Lastly, exploring and using present day standard security measures are a must-have for a good system.
-During the software engineering cycle of the \ivfsystem{} searches will be done for the appropriate security measures for each part of the system.
-Also the expertise of developers, engineers, and system administrators with multiple years of experience each will be used.
+\paragraph{Provenance and the \ivfsystem{}}
+If the reasoning is flipped over it can also be said that provenance provides data auditing capabilities.
+A short review on the subject is provided in appendix \ref{provenance-review-appendix}.
+The essence of provenance is to store metadata about the `life' of a piece of data (where does it come from, how was it processed, etc.).
+This metadata can be used to create a view for human consumption as described by the PROV Model Primer \cite{dsp8gil} published by the W3C (World Wide Web Consortium\footnote{http://www.w3.org/}).
+An example of human consumable provenance is shown in figure \ref{fig:provenance-schema-text}.
+
+There are many applications of provenance in security, different levels can be supplied by mixing computerised surveillance with human insight.
+One of the clearest examples is the data audit functionality.
+The necessary metadata for an audit is collected automatically during the operation of the system.
+Outcomes of this audit can be partly analysed by a computer, but can also additionally be translated into an human understandable format.
+Further actions that lead to actual security should be captured in standardised processes, therefore provenance is only a tool and not a security end-point.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/provenance-large-schema}
+	\caption{
+		This example describes the creation of a chart, the original data used, the intermediate data generated during the process, the used software, who was responsible for the work, and who this person was working for.
+		Taken from PROV Model Primer \cite{dsp8gil}.
+		Detailed description can be found in appendix \ref{provenance-review-appendix}.
+	}
+	\label{fig:provenance-schema-text}
+\end{figure}

@@ -37,7 +37,7 @@
 
 % Commenting commands
 \newcommand{\silvia}[1]{\textcolor{red}{\textbf{*Silvia: }\textit{#1}}}
-\newcommand{\allard}[1]{\textcolor{green}{\textbf{*Allard: }\textit{#1}}}
+\newcommand{\allard}[1]{\textcolor{magenta}{\textbf{*Allard: }\textit{#1}}}
 \newcommand{\note}[1]{\textcolor{cyan}{\textit{#1}}}
 
 %\title{Developing a Data Management System for Obstetric Research Into Long Term Effect of In Vitro Fertilisation Techniques}
@@ -66,13 +66,13 @@
 	\label{requirements}
 	
 	In this chapter the requirement discovery for the \ivfsystem{} will be described.
-	Normally this would be done be performing a brainstorm session with a starting point, \eg{} `we want to design a new website house style'.
-	For the \ivfsystem{} this was harder as the system's concept was too abstract, meaning that no useful ideas could be formed.
+	At the start of the project the assumption was that the system would encompass data management (\eg{} search, select, download) and data analysis (\eg{} support of SPSS or R).
+	Bringing this concept into a brainstorm session proved to be quite difficult, it was to abstract for the users to form useful ideas.
+	Therefore, a study was performed to find potential requirements and further define the system's description (\ie{} make it less abstract).
+	This study consisted of literature studies, an interview, and observations.
 	
-	%TODO fix order
-	Therefore, firstly a study was performed, consisting of literature studies, an interview, and observations.
 	The literature study, resulted in descriptions of security issues and solutions.
-	These are the underlying requirements of the \ivfsystem{} and have to be implemented as a result of the used data repository.
+	These are the underlying requirements of the \ivfsystem{} and have to be implemented as a result of the sensitive data repository.
 	The interview tied abstract security concepts together with real-life situations.
 	And lastly observations led to the concept of the work process that had to be supported. 
 	
@@ -81,11 +81,13 @@
 	
 	\input{partials/requirements/security}
 	
-	\input{partials/requirements/provenance}
-	
 	\input{partials/requirements/process-analysis}
 	
+	\input{partials/requirements/initial-concept}
+	
 	\input{partials/requirements/brainstorm}
+	
+	\input{partials/requirements/final-concept}
 	
 	\chapter{System Design \& Implementation}
 	\label{system-functionality}
@@ -145,6 +147,11 @@
 	\input{partials/requirements/security-introduction}
 	\input{partials/requirements/security-interviews}
 	\input{partials/requirements/security-summary}
+	
+	\chapter{Provenance Review}
+	\label{provenance-review-appendix}
+	
+	\input{partials/requirements/provenance}
 	
 	\chapter{Security Checklists}
 	\label{security-appendix}
