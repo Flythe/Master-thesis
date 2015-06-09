@@ -15,10 +15,12 @@
 \usepackage[font=footnotesize]{caption}
 \usepackage{csquotes}
 \usepackage{color}
+\usepackage{rotating}
 
 % Settings
 % Margins in lists
 \setlist[itemize]{noitemsep}
+\setlist[enumerate]{noitemsep}
 % Margins in tables
 \renewcommand{\arraystretch}{1.3}
 
@@ -28,25 +30,18 @@
 \newcommand{\IVF}{IVF}
 \newcommand{\PRN}{PRN}
 \newcommand{\AMC}{AMC}
-\newcommand{\project}{IVF-PRN project}
-\newcommand{\ivfsystem}{IVF-PRN system}
+\newcommand{\project}{DARTS!}
+\newcommand{\projectdata}{D-dataset}
+\newcommand{\ivfsystem}{D-gateway}
 \newcommand{\escience}{e-Science}
 
-% Block comment command
-%\long\def\/*#1*/{}
-
 % Commenting commands
-\newcommand{\sil}[1]{\textcolor{red}{\textbf{*Silvia: }\textit{#1}}}
-\newcommand{\allard}[1]{\textcolor{red}{\textbf{*Allard: }\textit{#1}}}
+\newcommand{\silvia}[1]{\textcolor{red}{\textbf{*Silvia: }\textit{#1}}}
+\newcommand{\allard}[1]{\textcolor{magenta}{\textbf{*Allard: }\textit{#1}}}
 \newcommand{\note}[1]{\textcolor{cyan}{\textit{#1}}}
 
-% Flag for document style switch, set to true or false
-\newif\ifstructure
-
-\structuretrue
-%\structurefalse
-
-\title{Thesis}
+%\title{Developing a Data Management System for Obstetric Research Into Long Term Effect of In Vitro Fertilisation Techniques}
+\title{A Data Management System for Obstetric Research}
 
 \author{
 	Allard J. van Altena\\
@@ -56,89 +51,109 @@
 
 \begin{document}
 
-	%\maketitle
+%	\maketitle
 	
-	%\tableofcontents
+	\tableofcontents
 	
 	\chapter{Introduction}
 	\label{introduction}
 	
-	\ifstructure
-		\input{structure/introduction}
-	\else
-		\input{partials/introduction}
-	\fi
-
-	\chapter{Security}
-	\label{security}
+	\input{partials/introduction/introduction-domain}
+	\input{partials/introduction/introduction-big-data}
+	\input{partials/introduction/introduction-questions}
 	
-	\ifstructure
-		\input{structure/security}
-	\else
-		\input{partials/security}
-		\input{partials/security-interviews}
-		\input{partials/security-summary}
-	\fi
+	\chapter{Requirement Analysis}
+	\label{requirements}
 	
-	\chapter{System Functionality}
+	
+	
+	\input{partials/requirements/security}
+	
+	\input{partials/requirements/process-analysis}
+	
+	\input{partials/requirements/initial-concept}
+	
+	\input{partials/requirements/brainstorm}
+	
+	\input{partials/requirements/final-concept}
+	
+	\chapter{System Design \& Implementation}
 	\label{system-functionality}
 	
-	\ifstructure
-		\input{structure/functionality}	
-	\else
-		\input{partials/functionality-brainstorm}
-		\input{partials/functionality-rosemary}
-		\input{partials/functionality}
-	\fi
+	\input{partials/design-implementation/function-design}
 	
-	\chapter{Data Model}
-	\label{datamodel}
+	\input{partials/design-implementation/reuse-review}
+	\input{partials/design-implementation/reuse-rosemary}
 	
-	\ifstructure
-		\input{structure/datamodel}
-	\else
-		\input{partials/datamodel}
-		\input{partials/datamodel-provenance}
-	\fi
+	\input{partials/design-implementation/implementation-processes}
+	\input{partials/design-implementation/implementation-rosemary}
 	
-	\chapter{Software Engineering}
-	\label{engineering}
-	
-	\ifstructure
-		\input{structure/softwareengineering}	
-	\else
-		\input{partials/softwareengineering}
-	\fi
-	
-	\chapter{Evaluation}
+	\chapter{System Evaluation}
 	\label{evaluation}
 	
-	\ifstructure
-		\input{structure/evaluation}
-	\else
-		\input{partials/evaluation}
-	\fi
+	\input{partials/evaluation/evaluation-structure}
+	\input{partials/evaluation/evaluation-analysis}
 	
-	\chapter{Discussion}
+	\chapter{Discussion \& Conclusion}
 	\label{discussion}
 	
-	\ifstructure
-		\input{structure/discussion}
-	\else
-		\input{partials/discussion}
-	\fi
+	\input{partials/discussion-conclusion/overview-implications}
+	
+	\input{partials/discussion-conclusion/appraisal}
+	
+	\input{partials/discussion-conclusion/conclusion}
+	
+	\chapter{Data Management Position}
+	\label{position}
+	
+	\input{partials/position/introduction}
+	
+	\input{partials/position/background}
+	
+	\input{partials/position/discussion}
+	
+	\input{partials/position/conclusion}
 	
 	\clearpage
 	
-	%\printbibliography
+%	\printbibliography
 	
 	\appendix
+	\chapter{Abbreviations}
+	\label{abbreviations}
+	
+	\input{partials/abbreviations}
+	
+	\chapter{Brainstorm Schemas}
+	\label{brainstorm-before-after}
+	
+	\input{partials/brainstorm-schemas-appendix}
+	
+	\chapter{Security Review}
+	\label{security-review-appendix}
+	
+	\input{partials/requirements/security-introduction}
+	\input{partials/requirements/security-interviews}
+	\input{partials/requirements/security-summary}
+	
+	\chapter{Provenance Review}
+	\label{provenance-review-appendix}
+	
+	\input{partials/requirements/provenance}
+	
 	\chapter{Security Checklists}
 	\label{security-appendix}
 	
-	\ifstructure
-	\else 
-		\input{partials/security-checklists-appendix}
-	\fi
+	\input{partials/security-checklists-appendix}
+	
+	\chapter{Identified Functions}
+	\label{identified-functions}
+	
+	\input{partials/identified-functions-appendix}
+	
+	\chapter{Unedited Rosemary Data Model}
+	\label{unedited-datamodel}
+	
+	\input{partials/unedited-datamodel}
 
 \end{document}
