@@ -1,14 +1,30 @@
-\section{Rosemary-based Design}
+\section{Rosemary Design}
 \label{reuse-rosemary}
 
+The overall workings of Rosemary have been described in the previous section.
+Below the architecture and data model will be explained before going into the implementation as done in the \ivfsystem{}, which will be described in the next section.
 
-Compared to the functional design (section \ref{function-design}) the most critical part of the system, data management, is mostly covered by Rosemary.
-Datasets are bound to \emph{workspaces}, which have an owner and members that can all view the data inside, effectively restricting data access.
-To enable  search and filtering, a specific model for raw data storage is used and supplemented with an extensive tagging system.
-The flexibility of this system means that part of the request and the whole data management requirements can be implemented with minimal changes.
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/rosemary-architecture}
+	\caption{
+		Rosemary architecture with domain specific items removed.
+		Describes the implementation of the back-end and the front-end.
+		Together with the specific build tools used during development.
+	}
+	\label{fig:reuse-rosemary-architecture}
+\end{figure}
 
-User management can be totally reused, but it will need extensions to provide for the necessary user roles.
-Furthermore, request and publication management will need to be introduced into the system.
+\paragraph{Architecture}
+For the Rosemary back-end the Play Framework\footnote{https://www.playframework.com/} is used.
+It is written with the Scala\footnote{http://www.scala-lang.org/} programming language which is interoperable with Java.
+As a database mongoDB\footnote{https://www.mongodb.org/} is used, a document-oriented database.
+Communication between the back-end and the database is done with JSON\footnote{http://json.org/} and the Scala library `Salat' is used to serialise the JSON information into Scala classes.
+The back-end exposes a RESTful API which can be accessed through the front-end.
+
+The front-end is based on the AngularJS\footnote{https://angularjs.org/} framework and coded with Coffeescript\footnote{http://coffeescript.org/} which is compiled into JavaScript.
+For layout and styling HTML and Less\footnote{http://lesscss.org/} are used, Less compiles into CSS.
+To provide a pleasant user experience the front-end is developed as a web application, data is loaded asynchronous and stored at the client's side to give the feel of a native application.
 
 \begin{figure}[!hb]
 	\centering
@@ -21,16 +37,21 @@ Furthermore, request and publication management will need to be introduced into 
 	\label{fig:reuse-rosemary-dm}
 \end{figure}
 
-\silvia{i believe that from here you actually describe the prototype. keep clear what was rosemary, what is new, or what has been adapted. maybe it is not so relvant to stress the differences, but to have a complete and understandable explantion of what you have done}
 \paragraph{Data model}
-Figure \ref{fig:reuse-rosemary-dm} depicts the Rosemary data model where the (\ie{} domain specific) items are removed.
-%A full view of the data model can be seen in appendix \ref{unedited-datamodel}.
-Implementation is done in mongoDB, a document-oriented database \cite{}.
-\silvia{present the main entities of the model here. the figure should stay in the body}
+Figure \ref{fig:reuse-rosemary-dm} depicts the Rosemary data model where the domain specific items are removed.
+This model describes six main data objects: {\tt Datum}, {\tt Tag}, {\tt Rights}, {\tt User}, {\tt Notification}, and {\tt Thread}.
+The {\tt Tag}, {\tt Notification}, and {\tt Rights} objects are inherited to describe a specific instance, for example the {\tt WorkspaceTag} is a {\tt Tag}.
+
+A short description of the main object will be given for better understanding of the model.
+A {\tt Datum} is a single piece of data and its metadata, for the Rosemary case a {\tt Datum} might be a reference to an MRI image and metadata about the scanned patient.
+{\tt Datum}s may be tagged with the {\tt Tag} object, for example, the {\tt UserTag} is a tag defined by the user and attached to a set of {\tt Datum}s for identification.
+{\tt Tag}s are also used to manage access rights, each tag has a specific {\tt Rights} attached to it.
+Based on the set of {\tt User}s which is assigned to the {\tt Rights} the system can restrict access to certain data.
+The {\tt Notification} object stores data about process milestones which can be displayed in the user interface, for example when a message is send.
+Lastly, the {\tt Thread} keeps track of messages send back and forth in conversations.
+
 The data model and its implementation provide some interesting possibilities.
-%What is described in figure \ref{fig:reuse-rosemary-dm} 
-A {\tt Datum} is a single piece of raw data, \ie{} a row in a relational database.
-This data can be tracked and reused endlessly by applying a {\tt Tag} object.
-For example, access control can be applied by tagging a {\tt Datum} with a {\tt WorkspaceTag} which is owned by a {\tt User}.
+For example, a {\tt Datum} can be tracked and reused endlessly by applying a {\tt Tag} object.
+One use of this is access control, which can be applied by tagging a {\tt Datum} with a {\tt WorkspaceTag} which is owned by a {\tt User}.
 Many different constructs of this sort can be achieved without ever touching the structure of the actual model itself.
-The reuse in the \ivfsystem{} relies heavily on this concept, which means only slight changed had to be made to the original data objects.
+%The reuse in the \ivfsystem{} relies heavily on this concept, which means only slight changed had to be made to the original data objects.

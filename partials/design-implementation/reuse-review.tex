@@ -1,65 +1,79 @@
 \section{Technical Design Considerations}
 \label{reuse}
 
-%\subsection{Review}
-%\label{reuse-review}
+The data management is the most significant part of the \ivfsystem{} and therefore should be well implemented.
+Also implementation had to be done in a short time due to study planning restrictions, which were a result from the earlier mentioned data gathering issues.
 
-The data management
-is the most significant part of the \ivfsystem{} and therefore should be well implemented.
-Also implementation had to be done in a short time due to study planning restrictions.
+To speed up development multiple systems were considered and evaluated for reuse.
+Systems that have properties of clinical data management were sought for.
+From a list of systems three were included in an more in-depth evaluation presented below.
 
-Multiple systems were considered and evaluated for reuse.
-Because extensions would be needed, the system preferably had to be open-source.
-Three systems were included in an more in-depth evaluation presented below.
+\paragraph{Software reuse}
+The external software was identified through the paper of Leroux \cite{leroux2011}, in which five systems are listed: Oracle Clinical, Inform, Rave, DADOS Prospective, and OpenClinica.
+One system was found through internal communication within the AMC, namely Castor.
+The last system is an in-house project called Rosemary at the same department this study was conducted at.
 
-\silvia{put this info below in the right places}
-two externally developed open-source systems and one in-house project.
-The external software was identified through the paper of Leroux \cite{leroux2011}.
-
-\paragraph{External systems.}
-The external systems identified were OpenClinica and DADOS Prospective, 
-which are both open-source clinical trial management systems.
-OpenClinica \cite{} is ... - an online demo is available \cite{}.
-DADOS Prospective \cite{} is .....
-\silvia{maybe here you could list others that you have looked into, but that were no adequate? only names and references are ok. BTW: references to scientific pubs should be preferred to urls in all cases}
-
+All systems, except for Rosemary, are clinical trial management (CTM) software.
 Their focus lies on data entry and retrieval for low-level (researcher) users, and on research overview for high-level (management) users.
 Besides data entry, they also offer overviews displaying statistics on participants and the clinics they belong to, how many inclusions were made, follow-up percentages, etc.
+Rosemary is build to handle neuroimaging data and metadata, data analysis applications, and their execution on grid infrastructures.
 
-Data collection protocols can be defined per study in a very flexible manner.
+Four of the CTM systems are delivered under a proprietary license: Oracle Clinical, InForm, Castor, and Rave.
+Castor has a fair use for small trials, it is available for free (up to a maximum of 200 inclusions or 12 months study duration).
+However, the identified functions of the \ivfsystem{} demand that extensions have to be made.
+One firm requirement of the systems that are considered is that they have to be open-source to accommodate this.
+Also, no budget existed for the development of the system.
+Therefore, these systems were not included for an in-depth evaluation.
+
+\paragraph{Evaluation: external systems}
+The open-source external systems identified were OpenClinica\footnote{https://www.openclinica.com/} and DADOS Prospective \cite{dados}.
+Both systems were evaluated, OpenClinica based on their online demo and DADOS Prospective based on their publication.
+
+As said before the systems are CTM software and they both have approximately the same purpose.
+They provide per study data recording.
+Data collection protocols can be defined in a very flexible manner.
 After the protocol has been defined, it is fixed for all study participants.
-This is very useful in longer running (prospective) studies, where collection should be standardised for quality, analysis, and reuse purposes.
-In principle, as far as notable for OpenClinica, there are no features directly supporting data sharing or reuse.
-\silvia{this cannot be true. there is no concept of external people sharing data, but if people are made members of the study they can get access to the whole dataset. this is a different model than we want for our project, where there is no concept of study to create compartments for data and access control. please reformulate, better explaining the difference between a study-per-study recording system, as opposed to a registry of data that will serve external, ad-hoc data requests? }
+This is very useful in longitudinal studies, where collection should be standardised for study quality and analysis purposes.
+Also, the data model has already been proven by the fact that many researchers use these systems.
 
-\paragraph{In-house project: Rosemary.}
-\silvia{i think this can be improved. highlight metadata search functions}
-A system named Rosemary was built at the AMC to handle neuroimaging data and metadata, data analysis applications, and their execution on grid infrastructures.
-The data are brain images generated by Magnetic Resonance Imaging (MRI) scanners, and the 
-metadata refers to the subjects, the imaging session, etc. 
-These images are imported into the system from external data servers (XNAT\cite{}), selected by the user, and submitted for processing by analysis applications. Result are also stored in the system and used in further analysis.
-Input is restricted to automated functions and there are no manual input interfaces available.
-However, once data is in the system it allows for each data item to be used in access restricted subsets.
-This system data has interesting characteristics for metadata searching and ... ?
+In principle, as far as notable the desired options for data reuse are not supported.
+Reuse in these systems is at a study level, meaning that when a user is made a member of a study they can see and use all the data within.
+The philosophy for the \ivfsystem{} is to provide external data requests on a pool of data, which makes the model of the CTM systems less useful for this case.
 
-\paragraph{The better pick.}
-It quickly becomes apparent that no existing system is able to cover all the needed functionality, even when looking at only data management. \silvia{this sounds a bit out-of-the-blue without a clear definition of the functions you are after, and a consistent check for each one of the functions in the existing systems. if you would make a table it would be very clear to see that the systems do not fulfil, and which functions would be necessary to add in our prototype}
+\paragraph{Evaluation: In-house project}
+In Rosemary the data consists of brain images generated by Magnetic Resonance Imaging (MRI) scanners, and the metadata refers to the subjects, the imaging session, etc. 
+References to images are imported into the system from external data servers (XNAT \cite{xnat}), selected by the user, and submitted for processing by analysis applications. 
+Result are also stored in the system and used in further analysis.
+Data input is restricted to automated functions and there are no manual input interfaces available.
+
+The philosophy of Rosemary is to support researchers with managing of data, processing, and community.
+Data challenges are tackled by providing extensive search, filter, and selection functionality.
+Processing management is handled by automatically bundling submissions into processings which are then fed to one or multiple applications, this is rather uninteresting for the \ivfsystem{} case so it will not be discussed any further.
+And lastly, community is currently supported through descriptive notifications, messaging, and the notion of a `workspace'.
+A workspace contains a set of data, a researcher may define a workspace and share this with their colleagues by adding them as members.
+
+To fulfil the data management functionality each single item of data (called a `datum') can be supplemented with metadata.
+Data is given meaning through this metadata, this works at a human level but also at a system level.
+Metadata can be free text, but the system also uses some predefined objects.
+The most important metadata object is the `Tag', it can be appended to a datum and can fulfil multiple roles. 
+One of which being the identification of to what set of workspaces a datum belongs.
+
+Based on metadata the researcher can search and order their data.
+When data is added to the workspace a powerful search functionality is provided.
+It supports searches on the datum level but also on the metadata level.
+Initially the search is text-based and very fuzzy, but with the use of a query language the user can make the search specific.
+This query language ranges from keywords like `and/or' to restriction of search based on the name of a metadata field (\eg{} search for `patient123' but only in the field named `subject').
+
+\paragraph{The better pick}
 Based on several considerations, the decision was made to use the in-house Rosemary project for further development
-Flexibility in the code is important, \ie{} open-source, extensible, easy to develop. \silvia{but all 3 are open source, so no difference here}
-Next to this, short lines to expertise are useful for a quick development process, because once a (coding) problem is encountered it can be solved in a matter of hours.
-Lastly, during the evaluation process it became clear that the data model of Rosemary could be reused with minimal effort, \silvia{because... whereas the others ...}.
+The manner in which data and metadata are applied makes that the data model of Rosemary is very flexible.
+This is less useful for longer running projects which require very strict data entry rules.
+However, for the \ivfsystem{} data is an immutable set, namely the \projectdata{}.
+After a small survey it turned out that the dataset could be used directly with the existing data model.
 
-\silvia{this part was in next section, incorporate here somehow}
+Because Rosemary is an in-house project the survey to check the data model could be done directly with the lead developers, which brings us to the next consideration.
+Short lines of communication to expertise are useful for a quick development process, because once a (coding) problem is encountered it can be solved in a matter of hours.
 
-%\paragraph{Goodness of fit}
-\silvia{i have the feeling that this is still part of the previous section, to explain the choice. }
-To make clear how well Rosemary can be fitted to the \project{} first the functions of the current implementation will be described.
-As said in the previous section the system encompasses domain specific data and processing management. \silvia{you can forget processing management, right? focus focus focus ;-)}
-The shear amount of available data and metadata is what makes the data management in this case a challenge.
-
-Data management challenges are tackled by providing extensive search, filter, and selection functionality.
-Submission management is handled by automatically bundling submissions into processings which are then fed to one or multiple applications.
+Lastly, Rosemary tackles data management challenges by providing extensive search, filter, and selection functionality.
 Furthermore, notifications and messaging are supported.
-Notifications provide users with system status information. 
-For example, progress updates during a data import or when receiving a message.
-Messaging should enable collaborative work by wrapping research communication inside the same system as where the data resides.
+All of these functions are useful to some extent for the requirements of the \ivfsystem{}.
