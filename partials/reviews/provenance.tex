@@ -23,6 +23,15 @@ To actually \emph{use} provenance data a standard for schemas is described which
 Provenance is explored because it can be considered as an extension to data security.
 Since provenance directly contains data traceability information, and is can be consumable by humans, it provides another level of security compared to the described solutions in the review in appendix \ref{security-review-appendix}.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{images/provenance-overview}
+	\caption{
+		Example model showing the three core data types (\agent{}, \entity{}, and \activity{}) and a few of all possible \relations{} between them. 
+		Taken from PROV Model Primer \cite{dsp8gil}.}
+	\label{fig:provenance-overview}
+\end{figure}
+
 \paragraph{The `why?' of provenance}
 \label{provenance-why}
 
@@ -48,15 +57,6 @@ Furthermore, \attributes{} can be assigned to provide metadata for data types or
 Figure \ref{fig:provenance-overview} shows the standardised display methods for the data types and \relations{}, \attributes{} are displayed with a `document' symbol as shown in figure \ref{fig:provenance-large-schema}.
 Also, an applied provenance example is given in figure \ref{fig:provenance-large-schema}.
 
-\begin{figure}[!t]
-	\centering
-	\includegraphics[width=0.5\linewidth]{images/provenance-overview}
-	\caption{
-		Example model showing the three core data types (\agent{}, \entity{}, and \activity{}) and a few of all possible \relations{} between them. 
-		Taken from PROV Model Primer \cite{dsp8gil}.}
-	\label{fig:provenance-overview}
-\end{figure}
-
 The concepts as described in PROV Model Primer \cite{dsp8gil} are:
 
 \begin{itemize}
@@ -66,7 +66,7 @@ The concepts as described in PROV Model Primer \cite{dsp8gil} are:
 	\item Relation, describes the interaction between two instances of the data types.
 \end{itemize}
 
-\begin{figure}[!b]
+\begin{figure}
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/provenance-large-schema}
 	\caption{
@@ -75,7 +75,7 @@ The concepts as described in PROV Model Primer \cite{dsp8gil} are:
 		An addition to figure \ref{fig:provenance-overview} is the use of \attributes{}, these are displayed with document icons and provide metadata on the object they are related to.
 		In this case that is the name and email address for one the agents and the company name for the other agent.
 		Taken from PROV Model Primer \cite{dsp8gil}.
-		}
+	}
 	\label{fig:provenance-large-schema}
 \end{figure}
 
