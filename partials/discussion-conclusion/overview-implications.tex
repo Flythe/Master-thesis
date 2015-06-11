@@ -8,6 +8,26 @@
 %Also the data import function was removed, however this might find a place in a later prototype of the \ivfsystem{} when incremental updating of data is used.
 
 
+%A system like this with these management functions does not exist yet.
+%A good example of this is the search function, when used with a basic text search term the search is fuzzy.
+%It searches over all the available fields and returns whatever matches to it.
+%However, the search precision can be extended by restricting each term to a specific field (\eg{} description:pregnant).
+%These specific searches can then be coupled with the `and/or' keywords (\eg{} description:pregnant and keywords:embryo).
+%This shows the flexibility of this function, because the search is wrapped with a dedicated engine it is fast as well.
+%The engine used is Lucene\footnote{https://lucene.apache.org/}, and it can provide results in a matter of milliseconds.
+
+%One of the plus points, the fact that a system like this does not exists yet, is also one of the stumbling points.
+%There is no template to follow and as almost everything is possible users expect a lot from the system.
+%During the brainstorm a lot of functions came up which were not implemented because of time restrictions.
+%Also, no user-centred process was used, which means that most of the identified flaws in the system are simply differences in interpretation by the designer of the system.
+
+%To develop this system into a well performing demo some work is required.
+%Almost none of the functions shows its full potential, performing management tasks is still a manual process mostly.
+%In order to use this system as a demo some more `fancy bits' are needed to win over the customers.
+
+%All in all the conclusion of each of the testers was that the system shows potential but needs polishing.
+%If time allowed it a second iteration of the system might clean up a lot of the found problems as most of them are relatively easy to fix.
+
 
 \section{Implications}
 

@@ -1,4 +1,6 @@
-\section{Analysis}
+%\paragraph{Summary}
+\section{Summary}
+\label{evaluation-summary}
 
 As with brainstorming creating a user interface is not an exact science.
 For evaluation ends design heuristics are used, and the found problems can be mapped against these.
@@ -17,8 +19,7 @@ The used list is from Nielsen \cite{designHeuristics} and contains ten famous he
 	\item Help and documentation.
 \end{enumerate}
 
-\paragraph{System hits}
-Based on the system's process and the potential as a supporting factor in doing research the system got positive feedback.
+\noindent{} Based on the system's process and the potential as a supporting factor in doing research the system got positive feedback.
 One of the testers mentioned that the system as a prototype might be used for demoing purposes.
 Relatively simple functions from the system can show that thought went into the workflow of data security.
 Thereby fulfilling the goal of persuading data deliverers and providing more trust.
@@ -26,35 +27,20 @@ Thereby fulfilling the goal of persuading data deliverers and providing more tru
 The biggest hit is the request management process.
 From multiple perspectives the system can show what requests are in progress and information is available to make request `dashboards' for management purposes.
 Which also brings possibilities for monitoring by data owners.
-A system like this with these management functions does not exist yet.
-
-Furthermore, the flexibility and speed of the system are plus points.
-A good example of this is the search function, when used with a basic text search term the search is fuzzy.
-It searches over all the available fields and returns whatever matches to it.
-However, the search precision can be extended by restricting each term to a specific field (\eg{} description:pregnant).
-These specific searches can then be coupled with the `and/or' keywords (\eg{} description:pregnant and keywords:embryo).
-This shows the flexibility of this function, because the search is wrapped with a dedicated engine it is fast as well.
-The engine used is Lucene\footnote{https://lucene.apache.org/}, and it can provide results in a matter of milliseconds.
 
 Design-wise the data view is a perfect example for the user freedom and flexibility heuristics.
 There are three ways of viewing namely: raw data, graph, aggregated.
 The user may switch between these views and can pick whichever they prefer for their current task.
+On the other hand, the fact that the data view does not support (analogue) printing of data shows lack in flexibility.
 
-\paragraph{System misses}
-\silvia{move most of this to discussion chapte. this is no longer evaluation but reflection}
-One of the plus points, the fact that a system like this does not exists yet, is also one of the stumbling points.
-There is no template to follow and as almost everything is possible users expect a lot from the system.
-During the brainstorm a lot of functions came up which were not implemented because of time restrictions.
-Also, no user-centred process was used, which means that most of the identified flaws in the system are simply differences in interpretation by the designer of the system.
-
-To develop this system into a well performing demo some work is required.
-Almost none of the functions shows its full potential, performing management tasks is still a manual process mostly.
-In order to use this system as a demo some more `fancy bits' are needed to win over the customers.
-
-Design-wise there are a lot of things to clean up, most of the encountered problems can be related to the system status visibility.
+There are things to clean up, most of the encountered problems can be related to the system status visibility.
 For example, when the user is in the data dictionary the buttons on the basket do not account for this.
 Which means that two out of the three buttons are completely out of context for what the user is doing.
 System visibility problems are also reflected in the fact that testers tried to `start' the search by hitting enter and not noticing that the results had already updated.
+Lastly, selecting data and putting it in the basket caused confusing meaning that the purpose of the basket is not well understood.
 
-All in all the conclusion of each of the testers was that the system shows potential but needs polishing.
-If time allowed it a second iteration of the system might clean up a lot of the found problems as most of them are relatively easy to fix.
+As for the heuristic `recognition rather than recall' a few issues were found as well.
+The `select all' function on the basket confused the user, thinking they would select all data which was already \emph{in} the basket.
+Clicking this button made the user loose all progress made resulting in a problem with recognising and recovering from errors.
+Also, going from a basket selection to preparing a request was unclear as they were looking in the wrong place.
+Lastly, the redirect from request overview to new message was unexpected behaviour.
