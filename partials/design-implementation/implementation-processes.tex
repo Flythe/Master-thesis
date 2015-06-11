@@ -1,49 +1,122 @@
-\section{Implementation}
+\section{Implementation \ivfsystem{}}
 
-% Functions as implemented
-% Architecture as implemented
 % Datamodel as implemented
 % Design as implemented
 
-\silvia{instead of presenting what has been done, this section is about what has not been done. it does not seem useful to spend so much space on describing things that were not done.
-please make sure to describe the complete story (all requirements and all functions) in one place, and mark those that were not included in the prototype. the discussion about what was included and what was not can be part of discussion and conclusions - and not mixed in the implementation description. here you should clearly present what have been done, with technical details but with scientific language (methods, results, evaluation). }
-%\paragraph{Division of management tasks}
-\silvia{too long - just explain the prototype implementation here. it is not necesary to explain the dev along time, but just how the prototype became in the end}
-Due to time restrictions in this study not all functions that were discovered in chapter 2 can be implemented.
+This section will go into the implementation details for the developed \ivfsystem{}.
+Architecture, functions, data model, and the user interface design will be presented below.
+
+Rosemary architecture was fully reused, domain specific components were removed for \ivfsystem{} implementation.
+Meaning that the system's architecture is exactly as presented in section \ref{reuse-rosemary}.
+On a level of code and structure however some changes were made to accommodate \ivfsystem{} functionality.
+
+Due to previously mentioned time restrictions not all functions that were discovered could be implemented.
 A selection is made based on the programmers opinion what would be most profitable for a prototype system.
-The selection that is made can be seen in figure \ref{fig:functions-implemented}.
-Decisions are based on the fact that the demo has to appeal to a wide variety of users, most importantly research and clinic management.
+This selection is shown in figure \ref{fig:functions-workflow}, the implemented functions have a dashed border.
+Decisions are based on the fact that the demo has to appeal to a wide variety of users, most importantly researchers and clinic management.
 
-The most basic system data management functions are implemented, namely 
-search and filtering for the researcher and data manager roles, and the download function.
-Data audit is implemented through placeholders to show the value of such an function without the actual data processing back-end. \silvia{what do you mean by placeholders (my spelling says this word does not exist)? is this fake functions with pre-defined responses? or a no-op?}
-\silvia{??Metadata handling is not implemented, as data is considered \emph{fixed} after system initialisation.}
+The system's critical functions have been implemented such as, user registration and management, data requests and acquisition.
+To give the system eye-catchers and show its value the data audit has been implemented through so-called placeholders, \ie{} functions have pre-defined responses and do not work with the `live' data.
+Also, different representation methods for data have been explored, for example: raw data, aggregated data, data in a graph.
+This will be further explained in the user interface implementation details.
 
-After this, request management is implemented.
-Removing direct access to data and adding more control for committee users (coming directly from each clinic) is deemed to increase system trust by clinic management.
-Request creation, editing, and submission by researcher users is supported.
-Approval by committee users and automated subset creation by the system is also implemented.
-Not implemented are: annotation and feedback on requests, stale request detection, and keeping provenance.
-All of these functions are mostly supporting users in performing tasks but are not critical to the execution of the system.
+\paragraph{Functionality: back-end and front-end}
+The most notable changes to existing back-end code were in the security classes and data handling.
+Rosemary already supports basic user management where a user creates an account and access to the system is restricted based on this.
+However the system needed user roles for a fine grated control of access to the system.
+To execute this control the system requires these roles to be readable and actionable (\ie{} the system can act upon a specific role).
+This is reflected in the security class which now supplies this information.
 
-User management is implemented with the addition of roles to user accounts and a dashboard for the data manager user.
-In this dashboard the manager can find all the users of the system and assign the appropriate roles to each of them.
-Lastly, publication management as closing stone of the research cycle is left out.
-At this moment the additional time that has to be spend including these functions does not outweigh the added value for prospective demo users.
+Data handling had to be changed, all the read methods in the {\tt Datum} class have been adapted to restrict access.
+This makes for easy access of data from the front-end, the back-end filters the data and returns the restricted dataset.
+The description of the data model implementation will explain this in detail, an example of what this means in the front-end is shown in figure \ref{fig:dataset-example}.
 
-\paragraph{Security}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/datasets-example}
+	\caption{
+		Example of the full \projectdata{} (top) versus a restricted view (bottom).
+		The restricted view shows exactly the same {\tt Datum} but only the accessible (four) headers are displayed.
+	}
+	\label{fig:dataset-example}
+\end{figure}
+
+\paragraph{Functionality: security}
 Even though security considerations are a big part of the requirement analysis (see section \ref{security}), it does not show itself that clearly in the system implementation.
 Most of the security measures were taken during the data gathering steps.
 Because the decision was made to have a fixed dataset for the system a lot of the discussed security measures do not need to apply anymore as described in section \ref{security-summarisation-analysis}.
 
 Provenance, as part of security, was not implemented either.
 It would be very useful to show the strength of the \ivfsystem{}, data protection through provenance can be made highly visible and easy to understand for humans.
-However, the goals to quickly support the provenance functions and develop an interface on top of the data could not be reached within the time frame.
+However, the goals to support the provenance functions and develop an interface on top of the data could not be reached within the time frame.
 
-\silvia{move this to discussion}
-Lastly, in order to obtain a working system a few more things are needed.
-More functionality needs to be implemented, most notably better user interfaces for data filtering and selection (see section \ref{evaluation}).
-Furthermore, more design and programming iterations need to be done before the request and publication management have been fully developed.
-Then a big security iteration should be done to prepare the system for testing and certification.
-Right now security has been patched up in the front-end by hiding information for certain users, this should change to the back-end not \emph{providing} that information to begin with.
+\paragraph{The data model}
+\begin{figure}[!b]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/datamodel-adapted}
+	\caption{
+		Rosemary data model as implemented. 
+		Differences between the implemented \ivfsystem{} model and the original Rosemary model are shown in blue.
+		Describes workspace, tagging, datum, notification, and research models.
+	}
+	\label{fig:implementation-rosemary-dm}
+\end{figure}
 
+Opposing to the architecture of Rosemary, the data model needed alterations to integrate with the \ivfsystem{}.
+These can be divided into changes to already existing objects and additions of new objects.
+
+One of the critical functionalities for the \ivfsystem{} is to support data requests on the \projectdata{}.
+While a request contains a limited set of data items (headers), the \projectdata{} contains all the available headers.
+After a request has been approved the system creates a new subset which is accessible by the requesting researcher.
+On the level of the data model this is achieved by tagging the {\tt Datum} objects with a {\tt WorkspaceTag}.
+The only {\tt User} having access to this tag being the researcher.
+
+In Rosemary tagging a {\tt Datum} exposes all the available data (and metadata) in this object.
+A request explicitly defines which data is needed, to support this the {\tt WorkspaceTag} object was extended with the set of headers that should be accessible.
+This refers back to the data handling as explained in the functionality earlier, the read methods for {\tt Datum} objects check the tag and filter the available data and metadata.
+
+Also, the original Rosemary implementation does not differentiate between different \emph{types} of workspaces. 
+The \ivfsystem{} has three types of  workspaces: the \emph{master} workspace containing the whole \projectdata{}, clinic workspaces containing data specific to a clinic, and request workspaces.
+This is reflected by adding a workspace type field to the {\tt WorkspaceTag} object.
+
+To support data requests the following five objects were added to the model: {\tt Research}, {\tt Approval}, {\tt Data Request}, {\tt DownloadNotif}, {\tt RequestNotif}.
+The two notification objects are used to determine how notification information is displayed in the front-end they both inherit from the {\tt Notification} object.
+This means that the methods used to extract information are standardised and these two notification objects can directly be used in the system without further need for customisation.
+
+The other three objects are related to each other, each {\tt Research} contains an {\tt Approval} object and an {\tt Data Request} object.
+These related objects are used to capture data regarding the request progress.
+Where the {\tt Data Request} contains the requested headers and the {\tt Datum}s these relate to in the \projectdata{}.
+The {\tt Approval} keeps record of the committee users that need to give permissions and what votes were already cast.
+Lastly, the {\tt Research} object is used to capture information used to base a voting decision on, \eg{} research question, study description, etc.
+
+\paragraph{User interface design}
+Design of front-end was done on an educated guess basis.
+There was no time available for a user-centred design approach where prototypes are iterated until the best design solution is achieved.
+The existing layout was mostly left in place, for each new function a page was created where necessary.
+
+Figures \ref{fig:wireframe-layout} and \ref{fig:wireframe-basket-layout} show the wireframes of the implemented layout for the data management in the \ivfsystem{}.
+The menu is shown on the left and the notifications are on the right, when a user browses pages only the middle part updates (\ie{} web application feel).
+The user may switch between pages through the menu, all available functions have their own menu button (\eg{} request, workspaces, messages).
+All accessible workspaces for a user are listed these can be any of the three types mentioned earlier (\ie{} master, clinic, request).
+
+Changes to the Rosemary design were: the addition of a data summary panel, removal of superfluous filter possibilities, and the addition of a download button to the basket.
+The filter panel embodies the searching functionality of the gateway, the basket supports selection and acquisition (downloading), while the summary and data components handle the different views on data.
+
+\begin{figure}[hb]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/evaluation-layout}
+	\caption{
+		Wireframe of the Rosemary layout, showing the data management features: filter, view, select.
+	}
+	\label{fig:wireframe-layout}
+\end{figure}
+
+\begin{figure}[hb]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/evaluation-basket-layout}
+	\caption{
+		Wireframes of the Rosemary filter and basket layout, showing the search and select data management tools.
+		These wireframes are the more detailed versions of the filter and basket blocks shown in figure \ref{fig:wireframe-layout}.
+	}
+	\label{fig:wireframe-basket-layout}
+\end{figure}

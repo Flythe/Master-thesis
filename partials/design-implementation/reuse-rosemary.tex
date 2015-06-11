@@ -16,33 +16,33 @@ Below the architecture and data model will be explained before going into the im
 \end{figure}
 
 \paragraph{Architecture}
-For the Rosemary back-end the Play Framework\footnote{https://www.playframework.com/} is used.
-It is written with the Scala\footnote{http://www.scala-lang.org/} programming language which is interoperable with Java.
-As a database mongoDB\footnote{https://www.mongodb.org/} is used, a document-oriented database.
-Communication between the back-end and the database is done with JSON\footnote{http://json.org/} and the Scala library `Salat' is used to serialise the JSON information into Scala classes.
-The back-end exposes a RESTful API which can be accessed through the front-end.
+For the Rosemary back-end the Play Framework \cite{play} is used.
+It is written with the Scala \cite{scala} programming language which is interoperable with Java.
+As a database mongoDB \cite{mongo} is used, a document-oriented database.
+Communication between the back-end and the database is done with JSON \cite{json} and the Scala library `Salat' is used to serialise the JSON information into Scala classes.
+The back-end exposes a RESTful API which can be accessed by the front-end.
 
-The front-end is based on the AngularJS\footnote{https://angularjs.org/} framework and coded with Coffeescript\footnote{http://coffeescript.org/} which is compiled into JavaScript.
-For layout and styling HTML and Less\footnote{http://lesscss.org/} are used, Less compiles into CSS.
-To provide a pleasant user experience the front-end is developed as a web application, data is loaded asynchronous and stored at the client's side to give the feel of a native application.
+The front-end is based on the AngularJS \cite{angular} framework and coded with Coffeescript \cite{coffeescript} which is compiled into JavaScript.
+For layout and styling HTML and Less \cite{less} are used, Less compiles into CSS.
+To provide a pleasant user experience the front-end is developed as a web application, data is loaded asynchronous through the RESTful API and stored at the client's side to give the feel of a native application.
 
-\begin{figure}[!hb]
-	\centering
-	\includegraphics[width=1.0\linewidth]{images/datamodel-clean}
-	\caption{
-		Rosemary data model with domain specific items removed.
-		Describes the workspace, tagging, datum, and notification models.
-		The unedited Rosemary data model can be found in appendix \ref{unedited-datamodel}.
-	}
-	\label{fig:reuse-rosemary-dm}
-\end{figure}
+%\begin{figure}[!hb] 
+%	\centering
+%	\includegraphics[width=1.0\linewidth]{images/datamodel-clean}
+%	\caption{
+%		Rosemary data model with domain specific items removed.
+%		Describes the workspace, tagging, datum, and notification models.
+%		The unedited Rosemary data model can be found in appendix \ref{unedited-datamodel}.
+%	}
+%	\label{fig:reuse-rosemary-dm}
+%\end{figure}
 
 \paragraph{Data model}
-Figure \ref{fig:reuse-rosemary-dm} depicts the Rosemary data model where the domain specific items are removed.
-This model describes six main data objects: {\tt Datum}, {\tt Tag}, {\tt Rights}, {\tt User}, {\tt Notification}, and {\tt Thread}.
-The {\tt Tag}, {\tt Notification}, and {\tt Rights} objects are inherited to describe a specific instance, for example the {\tt WorkspaceTag} is a {\tt Tag}.
+The yellow components in figure \ref{fig:implementation-rosemary-dm} depict the Rosemary data model with the domain specific items removed.
+The model contains six main data objects: {\tt Datum}, {\tt Tag}, {\tt Rights}, {\tt User}, {\tt Notification}, and {\tt Thread}.
+The {\tt Tag}, {\tt Notification}, and {\tt Rights} objects are inherited to describe a specific instance, for example {\tt WorkspaceTag} is a kind of {\tt Tag}.
 
-A short description of the main object will be given for better understanding of the model.
+A short description of the main objects will be given for better understanding of the model.
 A {\tt Datum} is a single piece of data and its metadata, for the Rosemary case a {\tt Datum} might be a reference to an MRI image and metadata about the scanned patient.
 {\tt Datum}s may be tagged with the {\tt Tag} object, for example, the {\tt UserTag} is a tag defined by the user and attached to a set of {\tt Datum}s for identification.
 {\tt Tag}s are also used to manage access rights, each tag has a specific {\tt Rights} attached to it.
