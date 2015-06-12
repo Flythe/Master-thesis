@@ -5,49 +5,50 @@ The goal of the proposed \ivfsystem{} is to facilitate reuse of the \projectdata
 There is, however, one major restriction with data sharing and re-use: medical data is (almost always) highly sensitive and must be secured. 
 This imposes strong conditions for reusing the data, which have to be taken into account by the system.
 
-The following section is the discussion portion of the security study.
+Below we present the security study together with the drawn conclusions.
 Literature was searched for security issues and solutions in systems used within the clinical domain.
-Found security aspects were applied to real-life examples gathered in an interview with a software engineer working on systems supporting a big clinical registry in the Netherlands.
+The identified security aspects were applied to real-life examples gathered in an interview with a software engineer working on systems that support a large clinical data registry in The Netherlands.
 The full security review and interview transcript can be found in appendix \ref{security-review-appendix}.
 
 \paragraph{Security Analysis: the \ivfsystem{} case}
 \label{security-summarisation-analysis}
 
-In the review a multitude of security issues and solutions are listed.
-As a general rule exploring and using present day standard security measures are a must-have for a good system.
-During the software engineering cycle of the \ivfsystem{} searches will be done for the appropriate security measures for each part of the system.
-Also the expertise of developers, engineers, and system administrators with multiple years of experience each will be used.
-
-But next to this there are a few highly important concepts of security, which are a mixture of technical, lawful, and ethical components.
+\silvia{i think this is too vague. what are the issues and solutions?}
+A multitude of security issues and solutions have been identified from the literature study.
+As a general rule, exploring and using present day standard security measures are a must-have for a good system.
+During the software engineering cycle of the \ivfsystem{}, the appropriate security measures for each part of the system will be identified and adopted.
+Also the expertise of developers, engineers, and system administrators with multiple years of experience will be used for a proper system design.
+In addition to this, there are a few highly important concepts of security, which are a mixture of technical, lawful, and ethical components.
 These concepts are interesting to look at as they have a high impact on how data may be used.
 
-Starting with the issue of consent, for the \project{} it can be viewed from multiple perspectives: patient, clinic, and registry.
-When a researcher wants to use the dataset available in the \ivfsystem{}, they will use data coming from the clinics, which in turn gather data from patients.
+The first aspect is "consent for data access", for the \project{} it can be viewed from multiple perspectives: patient, clinic, and registry.
+When researchers want to use the dataset available in the \ivfsystem{}, they will use data coming from the clinics, which in turn gather data from patients.
 This patient data is then linked to the PRN registry data.
 Each of the parties involved should to some extent be able to determine if they allow their data to be used.
 
 Patient consent is a difficult problem to tackle in research in general.
-When giving consent, patients need to know what they are signing for and handling data outside of the goal which was described is forbidden.
-However, when using datasets for which it is unreachable and unreasonable to acquire consent from each patient in them, there are exceptions in the Dutch consent regulations.
+When giving consent, patients need to know what they are signing for. Moreover, handling data outside of the goal which was described is forbidden.
+However, there are exceptions in the Dutch consent regulations 
+when using datasets for which it is unreachable and unreasonable to acquire consent from each patient in them.
 This exception is what the \ivfsystem{} currently leans on. 
-It uses historical data for the years 2000 to 2010 and according to the nationwide IVF report \cite{ivfReportNVOG} there are approximately 4000 pregnancies per year.
-Which means that there are about 40.000 patients in the dataset in total.
-Given the size and age of the dataset it was deemed unreasonable to require consent.
+It uses historical data for the years 2000 to 2010 and, according to the nationwide IVF report \cite{ivfReportNVOG}, there are approximately 4000 pregnancies per year.
+This means that there are about 40.000 patients in the dataset in total, so 
+given the size and age of the dataset it was deemed unreasonable to require consent.
 To determine if consent is not a requirement, advice from external parties should be acquired.
-In this case these were: the \AMC{} chief privacy officer, medical ethical committee of data suppliers, and the \PRN{} privacy committee.
+In this case these were the \AMC{} chief privacy officer, the medical ethical committee of data suppliers, and the \PRN{} privacy committee.
 
 Consent from clinics and registries can be compared to patient consent.
 They all give permission to use \emph{their} data for a specific cause as described in the consent.
 The main difference between these data providers in giving consent is that their considerations are based on different interests.
 For example, a patient might be concerned about his/her privacy.
-Of course a clinic will also take this into account when a dataset is requested but they also have interests like: what research will be performed with the data.
-If this clashes with a research of their own it is less likely the clinic will give consent.
-In the \ivfsystem{} these different levels of consent must be taken into account  to be able to perform the function of providing research data.
+Of course a clinic will also take this into account when a dataset is requested, but they also have interests in the type of research to be performed with the data.
+If this clashes with a research interest of their own, it is less likely the clinic will give consent.
+In the \ivfsystem{} these different levels of consent must be taken into account  to be able to perform the function of providing research data to answer new research questions.
 
 In order to fulfil regulations and ethical needs a dataset should be minimised, so that no superfluous items are left in the dataset.
-For each of the data items in the dataset a purpose should be described. 
-A proper purpose is leading in ethical discussions about whether to accept a data item in the dataset or not.
-Having a well-defined protocol with the \ivfsystem{} can provide more confidence in the system by users, leads to better understanding of the system, and provides evidence that choices about data items were made with certain considerations.
+A purpose should be described for each of the data items in the dataset. 
+This purpose description is essential to support ethical discussions about whether to deliver a data item in the dataset or not.
+Having a well-defined protocol with the \ivfsystem{} can provide more confidence in the system by users, leads to better understanding of the system, and provides evidence of which choices about data items were made within certain considerations.
 
 For data linkage some identifying (\ie{} private) data items are needed.
 This can be described in the purpose of the data item, but there are also methods for avoiding these data items.
@@ -57,12 +58,12 @@ In the first implementation, linkage is provided by a third-party and the delive
 
 Anonymisation and pseudonymisation should be used to de-identify individuals.
 While identification through data aggregation and cross-referencing is still possible to happen, these steps should make it more difficult.
-The \ivfsystem{} will use both techniques to provide privacy, datasets are mostly kept clean by removing all identifying data at the data gathering step.
-Whatever identifying data is left (through linkage) will be pseudonymised before it is accepted into the system.
+The \ivfsystem{} will use both techniques to provide privacy. Datasets are mostly kept clean by removing all identifying data at the data gathering step.
+And whatever identifying data is left (through linkage) will be pseudonymised before it is accepted into the system.
 
 In order to decrease the chances of cross-referencing and data breaches in general, auditing should be applied.
 This means keeping logs on who uses what data at what point in time and what version of data existed at that time.
-Apart from privacy this also makes it possible to keep people accountable and to provide research data management functionalities such as archival and provenance.
+Apart from privacy, this also makes it possible to keep people accountable and to provide research data management functionalities such as archival and provenance.
 
 \paragraph{Provenance and the \ivfsystem{}}
 If the reasoning is flipped over it can also be said that provenance provides data auditing capabilities.
@@ -71,11 +72,11 @@ The essence of provenance is to store metadata about the `life' of a piece of da
 This metadata can be used to create a view for human consumption as described by the PROV Model Primer \cite{dsp8gil} published by the W3C (World Wide Web Consortium\footnote{http://www.w3.org/}).
 An example of human consumable provenance is shown in figure \ref{fig:provenance-schema-text}.
 
-There are many applications of provenance in security, different levels can be supplied by mixing computerised surveillance with human insight.
-One of the clearest examples is the data audit functionality.
+There are many applications of provenance in security, and  different levels can be supplied by mixing computerised surveillance with human insight.
+One of the clearest examples is  data auditing.
 The necessary metadata for an audit is collected automatically during the operation of the system.
-Outcomes of this audit can be partly analysed by a computer, but can also additionally be translated into an human understandable format.
-Further actions that lead to actual security should be captured in standardised processes, therefore provenance is only a tool and not a security end-point.
+Outcomes of this audit can be partly analysed by a computer, but can also additionally be translated into an human readable format.
+Further actions that lead to actual security \silvia{??} should be captured in standardised processes, therefore provenance is only a tool and not a security end-point.
 
 \begin{figure}[h]
 	\centering
