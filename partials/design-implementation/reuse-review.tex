@@ -1,43 +1,43 @@
 \section{Technical Design Considerations}
 \label{reuse}
 
-The data management is the most significant part of the \ivfsystem{} and therefore should be well implemented.
-Also implementation had to be done in a short time due to study planning restrictions, which were a result from the earlier mentioned data gathering issues.
+\silvia{add references to all systems here in this paragraph, for rosemary use git url}
 
+The data management is the most significant part of the \ivfsystem{} and therefore should be well implemented.
+Also implementation had to be done in a short time due to study planning restrictions, which were a result from the earlier mentioned data gathering difficulties.
 To speed up development multiple systems were considered and evaluated for reuse.
 Systems that have properties of clinical data management were sought for.
 From a list of systems three were included in an more in-depth evaluation presented below.
 
 \paragraph{Software reuse}
-The external software was identified through the paper of Leroux \cite{leroux2011}, in which five systems are listed: Oracle Clinical, Inform, Rave, DADOS Prospective, and OpenClinica.
-One system was found through internal communication within the AMC, namely Castor.
-The last system is an in-house project called Rosemary at the same department this study was conducted at.
+The external software was identified through the paper by Leroux \cite{leroux2011}, in which five systems are listed: Oracle Clinical, Inform, Rave, DADOS Prospective, and OpenClinica.
+One additional system was found through internal communication within the AMC, namely Castor.
+The last system is an in-house project called Rosemary at the same department in which this study was conducted.
 
 All systems, except for Rosemary, are clinical trial management (CTM) software.
 Their focus lies on data entry and retrieval for low-level (researcher) users, and on research overview for high-level (management) users.
 Besides data entry, they also offer overviews displaying statistics on participants and the clinics they belong to, how many inclusions were made, follow-up percentages, etc.
-Rosemary is build to handle neuroimaging data and metadata, data analysis applications, and their execution on grid infrastructures.
+Rosemary is built to handle neuroimaging data and metadata, data analysis applications, and their execution on grid infrastructures.
 
 Four of the CTM systems are delivered under a proprietary license: Oracle Clinical, InForm, Castor, and Rave.
-Castor has a fair use for small trials, it is available for free (up to a maximum of 200 inclusions or 12 months study duration).
-However, the identified functions of the \ivfsystem{} demand that extensions have to be made.
+Castor has a fair use for small trials: it is available for free for up to a maximum of 200 inclusions or 12 months study duration.
+However, the identified functions of the \ivfsystem{} demand that significant extensions are made to these four systems to accommodate requirements.
 One firm requirement of the systems that are considered is that they have to be open-source to accommodate this.
-Also, no budget existed for the development of the system.
-Therefore, these systems were not included for an in-depth evaluation.
+%Also, no budget existed for the development of the system.
+Therefore, these systems were not included for the in-depth evaluation presented below.
 
 \paragraph{Evaluation: external systems}
 The open-source external systems identified were OpenClinica\footnote{https://www.openclinica.com/} and DADOS Prospective \cite{dados}.
 Both systems were evaluated, OpenClinica based on their online demo and DADOS Prospective based on their publication.
 
-As said before the systems are CTM software and they both have approximately the same purpose.
-They provide per study data recording.
+These are both CTM software and have approximately the same purpose of providing per study data recording.
 Data collection protocols can be defined in a very flexible manner.
 After the protocol has been defined, it is fixed for all study participants.
 This is very useful in longitudinal studies, where collection should be standardised for study quality and analysis purposes.
 Also, the data model has already been proven by the fact that many researchers use these systems.
 
-In principle, as far as notable the desired options for data reuse are not supported.
-Reuse in these systems is at a study level, meaning that when a user is made a member of a study they can see and use all the data within.
+In principle, as far as could be determined by our brief evaluation, the desired options for data reuse are not supported.
+Reuse in these systems is at a study level, meaning that when a user is made a member of a study, he/she can see and use all the data within the study.
 The philosophy for the \ivfsystem{} is to provide external data requests on a pool of data, which makes the model of the CTM systems less useful for this case.
 
 \paragraph{Evaluation: In-house project}
@@ -48,25 +48,25 @@ Data input is restricted to automated functions and there are no manual input in
 
 The philosophy of Rosemary is to support researchers with managing of data, processing, and community.
 Data challenges are tackled by providing extensive search, filter, and selection functionality.
-Processing management is handled by automatically bundling submissions into processings which are then fed to one or multiple applications, this is rather uninteresting for the \ivfsystem{} case so it will not be discussed any further.
+Processing management is handled by automatically bundling submissions into processings, which are then fed to one or multiple applications. As this is rather uninteresting for the \ivfsystem{} case, it will not be discussed any further.
 And lastly, community is currently supported through descriptive notifications, messaging, and the notion of a `workspace'.
-A workspace contains a set of data, a researcher may define a workspace and share this with their colleagues by adding them as members.
+A workspace contains a set of data. A researcher or the system may define a workspace and share this with their colleagues by adding them as members.
 
-To fulfil the data management functionality each single item of data (called a `datum') can be supplemented with metadata.
-Data is given meaning through this metadata, this works at a human level but also at a system level.
+To fulfil the data management functionality, each single item of data (called a `datum') can be supplemented with metadata.
+Data is given meaning through this metadata, which works both at the  human level (user) but also at the  system level.
 Metadata can be free text, but the system also uses some predefined objects.
-The most important metadata object is the `Tag', it can be appended to a datum and can fulfil multiple roles. 
-One of which being the identification of to what set of workspaces a datum belongs.
+The most important metadata object is the `Tag', which can be appended to a datum and can fulfil multiple roles. 
+One of these roles is, for example, the identification of workspaces to which a datum belongs.
 
 Based on metadata the researcher can search and order their data.
 When data is added to the workspace a powerful search functionality is provided.
-It supports searches on the datum level but also on the metadata level.
+It supports searches on the datum level, and also on the metadata level.
 Initially the search is text-based and very fuzzy, but with the use of a query language the user can make the search specific.
-This query language ranges from keywords like `and/or' to restriction of search based on the name of a metadata field (\eg{} search for `patient123' but only in the field named `subject').
+This query language ranges from keywords like `and/or' to restriction of search based on the name of a metadata field (\eg{} search for `patient123' but only in the field named `subject' \silvia{put here sample syntax for this search}).
 
 \paragraph{The better pick}
-Based on several considerations, the decision was made to use the in-house Rosemary project for further development
-The manner in which data and metadata are applied makes that the data model of Rosemary is very flexible.
+Based on several considerations, the decision was made to use the in-house Rosemary project for further development.
+The manner in which data and metadata are applied makes  the data model of Rosemary very flexible.
 This is less useful for longer running projects which require very strict data entry rules.
 However, for the \ivfsystem{} data is an immutable set, namely the \projectdata{}.
 After a small survey it turned out that the dataset could be used directly with the existing data model.

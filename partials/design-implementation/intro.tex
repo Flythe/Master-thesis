@@ -2,9 +2,9 @@ From requirement analysis the development moves on to the design of the system a
 First the functional design will be described, after that the specific decisions considering implementation are discussed.
 These concern reuse of existing software, the data model, the system's architecture, and user-interface design.
 
-The last chapter resulted in a compact list of requirements, which are now translated into functions.
+Chapter 2 resulted in a compact list of requirements (Figure\ref{}), which are now translated into functions.
 An unordered list of functions can be found in appendix \ref{identified-functions}, however it is more interesting to order these functions according to a workflow.
-This is done according to the following research cycle story:
+This is done according to the following research life cycle story:
 
 \begin{quotation}
 	\noindent{} A researcher wants to investigate a certain hypothesis on the \project{} dataset.
@@ -15,7 +15,7 @@ This is done according to the following research cycle story:
 	The researcher creates the request document with the necessary information required by the committee to decide.
 	The system provides feedback based on the selected fields and automatically detected keywords.
 	Based on this feedback the researcher can edit the request or send it for approval.
-	The committee checks and approves the request.
+	Each member of the committee checks and approves the request.
 	
 	After approval the system creates a subset of \project{} data containing the requested data items.
 	The researcher filters this subset and downloads a selection of the data.
@@ -24,18 +24,18 @@ This is done according to the following research cycle story:
 	To complete the request the researcher uploads the paper which is then again approved by the committee.
 \end{quotation}
 
-\noindent{} The resulting of the mapping is shown in figure \ref{fig:functions-workflow}.
-Each of the functions belong to a certain actor (human or system), this is depicted by the colour of the actor block (light shade) and the corresponding colour of the function block (dark shade).
-The function groups are exempted from this rule as they only exist to give structure to the figure.
-During the brainstorm session weight was given to the requirements, functions with less need for immediate implementation are displayed greyed-out (\ie{} change data, data curation, analyse, store outcomes).
-Not all requirements were implemented in the final prototype, functions that were included have a dashed border.
+\noindent{}The resulting mapping between \silvia{??...} is shown in figure \ref{fig:functions-workflow}.
+During the brainstorm session weight was given to the requirements; therefore, functions with less priority for  implementation are displayed greyed-out (\ie{} change data, data curation, analyse, store outcomes).
+Not all requirements were implemented in the final prototype - the included functions  have a dashed border.
+
+\silvia{necessary? The function groups are exempted from this rule as they only exist to give structure to the figure.}
 
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/functions-in-workflow}
 	\caption{
 		Gateway functions according to function groups, actors, and usage within the research workflow.
-		Vertical columns represent different function groups, colours are used for different user roles, and arrows indicate sequence of actions.
+		Vertical columns represent different function groups, colours are used for different user roles, and arrows indicate sequence of actions. \silvia{i dont understand this, and think this is not necessary to understand the figure: Each of the functions belong to a certain actor (human or system), which are identified by the colour of the actor block (light shade) and the corresponding colour of the function block (dark shade).}
 		Greyed-out functions are deemed less important, which was an outcome of the brainstorm session (see section \ref{brainstorm}).
 		Functions that were included in the final prototype are marked with a dashed border.
 	}
