@@ -2,8 +2,8 @@ From requirement analysis the development moves on to the design of the system a
 First the functional design will be described, after that the specific decisions considering implementation are discussed.
 These concern reuse of existing software, the data model, the system's architecture, and user-interface design.
 
-Chapter 2 resulted in a compact list of requirements (Figure\ref{}), which are now translated into functions.
-An unordered list of functions can be found in appendix \ref{identified-functions}, however it is more interesting to order these functions according to a workflow.
+Chapter 2 resulted in a compact list of requirements (figure\ref{fig:brainstorm-after}), which are now translated into functions.
+An unordered list of functions can be found in appendix \ref{identified-functions}, however it is more interesting to order these functions with a workflow.
 This is done according to the following research life cycle story:
 
 \begin{quotation}
@@ -24,18 +24,16 @@ This is done according to the following research life cycle story:
 	To complete the request the researcher uploads the paper which is then again approved by the committee.
 \end{quotation}
 
-\noindent{}The resulting mapping between \silvia{??...} is shown in figure \ref{fig:functions-workflow}.
+\noindent{}The resulting mapping between discovered functions and the research life cycle workflow is shown in figure \ref{fig:functions-workflow}.
 During the brainstorm session weight was given to the requirements; therefore, functions with less priority for  implementation are displayed greyed-out (\ie{} change data, data curation, analyse, store outcomes).
 Not all requirements were implemented in the final prototype - the included functions  have a dashed border.
-
-\silvia{necessary? The function groups are exempted from this rule as they only exist to give structure to the figure.}
 
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/functions-in-workflow}
 	\caption{
 		Gateway functions according to function groups, actors, and usage within the research workflow.
-		Vertical columns represent different function groups, colours are used for different user roles, and arrows indicate sequence of actions. \silvia{i dont understand this, and think this is not necessary to understand the figure: Each of the functions belong to a certain actor (human or system), which are identified by the colour of the actor block (light shade) and the corresponding colour of the function block (dark shade).}
+		Vertical columns represent different function groups, colours are used for different user roles, and arrows indicate sequence of actions.
 		Greyed-out functions are deemed less important, which was an outcome of the brainstorm session (see section \ref{brainstorm}).
 		Functions that were included in the final prototype are marked with a dashed border.
 	}
