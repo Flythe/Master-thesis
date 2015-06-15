@@ -1,0 +1,40 @@
+\section{Functional Design}
+\label{functional-design}
+
+Chapter 2 resulted in a compact list of requirements (figure \ref{fig:brainstorm-after}), which will now be translated into functions.
+An unordered list of functions can be found in appendix \ref{identified-functions}, however it is more interesting to order these functions with a workflow.
+This is done according to the following research life cycle story:
+
+\begin{quotation}
+	\noindent{} A researcher wants to investigate a certain hypothesis on the \projectdata{}.
+	He or she needs to register an account with the system which is then checked and approved by the data manager.
+	
+	Next, the researcher formulates a data request using the system.
+	From the data dictionary the researcher searches (filters) for the appropriate data items (names of data items are called ``headers'').
+	The researcher creates the request document with the necessary information required by the committee to decide upon.
+	The system provides feedback based on the selected fields and automatically detected keywords.
+	Based on this feedback the researcher can edit the request or send it for approval.
+	Each member of the committee checks and approves the request.
+	
+	After approval the system creates a subset of the \projectdata{} containing the requested data items.
+	The researcher filters this subset and downloads a selection of the data.
+	Another possible path is that the researcher prepares the data for analysis on the system and the outcomes are stored.
+	
+	To complete the request the researcher uploads the paper which is then again approved by the committee.
+\end{quotation}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/functions-in-workflow}
+	\caption{
+		\ivfsystem{} functions according to function groups, actors, and usage within the research workflow.
+		Vertical columns represent different function groups, colours are used for different user roles, and arrows indicate sequence of actions.
+		Greyed-out functions are deemed less important, which was an outcome of the brainstorm session (see section \ref{brainstorm}).
+		Functions that were included in the final prototype are marked with a dashed border.
+	}
+	\label{fig:functions-workflow}
+\end{figure}
+
+\noindent{}The resulting mapping between discovered \ivfsystem{} functions and the research life cycle workflow is shown in figure \ref{fig:functions-workflow}.
+During the brainstorm session weight was given to the requirements; therefore, functions with less priority for  implementation are displayed greyed-out (\ie{} change data, data curation, analyse, store outcomes).
+Not all requirements were implemented in the final \ivfprototype{} - the included functions  have a dashed border.

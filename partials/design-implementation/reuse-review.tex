@@ -12,7 +12,7 @@ From a list of systems three were included in an more in-depth evaluation presen
 \paragraph{Software reuse}
 The external software was identified through the paper by Leroux \cite{leroux2011}, in which five systems are listed: Oracle Clinical, Inform, Rave, DADOS Prospective, and OpenClinica.
 One additional system was found through internal communication within the AMC, namely Castor.
-The last system is an in-house project called Rosemary at the same department in which this study was conducted.
+The last system is an in-house project called Rosemary developed at the same department in which this study was conducted.
 
 All systems, except for Rosemary, are clinical trial management (CTM) software.
 Their focus lies on data entry and retrieval for low-level (researcher) users, and on research overview for high-level (management) users.
@@ -53,16 +53,15 @@ And lastly, community is currently supported through descriptive notifications, 
 A workspace contains a set of data. A researcher or the system may define a workspace and share this with their colleagues by adding them as members.
 
 To fulfil the data management functionality, each single item of data (called a `datum') can be supplemented with metadata.
-Data is given meaning through this metadata, which works both at the  human level (user) but also at the  system level.
-Metadata can be free text, but the system also uses some predefined objects.
-The most important metadata object is the `Tag', which can be appended to a datum and can fulfil multiple roles. 
-One of these roles is, for example, the identification of workspaces to which a datum belongs.
-
+%Data is given meaning through this metadata, which works both at the  human level (user) but also at the  system level.
+%Metadata can be free text, but the system also uses some predefined objects.
+%The most important metadata object is the `Tag', which can be appended to a datum and can fulfil multiple roles. 
+%One of these roles is, for example, the identification of workspaces to which a datum belongs.
 Based on metadata the researcher can search and order their data.
 When data is added to the workspace a powerful search functionality is provided.
 It supports searches on the datum level, and also on the metadata level.
 Initially the search is text-based and very fuzzy, but with the use of a query language the user can make the search specific.
-This query language ranges from keywords like `and/or' to restriction of search based on the name of a metadata field (\eg{} search for `patient123' but only in the field named `subject' \silvia{put here sample syntax for this search}).
+This query language ranges from keywords like `and/or' to restriction of search based on the name of a metadata field (\eg{} search for `patient123' but only in the field named `subject', search syntax: ``subject:patient123'').
 
 \paragraph{The better pick}
 Based on several considerations, the decision was made to use the in-house Rosemary project for further development.
