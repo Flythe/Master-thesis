@@ -2,9 +2,12 @@
 \section{Summary}
 \label{evaluation-summary}
 
-As with brainstorming creating a user interface is not an exact science.
+As with brainstorming, creating a user interface is not an exact science.
+\silvia{i think the evaluation covers more than the UI. it also covers the process, in particular in this case because this is a totally new system}
+
 For evaluation ends design heuristics are used, and the found problems can be mapped against these.
 The used list is from Nielsen \cite{designHeuristics} and contains ten famous heuristics:
+\silvia{mention in the intro that this method is used}
 
 \begin{enumerate}
 	\item Visibility of system status;
@@ -19,14 +22,16 @@ The used list is from Nielsen \cite{designHeuristics} and contains ten famous he
 	\item Help and documentation.
 \end{enumerate}
 
+\silvia{i would expect these topics to guide the discussion below. maybe you could even use these topics as headlines of paragraphs where you summarize the findings from the evaluation regarding each of these topics? i'm fine if you keep the loose discussion below, but then remove the list above because they are totally disconnected}
+
 \noindent{} Based on the system's process and the potential as a supporting factor in doing research the system got positive feedback.
 One of the testers mentioned that the system as a prototype might be used for demoing purposes.
-Relatively simple functions from the system can show that thought went into the workflow of data security.
-Thereby fulfilling the goal of persuading data deliverers and providing more trust.
+Relatively simple functions from the system can show that thought went into the workflow of data security;
+thereby fulfilling the goal of persuading data deliverers and providing more trust.
 
 The biggest hit is the request management process.
 From multiple perspectives the system can show what requests are in progress and information is available to make request `dashboards' for management purposes.
-Which also brings possibilities for monitoring by data owners.
+This also brings possibilities for monitoring by data owners.
 
 Design-wise the data view is a perfect example for the user freedom and flexibility heuristics.
 There are three ways of viewing namely: raw data, graph, aggregated.
@@ -37,10 +42,10 @@ There are things to clean up, most of the encountered problems can be related to
 For example, when the user is in the data dictionary the buttons on the basket do not account for this.
 Which means that two out of the three buttons are completely out of context for what the user is doing.
 System visibility problems are also reflected in the fact that testers tried to `start' the search by hitting enter and not noticing that the results had already updated.
-Lastly, selecting data and putting it in the basket caused confusing meaning that the purpose of the basket is not well understood.
+Lastly, selecting data and putting it in the basket caused confusion, meaning that the purpose of the basket is not well understood.
 
 As for the heuristic `recognition rather than recall' a few issues were found as well.
 The `select all' function on the basket confused the user, thinking they would select all data which was already \emph{in} the basket.
-Clicking this button made the user loose all progress made resulting in a problem with recognising and recovering from errors.
-Also, going from a basket selection to preparing a request was unclear as they were looking in the wrong place.
-Lastly, the redirect from request overview to new message was unexpected behaviour.
+Clicking this button made the user loose all progress made so far, resulting in a problem with recognising and recovering from errors.
+Also, going from a basket selection to preparing a request was unclear, as they were looking in the wrong place.
+Lastly, the redirect from request overview to new message was experienced by the user as unexpected behaviour.
