@@ -87,13 +87,12 @@ On the other hand data reuse can lead to better research, for example publicatio
 With a \ivfsystem{} data can be restricted while the line of communication between data owner and consumer remains short.
 This will bring all the benefits of data reuse while the data owner still has a grip on what happens with it.
 
-\silvia{i had to stop reading here}
 
 \paragraph{Extrapolate to other domains}
 %How can this specific system be used in other settings/knowledge domains?
 
 The previous section argued the benefits of a \ivfsystem{}, however it is specific to the domain of the \projectdata{}, \ie{} \IVF{} and \PRN{} data.
-There are other projects building towards something similar, but no complete system exists yet.
+There are other projects that aim at building towards something similar, but no complete system exists yet. \silvia{name some projects and put references}
 Most follow a stepwise implementation of blocks, introducing user, data, request, and publication management one by one.
 Leaving each domain to their own experts however will create a fragmentation of many different implementations of (in principal) the same functionality.
 
@@ -102,16 +101,16 @@ Different domains can pick what they need and add their specific `sugar' while t
 This will require an investment into research on how to make the system's modules abstract enough for reuse in other domains.
 And even when abstract modules exist, process and requirement analysis for each implementation project will take a considerable amount of time.
 
-Before the \ivfsystem{} is suitable for this type of reuse many hurdles are yet to be taken.
+Before the \ivfsystem{} is suitable for this type of reuse many hurdles need to be overcome.
 These lie both in social fields as in regulation.
-The social aspects relate to building trust, managing expectancy, etc.
+The social aspects relate to building trust, managing expectation, \silvia{and ..?.  avoid "etc", because it seems you are bluffing}
 Regulations in the Netherlands for sensitive data are strict (as to be expected).
 The \projectdata{} is relatively light on sensitive data and skirts around some of the regulations.
-When more interest is shown in the \ivfsystem{} these are some of the areas for further research.
+When more interest is shown in the \ivfsystem{} these \silvia{which? above or below} are some of the areas for further research.
 
 \paragraph{Further development}
-The \ivfsystem{} is not ready for demoing purposes yet.
-Evaluation of the prototype shows there are areas that need improvement.
+The \ivfsystem{} is not ready for demoing purposes yet. \silvia{explain this purpose}
+Evaluation of the prototype shows there is room for much improvement.
 Some are time consuming and are not directly visible, like integrating data provenance.
 Others will take less time and are highly visible, like updating the user interface.
 %This study answers the question of what is needed to implement a successful system but not all solutions could be translated into a working prototype.
@@ -119,13 +118,12 @@ Others will take less time and are highly visible, like updating the user interf
 During the brainstorm a lot of functions came up which were not implemented because of time restrictions.
 One of the plus points, the fact that a system like this does not exists yet, is also one of the stumbling points.
 There is no template to follow and as almost everything is possible users expect a lot from the system.
-
-Most notably, better user interfaces for data filtering and selection should be implemented (see section \ref{evaluation}).
+Most notably, better user interfaces for data filtering and selection should be implemented (chapter \ref{evaluation}).
 No user-centred process was used, which means that most of the identified flaws in the system are simply differences in interpretation by the developer.
 
-Furthermore, more programming iterations need to be done before the request and publication management have been fully developed.
-Then a big security iteration should be done to prepare the system for testing and certification.
-Right now security has been patched up in the front-end by hiding information for certain users, this should change to the back-end not \emph{providing} that information to begin with.
+Furthermore, more development is needed to complete the implementation of request and publication management.
+Then a significant security revision should take place to prepare the system for testing and certification.
+Right now security has been patched up in the front-end by hiding information for certain users, but this should change into solutions in the back-end to prevent information provision to begin with.
 
 %A good example of this is the search function, when used with a basic text search term the search is fuzzy.
 %It searches over all the available fields and returns whatever matches to it.
