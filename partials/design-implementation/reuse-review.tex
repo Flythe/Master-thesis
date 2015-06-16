@@ -1,8 +1,6 @@
 \section{Technical Design Considerations}
 \label{reuse}
 
-\silvia{add references to all systems here in this paragraph, for rosemary use git url}
-
 The data management is the most significant part of the \ivfsystem{} and therefore should be well implemented.
 Also implementation had to be done in a short time due to study planning restrictions, which were a result from the earlier mentioned data gathering difficulties.
 To speed up development multiple systems were considered and evaluated for reuse.
@@ -10,9 +8,9 @@ Systems that have properties of clinical data management were sought for.
 From a list of systems three were included in an more in-depth evaluation presented below.
 
 \paragraph{Software reuse}
-The external software was identified through the paper by Leroux \cite{leroux2011}, in which five systems are listed: Oracle Clinical, Inform, Rave, DADOS Prospective, and OpenClinica.
-One additional system was found through internal communication within the AMC, namely Castor.
-The last system is an in-house project called Rosemary developed at the same department in which this study was conducted.
+The external software was identified through the paper by Leroux \cite{leroux2011}, in which five systems are listed: Oracle Clinical \cite{oracle}, InForm\footnote{The InForm software seems to be under the property of Oracle}, Rave \cite{rave}, DADOS Prospective \cite{dados}, and OpenClinica \cite{openclinica}.
+One additional system was found through internal communication within the AMC, namely Castor \cite{castor}.
+The last system is an in-house project called Rosemary \cite{rosemary} developed at the same department in which this study was conducted.
 
 All systems, except for Rosemary, are clinical trial management (CTM) software.
 Their focus lies on data entry and retrieval for low-level (researcher) users, and on research overview for high-level (management) users.
@@ -23,11 +21,10 @@ Four of the CTM systems are delivered under a proprietary license: Oracle Clinic
 Castor has a fair use for small trials: it is available for free for up to a maximum of 200 inclusions or 12 months study duration.
 However, the identified functions of the \ivfsystem{} demand that significant extensions are made to these four systems to accommodate requirements.
 One firm requirement of the systems that are considered is that they have to be open-source to accommodate this.
-%Also, no budget existed for the development of the system.
 Therefore, these systems were not included for the in-depth evaluation presented below.
 
 \paragraph{Evaluation: external systems}
-The open-source external systems identified were OpenClinica\footnote{https://www.openclinica.com/} and DADOS Prospective \cite{dados}.
+The open-source external systems identified were OpenClinica and DADOS Prospective.
 Both systems were evaluated, OpenClinica based on their online demo and DADOS Prospective based on their publication.
 
 These are both CTM software and have approximately the same purpose of providing per study data recording.
