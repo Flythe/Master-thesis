@@ -2,12 +2,6 @@ The \ivfprototype{} was evaluated based on the implemented functions.
 These functions are structured to the research workflow as described in figure \ref{fig:functions-workflow}. 
 This workflow will now be referred to as the `process' of the system.
 
-%i think you put too much stress on "finding flaws" in this chapter. 
-%the purpose is to evaluate, not debug. 
-%the users will have opionions about what could be better, but these are not necessarily "flaws". 
-%Maybe some are design flaws, but this is something to conclude at the discussion session (4.2). 
-%I suggest you revise the terms you used to make the evaluation sound more neutral or even positive.
-
 For the purpose of the evaluation the \ivfprototype{} code was running on the local environment of a laptop.
 No connection to the internet was necessary for testing, therefore performance issues were out of the question.
 The used dataset was randomly generated (strings of letters), because the \projectdata{} was not available yet.
@@ -44,12 +38,9 @@ If a bottleneck was encountered testers were asked to suggest design or process 
 The  cases presented below are loose transcripts of the evaluation sessions.
 The transcripts will be structured like: task description, how the task should be performed, how the tester performed the task, and comments and difficulties.
 After these the results are summarised in section \ref{evaluation-summary}.
+First the design will be summarised using Nielsen's ten heuristics \cite{designHeuristics} and then general notes about the system are described.
 
 \section{User sessions transcripts}
-%the transcripts are messy, sorry. they are verbose and yet it is difficult to guess what you are talking about without seeing the system, or at least a proper description of the UI and how to perform each task
-%So maybe one way to go around this would be to organize these transcripts like this: explain the task (high- level), how they should have done, then explain how the users did it, including the comments and difficulties.
-
-%I also have the feeling that you are not specific enough in the text below when talking about tasks. you could define them at high-level ('approve request', consult colleague, ??) or a lower level (find list of requests, identify pending ones, find information about pending in order to decide, approve. I think the evaluation is different for each of the micro-tasks. the system could be good in general for finding things on the UI, but not for selecting things, for example. By being more detailed about the various tasks it will also be possible to draw conclusions across the user roles, as the system uses the same mechanisms that might have revealed less intuitive than expected.
 
 \paragraph{Researcher Role}
 From all the cases this is arguably the largest as it has the most extensive (implemented) functions.
@@ -57,12 +48,11 @@ The tasks that had to be performed were: search the data dictionary for headers,
 
 Testers had to find the data dictionary and use the filter function to search for the headers they wanted to use.
 They could also use the graph shown in figure \ref{fig:sunburst-view-zoom-website} to find what they were looking for.
-After finding the wanted headers they are added to the basket by selecting them.
-When using the data dictionary the basket is used for `shopping' data where the request is the `checkout' and submitting the request places the `order'.
+After finding the wanted headers they are added to the basket by selecting them - when using the data dictionary the basket is used for `shopping' data where the request is the `checkout' and submitting the request places the `order'.
 
 After the basket is filled with the wanted data the user navigates to the `new request' form.
-In this form the headers from the basket are automatically added and the user fills out the other required information (\eg{} research question, description, etc.).
-When the request is submitted the user waits for approval, for the evaluation an approved request was provided for the download task.
+In this form the headers from the basket are automatically added and the user fills out the other required information (\eg{} research question, description).
+When the request is submitted the user waits for approval; for the evaluation an approved request was provided for the download task.
 
 Downloading data is achieved by navigating to the wanted workspace in the menu on the left side of the screen.
 Users can either make a small selection or click the `select all' button to add data to their basket.
@@ -90,13 +80,14 @@ After this comment the tester could quickly find the `new request' form fill it 
 
 Data download is straightforward. 
 No problems were found here, one of the testers noted that in principle \emph{all} data will be downloaded every time.
+In this case the `select all' button on the basket helped them.
 
 \paragraph{Committee Member Role}
 The committee tasks are the shortest, as the list only contains the request approval function. 
 It breaks down into finding the requests which are open for approval, evaluating them against already approved requests, optionally communicating with other committee members, and voting.
 Viewing requests that are ready for approval is done by selecting the `request' button from the left menu.
 Now a list is shown of all these requests and the data that is necessary for making the decision.
-Clicking on one of the requests redirects to `new message', the user can create a message which (upon hitting send) is automatically send to all committee members.
+Clicking on one of the requests redirects to `new message', the user can create a message which (upon clicking send) is automatically send to all committee members.
 Approval is given (or not) by selecting a approve or disprove button, a vote remains open for change until all committee members have casted their vote.
 The actual vote is shown both with a symbol (\checkmark{}/\texttimes{}) as with a colour (green/red).
 
@@ -105,6 +96,11 @@ The tester tried to click on a request to view more information, even though all
 The click leads to the `new message' which confused the tester.
 There was a suggestion to add a comments thread to the request itself, instead of the separate message construction.
 And even though they did not explicitly say it, it can be discerned that the tester needed more information on the request.
+
+One tester (an P.I.) mentioned that the request management functions might help them when doing grant applications.
+Saying that many funding sources require that after the funded research is completed that data is available for reuse.
+Demoing the system and adding it to the grant application might give them a better position for getting the fund.
+What was also mentioned is that giving data deliverers (\ie{} key persons from each clinic) the possibility to keep a certain `hold' over their own data might increase their willingness to provide their data.
 
 \paragraph{Data administrator Role}
 Lastly, the data administrator performed the user management functions.

@@ -1,54 +1,48 @@
-%the nonsense data appears many times as "problem" - does it mean that the evaluation was not well prepared? has this hampered the conclusions? note that bad data is not design flaw - it is evaluation design flaw. Maybe to test the influence of this in the evaluation of the system you should put some sensible data and repeat one of the evaluations? there is no time for that, but you can comment on this in the discussion
-
-%\silvia{so this means that they need more information to decide - what more do they need? is the info in the system or should the data model be extended?}
-
 \section{Summary}
 \label{evaluation-summary}
 
-As with brainstorming, creating a user interface is not an exact science.
-\silvia{i think the evaluation covers more than the UI. it also covers the process, in particular in this case because this is a totally new system}
+As with brainstorming, creating a system's process and user interface is not an exact science.
+For evaluation ends design heuristics are used and the results of the evaluation interviews can be mapped against these.
+The used list is from Nielsen \cite{designHeuristics} which contains ten famous heuristics, they are marked bold in the summary below.
 
-For evaluation ends design heuristics are used, and the found problems can be mapped against these.
-The used list is from Nielsen \cite{designHeuristics} and contains ten famous heuristics:
-\silvia{mention in the intro that this method is used}
-
-\begin{enumerate}
-	\item Visibility of system status;
-	\item Match between system and the real world;
-	\item User control and freedom;
-	\item Consistency and standards;
-	\item Error prevention;
-	\item Recognition rather than recall;
-	\item Flexibility and efficiency of use;
-	\item Aesthetic and minimalist design;
-	\item Help users recognise, diagnose and recover from errors;
-	\item Help and documentation.
-\end{enumerate}
-
-\silvia{i would expect these topics to guide the discussion below. maybe you could even use these topics as headlines of paragraphs where you summarize the findings from the evaluation regarding each of these topics? i'm fine if you keep the loose discussion below, but then remove the list above because they are totally disconnected}
-
-\noindent{} Based on the system's process and the potential as a supporting factor in doing research the system got positive feedback.
-One of the testers mentioned that the system as a prototype might be used for demoing purposes. \silvia{for whom, which purpose?}
-Relatively simple functions from the system can show that thought went into the workflow of data security;
-thereby fulfilling the goal of persuading data deliverers and providing more trust.
-
-The biggest hit is the request management process.
-From multiple perspectives the system can show what requests are in progress and information is available to make request `dashboards' for management purposes.
-This also brings possibilities for monitoring by data owners.
-
-Design-wise the data view is a perfect example for the user freedom and flexibility heuristics.
-There are three ways of viewing namely: raw data, graph, aggregated.
+Design-wise the data view is a perfect example for the \textbf{user freedom} and \textbf{flexibility} heuristics.
+There are three ways of viewing namely: raw data, graph, and aggregated.
 The user may switch between these views and can pick whichever they prefer for their current task.
 On the other hand, the fact that the data view does not support (analogue) printing of data shows lack in flexibility.
 
-There are things to clean up, most of the encountered problems can be related to the system status visibility.
+There are things to clean up, most of the encountered problems can be related to the \textbf{system status visibility}.
 For example, when the user is in the data dictionary the buttons on the basket do not account for this.
 Which means that two out of the three buttons are completely out of context for what the user is doing.
 System visibility problems are also reflected in the fact that testers tried to `start' the search by hitting enter and not noticing that the results had already updated.
 Lastly, selecting data and putting it in the basket caused confusion, meaning that the purpose of the basket is not well understood.
 
-As for the heuristic `recognition rather than recall' a few issues were found as well.
+As for the heuristic \textbf{recognition rather than recall} a few issues were found as well.
 The `select all' function on the basket confused the user, thinking they would select all data which was already \emph{in} the basket.
-Clicking this button made the user loose all progress made so far, resulting in a problem with recognising and recovering from errors.
+Clicking this button made the user loose all progress made so far, resulting in a problem with the heuristic \textbf{recognising and recovering from errors}.
 Also, going from a basket selection to preparing a request was unclear, as they were looking in the wrong place.
-Lastly, the redirect from request overview to new message was experienced by the user as unexpected behaviour.
+Lastly, the link from a request to `new message' was experienced as unexpected behaviour, the tester expected to find more information about the request in its place.
+
+The results described mostly do not influence the process of the system itself.
+While flaws in the design may slow a user down, so far no fundamental problems with the process were found which would restrict the user in performing their tasks.
+There are two exceptions to this.
+One exception is that a tester expected more information on data requests, whether this is a flaw in the system or a user expectancy problem is unknown.
+The other that an undiscovered requirement came up during the evaluation, namely, that non-administrators need access to the list of users to notify the administrator of changes (for example, in a user's institution).
+For now the data administrator and non-administrators can work together (off-line) to handle these tasks.
+Now general notes which do not belong to one of the heuristics will be summarised.
+
+Nonsense randomly generated data caused confusing for the testers.
+This can be credited to a flaw in the evaluation design.
+It was expected that this type of data would avoid distraction for the testers, but as it turns out it was exactly the other way around.
+
+Based on the system's process and the potential as a supporting factor in doing research the system got positive feedback.
+One of the testers mentioned that the system as a prototype might be used for demoing purposes for funding institutions or data deliverers.
+Relatively simple functions from the system can show that thought went into the process of data security and requests.
+From multiple perspectives the system can show what requests are in progress and information is available to make request `dashboards' for management purposes.
+This also brings possibilities for monitoring by data owners.
+Thereby persuading data deliverers and providing more trust.
+
+Overall testers were able to find the different management functions (\ie{} data management, request management, user management) in the system easily.
+The web application feel helped the testers to quickly learn the navigation of the system.
+However, there are some components in the system which in their current implementation cause confusion for new users.
+These are the search and selection, implemented through the filter and basket.
+After explanation of how they work the users knew how to use them for their needs, so these problems might be avoided by clear descriptions in a logical (and visible) place.
