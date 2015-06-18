@@ -1,0 +1,1014 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1347\cocoasubrtf570
+{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;\f1\fmodern\fcharset0 CourierNewPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\info
+{\title Original file was main.tex}
+{\doccomm Created using latex2rtf 2.3.8 r1240 (released June 16 2014) on Wed Jun 17 16:38:47 2015}}\paperw11960\paperh16900\margl2500\margr2560\margb1820\margt2520\vieww38200\viewh22500\viewkind0
+\deftab720
+\pard\pardeftab720\sb240\sa120
+
+\f0\b\fs20 \cf0  Contents\
+\pard\pardeftab720\qj
+
+\b0 \cf0 \
+\page \pard\pardeftab720\sb60\sa120
+
+\b\fs40 \cf0 Chapter 1\
+\pard\pardeftab720\sb240\sa120
+\cf0 Introduction\
+\pard\pardeftab720\sb360\sa120
+
+\fs24 \cf0 The domain and background\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 Reproduction is a fundamental building block of life. For the human species this means that two individuals, with a different sex each, produce offspring. The offspring contains the genetic material of both the parents. However, there are many conditions and diseases which can lead to infertility or subfertility. In the Netherlands these terms are defined in a national guideline by the Dutch association of obstetrics and gynaecology (NVOG) [subfertilityGuideline]. Infertility is defined as a rare condition where \'93no chance of reproduction exists\'94, and subfertility as \'93failure to become pregnant after twelve months of unprotected coitus aimed at conception\'94. Approximately 5% to 8% of all couples in the Netherlands remain without children unwillingly [cbsStatistics, nhgStatistics].\
+\pard\pardeftab720\fi300\qj
+\cf0 Luckily there are several fertility treatments. Some of these lead to both the parents becoming biological parents. Others make use of donor material or surrogates, thus the child does not contain the genetic material of one of the \'91parents\'92. Commonly used treatments include intrauterine insemination (IUI) and in vitro fertilisation (IVF) [treatmentExplanation]. Each treatment follows about the same steps: egg maturation stimulation, egg retrieval, fertilisation, and embryo transfer [treatmentExplanation]. The stimulation phase can also be called the start of a new 
+\i cycle
+\i0 . In The Netherlands (according to the NVOG) 14,562 of these cycli were started in 2013 [ivfReportNVOG2013], approximately 30% of which resulted in a ongoing pregnancy. The success rate for a given clinic or treatment is fairly well known. However, outcome quality indicators related to the (born) child are either sparse or unknown.\
+All births in the Netherlands have to be entered into the perinatal registry (perinatale registratie Nederland, PRN). For research purposes, however, this data is completely separated from the clinic\'92s patient data. The Dutch healthcare system is quite exceptional as fertility clinics are in the public domain, thus there is pressure for disclosing data for research and governance reasons.\
+With minimal identifying data from both the fertility clinics and the PRN, treatment input and outcome can be linked together. To execute this linkage the Dutch Assisted Reproductive Technology Study (DARTS!) was established. During the project, data between 1999 and 2010 is gathered from each of the thirteen Dutch fertility clinics and linked to the PRN. This data covers only ongoing pregnancies, as a child has to be born in order to link to the PRN. In the given period of time, about 44,164 ongoing pregnancies were registered in the clinic datasets [ivfReportNVOG]. Linkage will inevitably result in a loss of a few percent where no appropriate match can be found, but a considerate amount of pregnancies is available for research. The linkage part of the research is outside of the scope of this paper and will be provided by another project . It can be argued that the available data can be seen as big data, this will be described in the following section. \
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 What is big data?\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 With the buzzword \'91big data\'92 people often associate terms like size, volume, and analytics. However, there are a lot of other data manipulation challenges that can lead to data being classified as \'93big \'94. McAfee [dsb1mcafee] describes big data as lots of data coming in at a high pace from many different sources, in large \'91volume, velocity, variety\'92. Jacobs [dsb5jacobs] presents it from a changing perspective of technical possibilities. In the 1980s 100GB of data was considered big, but now the perspective has changed: what you try to do with the data makes it big or not. Lynch [dsb3lynch] stresses the problem of \'91lasting\'92 (big data preservation), i.e., how do we model and preserve the registered (sometimes unique) events.\
+\pard\pardeftab720\fi300\qj
+\cf0 There are wide gaps between these definitions but also similarities. One overarching idea about big data is that it can help understand specific domains and help make decisions [dsb2lohr]. Jacobs even states that transactions and storage of data are already largely solved problems [dsb5jacobs]. This leaves decision making, modelling, and preservation as the main remaining challenges.\
+Big data in the corporate world mostly means management and quick reaction to real life events. A good example is flu prediction: Google is a week faster in predicting hospital visits related to flu than the official government sources [dsb8dugas, dsb1mcafee]. McAfee\'a0[dsb1mcafee] even states that \'93Data-driven decisions are better than expert-opinion decisions\'94.\
+As decisions are based on the interpretation of the data, modelling of data should reflect events in the real world. To make the event interpretable to the machine, the event should be recorded in a structured manner. Recording and keeping this data from events for long periods of time, such that it can be used for decision making, is the last challenge of preservation. For example, losing data can be of significance as each event is unique and will not occur again in the same way. There are also side effects: keeping any data (specifically medical) about persons raises many privacy challenges [dsb1mcafee].\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 Big data for DARTS! research\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 The DARTS! dataset (D-dataset) consists of linked data from IVF-clinics and the PRN. In the context of the D-dataset two of the big data factors lead to challenges: decision making and preservation. These are mainly human related or procedural, e.g., ethics, trust, expectancy, lack of organisational support, etc. Modelling of data is (currently) quite straightforward, as mainly data has to be ready as input material for popular statistical software like SPSS [spssSoftware] or R [rSoftware]. Introducing this model to computerised decision making may result in semantic or metadata problems, but compared to the other challenges these can be handled quite easily.\
+\pard\pardeftab720\fi300\qj
+\cf0 Currently researchers make decisions on many levels, e.g., what relevant hypotheses exist, which research hypothesis to pursue, what data should be analysed, how data should be interpreted. Many of these decisions can be supported with computerised systems. For example, a hypothesis \'93sweep\'94 can be executed with data mining operations, finding correlation in the data. However, many clinical researchers hold on to generation of hypothesis based on expertise, possibly leading to missed (important) conclusions. This might describe a trust or expectancy issue with computerised systems, or the actual value of such a data mining system was never demonstrated in practice.\
+On the other hand are the problems preservation poses. Funding bodies demand more of researchers considering data-management and sharing [dsb3lynch]. These demands can even extend beyond the duration of the funding, resulting in long lasting storage issues but also providing more opportunities for reuse. For individual research projects this can be problematic as decisions on this level should be made at a institutional control [dsb3lynch]. In this project, because assisted pregnancies are relatively rare and data gathering is a troublesome process, reuse should be encouraged to make the effort useful and significant.\
+Lastly, preservation and reuse of data will also throw up barriers for the data deliverers. Right now success percentages of clinics are being published as this is required by law, however they complain that the patient mix between clinics is unfair. Clinics want to cooperate in the DARTS! but they are afraid that research outcomes will be published in a way that will reflect directly on individual clinics. Trust needs to be gained by all the actors involved to fully exploit the value of the DARTS!.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 Using IT as leverage\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 Summarising, the challenges come down to a change of attitude. Even though literature describes big data as a benefit for the users, medical researchers are shying away from using it. How can they be convinced that following certain big data guidelines can evolve performing research itself?\
+\pard\pardeftab720\fi300\qj
+\cf0 This work shows a proposal for a supportive system which can manage data produced by the DARTS!; its working name is: DARTS! Research Gateway (D-gateway). It is meant to show what value can be delivered if some human performed functions are left for a computerised system in the management of such a valuable and sensitive dataset. In order to give direction to the development, the following main aspects have been investigated: security, data access, data browsing, and data querying. This resulted in the following research questions:\
+\pard\tx283\pardeftab720\li600\fi-300\sb50\sa120
+\cf0 1.	How do we implement a user-friendly system in a IVF medical domain which covers problems concerning: data security, data access, data browsing, and data querying? \
+2.	What needs to be changed in the current attitude towards data usage to promote big data in a IVF medical domain? \
+\pard\pardeftab720\fi300\sb60\qj
+\cf0 These two questions were broken down into sub questions. For question 1: \
+\pard\tx283\pardeftab720\li600\fi-300\sb50\sa120
+\cf0 \'95	What are the functions of this system and which parts of the research process should this system support? \
+\'95	Who are the users and what are the use cases for these users? \
+\'95	What are the legal and security aspects of this system? \
+\'95	What is the data model for this system? \
+\'95	What is the minimum prototype demonstrating that the system\'92s goals are reachable? \
+\'95	To what extent does this system meet the expectations of users? \
+\pard\pardeftab720\fi300\sb60\qj
+\cf0 For question 2: \
+\pard\tx283\pardeftab720\li600\fi-300\sb50\sa120
+\cf0 \'95	What are the blocking aspects of data usage? \
+\'95	What are the promoting aspects of data usage? \
+\'95	What alignment needs to take place to promote data usage? \
+\'95	How can IT be leveraged to achieve this goal? \
+\pard\pardeftab720\fi300\sb60\qj
+\cf0 \page \pard\pardeftab720\sb60\sa120
+
+\b\fs40 \cf0 Chapter 2\
+\pard\pardeftab720\sb240\sa120
+\cf0 Requirement Analysis\
+\pard\pardeftab720\sb240\qj
+
+\b0\fs20 \cf0 In this chapter the requirement discovery for the D-gateway will be described. At the start of the project the assumption was that the system would encompass data management (e.g., search, select, download) and data analysis (e.g., support of SPSS or R). This was, however, defined without any knowledge about the D-dataset, as it was not available yet. The dataset is not the scope of this study, but a short description is necessary to understand the development process decisions.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 D-dataset availability\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 Data should have been available at the start of the study, but it proved to be much more difficult to gather data from the different clinics than anticipated. The major problem is the necessity of a strict data delivery protocol, as medical data security lies mostly in consent procedures.\
+\pard\pardeftab720\fi300\qj
+\cf0 Ethical approval was the first barrier. Ethical committees have the task to evaluate research protocols and data exchange contracts. DARTS! involved multiple sites and each of these would only allow data to be released after their own committee gave permission to do so. Furthermore, the evaluation processes can take quite a long time (up to one year) as some committees only meet a couple of times per year.\
+Later on there were also technical aspects to solve. Early on in the study most of the thirteen clinics had a vendor-specific electronic health record (EHR). Luckily during the study the adoption of a single EHR started to increase, resulting in a mostly standardised data query for a great portion of the clinics. One other major drawback is the fact that internet is deemed unsafe for data transfers, requiring data gatherers to travel to each of the clinics to physically pick up the data.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 Approach adopted in this study\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 The difficulties above caused a delayed delivery of the data. Moreover, the data gatherer of DARTS! had to be supported in technical issues, as she was not equipped with the required (technical) expertise. Providing this support took time, but the lack of data also caused a delay in the D-gateway development.\
+\pard\pardeftab720\fi300\qj
+\cf0 Bringing the D-gateway concept into a brainstorm session proved to be quite difficult. Without experience with the data, it was too abstract for the users to form useful ideas. Therefore, a study was performed to find potential requirements and further define the system\'92s description (i.e., make it less abstract). This study consisted of literature studies and an interview (section 2.1), and observations (section 2.2).\
+The literature study resulted in descriptions of security issues and solutions. These are the underlying requirements of the D-gateway and have to be implemented as a result of the sensitive data repository. The interview with an expert tied abstract security concepts together with real-life situations. And lastly observations led to the concept of the work process that had to be supported. \
+With this input an initial requirement analysis was created, which was used as input for a brainstorm session (section 2.3). The results of this session were then used to update the requirements to form the final concept.\
+\pard\pardeftab720\sb240\sa120
+
+\b\fs32 \cf0 2.1  Security\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 The goal of the proposed D-gateway is to facilitate reuse of the D-dataset. There is, however, one major restriction with data sharing and re-use: medical data is (almost always) highly sensitive and must be secured. This imposes strong conditions for reusing the data, which have to be taken into account by the system.\
+\pard\pardeftab720\fi300\qj
+\cf0 Below we present the security study together with the drawn conclusions. Literature was searched for security issues and solutions in systems used within the clinical domain. The identified security aspects were applied to real-life examples gathered in an interview with a software engineer working on systems that support a large clinical data registry in The Netherlands. The full security review and interview transcript can be found in appendix C.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 Security Analysis: the D-gateway case\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 A multitude of security pitfalls and solutions have been identified from the literature study, they are listed in table C.1. As a general rule, exploring and using present day standard security measures are a must-have for a good system. During the software engineering cycle of the D-gateway, the appropriate security measures for each part of the system will be identified and adopted. Also the expertise of developers, engineers, and system administrators with multiple years of experience will be used for a proper system design. In addition to this, there are a few highly important concepts of security, which are a mixture of technical, lawful, and ethical components. These concepts are interesting to look at as they have a high impact on how data may be used.\
+\pard\pardeftab720\fi300\qj
+\cf0 The first aspect is "consent for data access", for the DARTS! it can be viewed from multiple perspectives: patient, clinic, and registry. When researchers want to use the dataset available in the D-gateway, they will use data coming from the clinics, which in turn gather data from patients. This patient data is then linked to the PRN registry data. Each of the parties involved should to some extent be able to determine if they allow their data to be used.\
+Patient consent is a difficult problem to tackle in research in general. When giving consent, patients need to know what they are signing for. Moreover, handling data outside of the goal which was described is forbidden. However, there are exceptions in the Dutch consent regulations when using datasets for which it is unreachable and unreasonable to acquire consent from each patient in them. This exception is what the D-gateway currently leans on. It uses historical data for the years 2000 to 2010 and, according to the nationwide IVF report [ivfReportNVOG], there are approximately 4000 pregnancies per year. This means that there are about 40.000 patients in the dataset in total, so given the size and age of the dataset it was deemed unreasonable to require consent. To determine if consent is not a requirement, advice from external parties should be acquired. In this case these were the AMC chief privacy officer, the medical ethical committee of data suppliers, and the PRN privacy committee.\
+Consent from clinics and registries can be compared to patient consent. They all give permission to use 
+\i their
+\i0  data for a specific cause as described in the consent. The main difference between these data providers in giving consent is that their considerations are based on different interests. For example, a patient might be concerned about his/her privacy. Of course a clinic will also take this into account when a dataset is requested, but they also have interests in the type of research to be performed with the data. If this clashes with a research interest of their own, it is less likely the clinic will give consent. In the D-gateway these different levels of consent must be taken into account to be able to perform the function of providing research data to answer new research questions.\
+In order to fulfil regulations and ethical needs a dataset should be minimised, so that no superfluous items are left in the dataset. A purpose should be described for each of the data items in the dataset. This purpose description is essential to support ethical discussions about whether to deliver a data item in the dataset or not. Having a well-defined protocol with the D-gateway can provide more confidence in the system by users, leads to better understanding of the system, and provides evidence of which choices about data items were made within certain considerations.\
+For data linkage some identifying (i.e., private) data items are needed. This can be described in the purpose of the data item, but there are also methods for avoiding these data items. Hashing of data with the application of Bloom filters [s22schnell2009] makes it possible to link two datasets without revealing the identifying data. Online data linkage is only mentioned as a future work for the D-gateway. In the first implementation, linkage is provided by a third-party and the delivery of linked data itself is seen as an offline external component of the system.\
+Anonymisation and pseudonymisation should be used to de-identify individuals. While identification through data aggregation and cross-referencing is still possible to happen, these steps should make it more difficult. The D-gateway will use both techniques to provide privacy. Datasets are mostly kept clean by removing all identifying data at the data gathering step. And whatever identifying data is left (through linkage) will be pseudonymised before it is accepted into the system.\
+In order to decrease the chances of cross-referencing and data breaches in general, auditing should be applied. This means keeping logs on who uses what data at what point in time and what version of data existed at that time. Apart from privacy, this also makes it possible to keep people accountable and to provide research data management functionalities such as archival and provenance.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 Provenance and the D-gateway\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 If the reasoning is flipped over it can also be said that provenance provides data auditing capabilities. A short review on the subject is provided in appendix D. The essence of provenance is to store metadata about the \'91life\'92 of a piece of data (where does it come from, how was it processed, etc.). This metadata can be used to create a view for human consumption as described by the PROV Model Primer [dsp8gil] published by the W3C (World Wide Web Consortium). An example of human consumable provenance is shown in figure 2.1.\
+\pard\pardeftab720\fi300\qj
+\cf0 There are many applications of provenance in security, and different levels can be supplied by mixing computerised surveillance with human insight. One of the clearest examples is data auditing. The necessary metadata for an audit is collected automatically during the operation of the system. Outcomes of this audit can be partly analysed by a computer, but can also additionally be translated into an human readable format. Analysing is not automated, actions that lead to data security should be captured in standardised processes (executed by humans), therefore provenance is only a tool and not a security end-point.\
+\pard\pardeftab720\fi300\sb240\qc
+\cf0  \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 2.1:  This example describes the creation of a chart, the original data used, the intermediate data generated during the process, the used software, who was responsible for the work, and who this person was working for. Taken from PROV Model Primer [dsp8gil]. Detailed description can be found in appendix D. \
+\pard\pardeftab720\sb480\sa120
+
+\b\fs32 \cf0 2.2  Process Analysis\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 The following section contains the aggregation of the requirements study. It integrates the security review with the observations made at the gynaecology department at the AMC. What is described is the research process as observed by an outsider.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 Research with the D-dataset\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 When doing research in the medical domain a well known workflow is often used. Nwogu [nwogu] has formally described and defined this workflow for scientific reporting purposes (i.e., writing scientific papers). The 
+\f1 Research Workflow
+\f0  in figure 2.2 shows the simplification of this workflow, which includes problem definition, formulation of research question, definition of methods, data aquisition, statistical analysis, analysis results, and drawing a conclusion.\
+\pard\pardeftab720\fi300\qj
+\cf0 Clinical research (e.g., a trial) is well suited to follow this workflow, as each step can be executed in turn. Of these steps data acquisition is often the most time-consuming part. However, acquisition of new data is not always necessary, desirable or even possible. Research data of high quality and trustworthiness is valuable and should be preserved and re-used, under well controlled conditions. This is also the case with the D-dataset.\
+For reuse purposes three actors are important: researcher, data manager, and interested third parties (e.g., clinics, public, government). Researchers are actors interested in analysis of the D-dataset for scientific ends. The data manager is the central point of communication for everything that has to do with the dataset, but is also responsible for keeping an overview of everything that happens during the steps in the process. Lastly, third parties are actors interested in research conclusions and possibly aggregated (statistical) data from the D-dataset.\
+Currently when a dataset like the D-dataset is exploited for reuse the following happens. A researcher asks what data is available and can search to find what he/she needs. Then the researcher formulates a data request and a permission granting process is initiated by the data manager. A request contains the necessary information to base a permission decision on, e.g., problem background, research question, perceived methods to answer question, and the requested data. The research committee evaluates the request and based on this the researcher gets permission to receive data.\
+Observations and the security aspects made it clear that data requests had to be added to the system. This differs from the initial assumption of a data management (e.g., search, select, download) and analysis system. The focus of the system shifted a little with the data request addition; however, it is still assumed that the main interest for the users will lie at the other functions. The acquisition and analysis processes overspan a big chunk of the research workflow, which is depicted in figure 2.2 with the gateway function groups.\
+\pard\pardeftab720\fi300\sb240\qc
+\cf0  \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 2.2:  Simplified research workflow often used in the medical domain (based on Nwogu [nwogu]). The workflow components are mapped by the identified D-gateway function groups (dotted lines). \
+\pard\pardeftab720\sb360\sa120
+
+\b \cf0 Initial concept\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 Before developing software the process has to be defined in terms of functions; this is the system\'92s concept. This section describes how the results of the process analysis were transformed to an initial (i.e., pre-brainstorm) concept.\
+\pard\pardeftab720\fi300\qj
+\cf0 The initial concept defined a system for the D-dataset with capability for data request, management, analysis, and security. Educated guesses were made to find all the parts needed to support these requirements. Figure 2.3 describes the full view of the initial concept. The function groups presented in figure 2.2 are expanded into: users, external components, data, and functions.\
+Two direct users and several external users are planned, each with their specific set of functions with the data they use and produce. Additionally, external components such as linked and unlinked data, committee protocols, and data administration personnel had to be described. These components are essential parts that are pre-configured into the system, but considered outside of the scope of this study.\
+Data organization was planned as follows: the D-dataset contains linked clinic and PRN data, but also unlinked data where no match could be found. This data is the \'91raw\'92 data of the system. Raw data may be grouped into subsets that can be analysed, resulting in analysis outcomes. Metadata is used to describe or annotate raw data, which can add meaning or extra information (e.g., date, file format, etc.). Provenance and audit data are a result of security measures; this data is generated by the system and can be used by the data manager to perform security tasks.\
+Lastly, note that a data request is formulated on the system, but the actual approval happens outside of the system.\
+\pard\pardeftab720\fi300\sb240\qc
+\cf0  \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 2.3:  Initial concept for the D-gateway, encompassing data and user management. The system offers different sets of functions for three user roles (researcher, data manager, and interested third parties) indicated by colours. External components are (offline) essential parts for system (e.g., data, regulations) but are outside the scope of development. Data listed is either available at initialisation of the system or is generated during execution. \
+\pard\pardeftab720\sb480\sa120
+
+\b\fs32 \cf0 2.3  Brainstorm\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 A brainstorm session was organised with key stakeholders to discuss the initial concept. The stakeholders were spread over the different potential end-users: researcher, principal investigator, data manager, research committee. The goal of this session was to evaluate the initial concept, which is described in the previous section, and to find any \'91hidden\'92 functions that were not apparent during the observations.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 The execution\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 Brainstorming is not an exact science, therefore there is no pre-defined schema to follow. However, there are a lot of gurus describing guidelines to manage sessions. The following list is an implementation of guidelines taken from Tyner Blain [brainstormWebsite]:\
+\pard\tx283\pardeftab720\li600\fi-300\sb50\sa120
+\cf0 1.	
+\b Rules -
+\b0  Make sure everyone is on the same level and understands what the point of the meeting is through a small introduction talk. \
+2.	
+\b Time limit -
+\b0  Guidelines describe short sessions, but due to the complexity of the system two sessions of one hour each were necessary. Step 3 (seed) was repeated in the second session to refresh the idea of the system for everyone. \
+3.	
+\b Starting point -
+\b0  In this case the initial concept was used as a starting point, or \'93seed\'94. During the session big (A2) pieces of paper were used on which the seed\'92s functions are written down. Figure 2.3 is a stylised version of the used paper schema. \
+4.	
+\b Ideas -
+\b0  The sessions are structured by the paper schema, each of the functions is discussed. Ideas for new functionality or differences are shortly (vocally) summarised by the session leader (in this case the researcher) and written on the same paper. \
+5.	
+\b Prioritise -
+\b0  For this step the guidelines are disregarded and prioritisation is based on group agreement. Three levels are used: must have, should have, nice to have. Any functions that are deemed unnecessary were already removed from the schema during the \'91ideas\'92 step. \
+\pard\pardeftab720\sb180\sa120
+
+\b\fs24 \cf0 Results: differences\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 Outcomes of the brainstorm showed that many requirements were hidden when the initial concept was defined. The revised complete research life cycle for the DARTS! is: \
+\pard\tx283\pardeftab720\li600\fi-300\sb50\sa120
+\cf0 \'95	researcher submits a data request; \
+\'95	committee members check this request and either approve it or not; \
+\'95	the system creates a subset of data which the researcher can access; \
+\'95	after completion of the research the researcher uploads his/her paper; \
+\'95	the committee members check this paper and either approves it or not; \
+\'95	during the whole cycle the data manager keeps an overview of this process. \
+\pard\pardeftab720\fi300\sb60\qj
+\cf0 This whole cycle is to be supported by the D-gateway. There are a couple of differences from the initial concept.\
+\pard\pardeftab720\fi300\qj
+\cf0 Firstly, researchers should be allowed to register themselves into the system with a limited account (i.e., no access to data, no data requests). After registering, the data manager is responsible for approving their account.\
+Secondly, the data request approval process will also reside in the system. A request is a document that contains information on which the research committee needs to base their decision. This information in the case of the D-gateway is: research question, hypothesis, problem background, description of perceived methods to solve question, and the requested data. The document is formulated by the researcher and after submission, it is managed by research committee members (i.e., evaluated, voted on).\
+After the researcher has access to his/her data the third difference become apparent. The stakeholders representing the researchers said that analysis will mostly be done offline. They are known and comfortable with the software they are using and are unwilling to switch.\
+The fourth difference is that data is not to be downloaded over the internet due to privacy reasons. Access should be restricted such that only certain (physical) places have direct access to the D-dataset. However, metadata such as a data dictionary (i.e., a document describing what data is available in the repository) can be accessed over the internet. This helps the researcher in formulating their data request and provides more opportunity for data reuse (e.g., someone might be unwilling to travel long distances just to submit a request).\
+The fifth difference concerns the last step in the research life cycle, the publication, which should also be supported in the system. Publications have to be approved by the research committee before they can be published. As with the data request process, the researcher creates a document (i.e., upload a paper to the system) which is evaluated and approved by the committee.\
+Lastly, two additional notable differences reside outside of the research life cycle. No third parties should be allowed on the system; for now the data is too valuable and studying exactly what information can be passed on is not a priority. Secondly, no unlinked data will be stored or used in the system. It might be interesting to find correlations between linked and unlinked data, but that is not the goal of the DARTS!.\
+The focus of the system therefore switches from purely data support to also supporting other research management related tasks. This is clearly visible in the revised workflow, figure 2.4, which shows that the balance has shifted from just the \'91Data\'92 group to a much broader perspective.\
+\pard\pardeftab720\fi300\sb240\qc
+\cf0  \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 2.4:  Research workflow mapped by identified function groups after brainstorm, initial workflow shown in figure 2.2. The user group underlays the whole system and is therefore outside of the dotted mapping lines. \
+\pard\pardeftab720\sb360\sa120
+
+\b \cf0 Final concept\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 After the identification of the differences observed during the brainstorm session, the final concept was be defined as explained below.\
+\pard\pardeftab720\fi300\qj
+\cf0 The final concept defines a system for the D-dataset with capability for management for: users, requests, data, and publications. While the functions in the initial concept were educated guesses, now they are validated by the brainstorm session. Figure 2.5 describes the full view of the concept, which folds back into the function groups as shown in figure 2.4.\
+Three direct users are planned, and each has its own set of functions with the data they use and produce. The (offline) external components remain nearly unchanged; only the unlinked data has been removed. The protocols are still vital for the system.\
+A few changes were made to the system\'92s data. The linked set had to be made anonymous considering the clinic, so that clinics would not be directly comparable against each other. Also data about the request and publications is now stored in the system - these are both captured under \'91research\'92.\
+A lot of differences exist between the schema before and after the brainstorm - a side-by-side comparison is supplied in appendix B. The main assumption of a data support system had the wrong focus, it is now supplemented with increased request management and the addition of user and publication management. While data handling functions like searching, security restriction, auditing, or annotating with metadata are important in this system, there are other aspects of the research life cycle that have to be taken into account. The system\'92s most important functionality now lies at the data reuse part.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 Conclusion: requirements\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 Most of the requirements for this system are functional. This means that the specific needs of end-users of the system lead to the requirement. There are also a few requirements which are non-functional, these are derived from the external components and security. All requirements are listed in the \'91System\'92 section of figure 2.5.\
+\pard\pardeftab720\fi300\sb240\qc
+\cf0  \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 2.5:  D-gateway schema after brainstorm, encompassing data, user, request, and publication management. The system offers different sets of functions for three user roles (researcher, data manager, and committee) indicated by colours. External components are (offline) essential parts for system (e.g., data, regulations). Data listed is either available at initialisation of the system or is generated during execution. *: The data dictionary contains information about all the available data items, also called: headers. **: Fields are the data that belong to a stored pregnancy, fields are named with headers. \
+\pard\pardeftab720\sb60\qj
+
+\fs20 \cf0 \page \pard\pardeftab720\sb240\sa120
+
+\b\fs40 \cf0 Chapter 3\
+System Design & Implementation\
+\pard\pardeftab720\sb240\qj
+
+\b0\fs20 \cf0 From requirement analysis the development moves on to the design and implementation of the system. First the functional design will be described in section 3.1, which is done by ordering the functions along a research life cycle story. Then technical design decisions will be discussed in section 3.2, these concern reuse of existing software. Lastly, the implementation details of the D-gateway prototype will be described in section 3.3.\
+\pard\pardeftab720\fi300\qj
+\cf0 For the software reuse decision multiple systems will be evaluated and one is chosen, namely the in-house Rosemary project [rosemary]. This project embodies the NeuroScience Gateway (NSG) [shahand2015data] which supports data management of MRI scans and processing these with applications on external computing services. The D-gateway is the implementation of the requirements found in chapter 2. For this study a partial implementation will be done through a prototype (referred to as: D-prototype) which reuses major components of the Rosemary back-end and front-end.\
+\pard\pardeftab720\sb240\sa120
+
+\b\fs32 \cf0 3.1  Functional Design\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 Chapter 2 resulted in a compact list of requirements (figure 2.5), which will now be translated into functions. An unordered list of functions can be found in appendix F, however it is more interesting to order these functions with a workflow. This is done according to the following research life cycle story:\
+\pard\pardeftab720\li512\ri512\sb60\qj
+\cf0  A researcher wants to investigate a certain hypothesis on the D-dataset. He or she needs to register an account with the system which is then checked and approved by the data manager.\
+\pard\pardeftab720\li512\fi300\ri512\qj
+\cf0 Next, the researcher formulates a data request using the system. From the data dictionary the researcher searches (filters) for the appropriate data items (names of data items are called \'93headers\'94). The researcher creates the request document with the necessary information required by the committee to decide upon. The system provides feedback based on the selected fields and automatically detected keywords. Based on this feedback the researcher can edit the request or send it for approval. Each member of the committee checks and approves the request.\
+After approval the system creates a subset of the D-dataset containing the requested data items. The researcher filters this subset and downloads a selection of the data. Another possible path is that the researcher prepares the data for analysis on the system and the outcomes are stored.\
+To complete the request the researcher uploads the paper which is then again approved by the committee. \
+\pard\pardeftab720\fi300\sb300\qc
+\cf0  \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 3.1:  D-gateway functions according to function groups, actors, and usage within the research workflow. Vertical columns represent different function groups, colours are used for different user roles, and arrows indicate sequence of actions. Greyed-out functions are deemed less important, which was an outcome of the brainstorm session (see section 2.3). Functions that were included in the final prototype are marked with a dashed border. \
+\pard\pardeftab720\sb240\qj
+
+\fs20 \cf0 The resulting mapping between discovered D-gateway functions and the research life cycle workflow is shown in figure 3.1. During the brainstorm session weight was given to the requirements; therefore, functions with less priority for implementation are displayed greyed-out (i.e., change data, data curation, analyse, store outcomes). Not all requirements were implemented in the final D-prototype. The included functions have a dashed border.\
+\pard\pardeftab720\sb240\sa120
+
+\b\fs32 \cf0 3.2  Technical Design Considerations\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 The data management is the most significant part of the D-gateway and therefore should be well implemented. Also implementation had to be done in a short time due to study planning restrictions, which were a result from the earlier mentioned data gathering difficulties. To speed up development multiple systems were considered and evaluated for reuse. Systems that have properties of clinical data management were sought for. From a list of systems three were included in an more in-depth evaluation presented below.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 Software reuse\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 The external software was identified through the paper by Leroux [leroux2011], in which five systems are listed: Oracle Clinical [oracle], InForm, Rave [rave], DADOS Prospective [dados], and OpenClinica [openclinica]. One additional system was found through internal communication within the AMC, namely Castor [castor]. The last system is an in-house project called Rosemary [rosemary] developed at the same department in which this study was conducted.\
+\pard\pardeftab720\fi300\qj
+\cf0 All systems, except for Rosemary, are clinical trial management (CTM) software. Their focus lies on data entry and retrieval for low-level (researcher) users, and on research overview for high-level (management) users. Besides data entry, they also offer overviews displaying statistics on participants and the clinics they belong to, how many inclusions were made, follow-up percentages, etc. Rosemary is built to handle neuroimaging data and metadata, data analysis applications, and their execution on grid infrastructures.\
+Four of the CTM systems are delivered under a proprietary license: Oracle Clinical, InForm, Castor, and Rave. Castor has a fair use for small trials: it is available for free for up to a maximum of 200 inclusions or 12 months study duration. However, the identified functions of the D-gateway demand that significant extensions are made to these four systems to accommodate requirements. One firm requirement of the systems that are considered is that they have to be open-source to accommodate this. Therefore, these systems were not included for the in-depth evaluation presented below.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 Evaluation: external systems\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 The open-source external systems identified were OpenClinica and DADOS Prospective. Both systems were evaluated, OpenClinica based on their online demo and DADOS Prospective based on their publication.\
+\pard\pardeftab720\fi300\qj
+\cf0 These are both CTM software and have approximately the same purpose of providing per study data recording. Data collection protocols can be defined in a very flexible manner. After the protocol has been defined, it is fixed for all study participants. This is very useful in longitudinal studies, where collection should be standardised for study quality and analysis purposes. Also, the data model has already been proven by the fact that many researchers use these systems.\
+In principle, as far as could be determined by our brief evaluation, the desired options for data reuse are not supported. Reuse in these systems is at a study level, which means that when a user is made a member of a study, he/she can see and use all the data within the study. The philosophy for the D-gateway is to provide external data requests on a pool of data, which makes the model of the CTM systems less useful for this case.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 Evaluation: In-house project\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 In Rosemary the data consists of brain images generated by Magnetic Resonance Imaging (MRI) scanners, and the metadata refers to the subjects, the imaging session, etc. References to images are imported into the system from external data servers (XNAT [xnat]), selected by the user, and submitted for processing by analysis applications. Result are also stored in the system and used in further analysis. Data input is restricted to automated functions and there are no manual input interfaces available.\
+\pard\pardeftab720\fi300\qj
+\cf0 The philosophy of Rosemary is to support researchers with managing of data, processing, and community. Data challenges are tackled by providing extensive search, filter, and selection functionality. Processing management is handled by automatically bundling submissions into processings, which are then fed to one or multiple applications. As this is rather uninteresting for the D-gateway case, it will not be discussed any further. And lastly, community is currently supported through descriptive notifications, messaging, and the notion of a \'91workspace\'92. A workspace contains a set of data. A researcher or the system may define a workspace and share this with their colleagues by adding them as members.\
+To fulfil the data management functionality, each single item of data (called a \'91datum\'92) can be supplemented with metadata. Based on metadata the researcher can search and order their data. When data is added to the workspace a powerful search functionality is provided. It supports searches on the datum level, and also on the metadata level. Initially the search is text-based and very fuzzy, but with the use of a query language the user can make the search specific. This query language ranges from keywords like \'91and/or\'92 to restriction of search based on the name of a metadata field (e.g., search for \'91patient123\'92 but only in the field named \'91subject\'92, search syntax: \'93subject:patient123\'94).\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 The better pick\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 Based on several considerations, the decision was made to use the in-house Rosemary project for further development. The manner in which data and metadata are applied makes the data model of Rosemary very flexible. This is less useful for longer running projects which require very strict data entry rules. However, for the D-gateway data is an immutable set, namely the D-dataset. After a small survey it turned out that the dataset could be used directly with the existing data model.\
+\pard\pardeftab720\fi300\qj
+\cf0 Because Rosemary is an in-house project the survey to check the data model could be done directly with the lead developers, which brings us to the next consideration. Short lines of communication to expertise are useful for a quick development process, because once a (coding) problem is encountered it can be solved in a matter of hours.\
+Lastly, Rosemary tackles data management challenges by providing extensive search, filter, and selection functionality. Furthermore, notifications and messaging are supported. All of these functions are useful to some extent for the requirements of the D-gateway. \
+\pard\pardeftab720\fi300\sb240\qc
+\cf0  \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 3.2:  Rosemary architecture including domain specific components (denoted with red dashed border). It describes the implementation of the NSG back-end and front-end, together with the specific build tools used during development. \
+\pard\pardeftab720\sb360\sa120
+
+\b \cf0 Rosemary: Architecture\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 The overall workings of Rosemary have been described in the previous section. Below the architecture and data model will be explained before going into details of the D-prototype implementation, which will be described in section 3.3.\
+\pard\pardeftab720\fi300\qj
+\cf0 The Rosemary architecture is shown in figure 3.2. It depicts: the back-end, the front-end, NSG specific components, and development build tools. For the back-end the Play Framework [play] is used. It is written with the Scala [scala] programming language which is interoperable with Java. As a database mongoDB [mongo] is used, a document-oriented database. Communication between the back-end and the database is done with JSON [json] and the Scala library \'91Salat\'92 is used to serialise the JSON information into Scala classes. The back-end exposes a RESTful API which can be accessed by the front-end.\
+The front-end is based on the AngularJS [angular] framework and coded with Coffeescript [coffeescript], which is compiled into JavaScript. For layout and styling HTML and Less [less] are used, Less compiles into Cascading Style Sheets (CSS). To provide a pleasant user experience the front-end is developed as a web application. Data is loaded asynchronous through the RESTful API and stored at the client\'92s side to give the feel of a native application.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 Rosemary: data model\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 The yellow components in figure 3.3 depict the Rosemary data model with the neuroscience specific items removed, the unedited data model can be found in appendix G. The model contains six main data objects: 
+\f1 Datum
+\f0 , 
+\f1 Tag
+\f0 , 
+\f1 Rights
+\f0 , 
+\f1 User
+\f0 , 
+\f1 Notification
+\f0 , and 
+\f1 Thread
+\f0 . The 
+\f1 Tag
+\f0 , 
+\f1 Notification
+\f0 , and 
+\f1 Rights
+\f0  objects are inherited to describe a specific instance; for example, 
+\f1 WorkspaceTag
+\f0  is a kind of 
+\f1 Tag
+\f0 .\
+\pard\pardeftab720\fi300\qj
+\cf0 A short description of the main objects will be given for better understanding of the model. A 
+\f1 Datum
+\f0  is a single piece of data and its metadata. For the Rosemary a 
+\f1 Datum
+\f0  might be a reference to an MRI image and metadata about the scanned patient. 
+\f1 Datum
+\f0 s may be tagged with the 
+\f1 Tag
+\f0  object. For example, the 
+\f1 UserTag
+\f0  is a tag defined by the user and attached to a set of 
+\f1 Datum
+\f0 s for identification. 
+\f1 Tag
+\f0 s are also used to manage access rights: each 
+\f1 Tag
+\f0  has a specific 
+\f1 Rights
+\f0  attached to it. A 
+\f1 Rights
+\f0  object in its turn contains a set of 
+\f1 User
+\f0 s which have access to the tagged data, for example a 
+\f1 UserTag
+\f0  (and the associated data) may be shared among users by adding them as members in the tag\'92s rights. The 
+\f1 Notification
+\f0  object stores data about process milestones which can be displayed in the user interface, for example, when a message is sent by another user or the system. Lastly, the 
+\f1 Thread
+\f0  keeps track of messages send back and forth in conversations.\
+The data model and its implementation provide some interesting possibilities. For example, a 
+\f1 Datum
+\f0  can be tracked and reused endlessly by applying a 
+\f1 Tag
+\f0  object. One possible usage of this is implementation of access control, which can be applied by tagging a 
+\f1 Datum
+\f0  with a 
+\f1 WorkspaceTag
+\f0  that is owned by a 
+\f1 User
+\f0 . Many different constructs of this sort can be achieved without ever touching the structure of the original Rosemary model itself.\
+\pard\pardeftab720\fi300\sb240\qc
+\cf0  \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 3.3:  Rosemary data model as implemented. Differences between the implemented D-prototype model and the original Rosemary model are shown in blue. Note that NSG specific data objects are omitted as they are not used in the D-prototype implementation. Describes workspace, tagging, datum, notification, and research models. The unedited data model can be found in appendix G. \
+\pard\pardeftab720\sb480\sa120
+
+\b\fs32 \cf0 3.3  D-prototype Implementation\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 This section will go into the implementation details for the developed D-prototype. Architecture, functions, data model, and the user interface design will be presented below.\
+\pard\pardeftab720\fi300\qj
+\cf0 The Rosemary architecture was fully reused, the only change is that neuroscience specific components were removed, as presented in figure 3.2. On the level of code and structure, however, some changes were made to accommodate the D-prototype functionality.\
+Due to previously mentioned time restrictions not all functions that were discovered could be implemented. A selection is made based on the programmers opinion what would be most profitable for a prototype system, considering that the prototype has to appeal to a wide variety of users. Most importantly the key stakeholders in the brainstorm (section 2.3) but also, for example, clinic management. Functions that were deemed less important during the brainstorm were excluded from consideration. The selection is shown in figure 3.1: the implemented functions have a dashed border.\
+The system\'92s critical functions have been implemented such as: user registration and management, data requests and acquisition. To give the system eye-catchers and illustrate its potential value, the data audit has been implemented through so-called placeholders, i.e., functions have pre-defined responses and do not work with the \'91live\'92 data. Also, different representation methods for data have been explored, for example: raw data, aggregated data, data in a graph. This will be further explained in the user interface implementation details.\
+Where in the Rosemary data could be an image with its metadata in the D-prototype it is a pregnancy and its metadata. Because data requests are selections on the D-dataset there needs to be a way to allow access 
+\i only
+\i0  to the selected items (headers). A request explicitly defines which headers are needed. Data headers can be any information that is available for a pregnancy, examples are: age mother, type of treatment, birth weight, etc. After a request has been approved the system creates a new subset (i.e., a workspace) which is accessible by the requesting researcher. Figure 3.4 shows the difference between a workspace with access to 
+\i all
+\i0  the data versus one with only four headers for the exact same pregnancy.\
+\pard\pardeftab720\fi300\sb240\qc
+\cf0  \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 3.4:  Example of the full D-dataset (a) versus a restricted view (b). The restricted view shows exactly the same pregnancy but only the requested (and accessible) four data headers are displayed. \
+\pard\pardeftab720\sb360\sa120
+
+\b \cf0 Functionality: back-end and front-end\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 The most notable changes to existing back-end code were in the security classes and data handling. Rosemary already supports basic user management, where access to the system is provided based on the user account. However the system needed to be extended with user roles for more fine-grained access control, i.e., a distinction between researchers, administrators, and committee members. To execute this control the system requires these roles to be readable and actionable (i.e., the system can act upon a specific role). This is reflected in the 
+\f1 Security
+\f0  class which now supplies this information.\
+\pard\pardeftab720\fi300\qj
+\cf0 Even though security considerations are a big part of the requirement analysis (see section 2.1), it does not show itself that clearly in the system implementation. Most of the security measures were taken during the data gathering steps. Because the decision was made to have a fixed dataset for the system a lot of the discussed security measures do not need to apply anymore as described in section 2.1. Provenance is not supported due to time restrictions.\
+Data header filtering based on the workspace is not something that was available therefore the data handling had to be changed. The front-end asks for data from the back-end based on the logged-in user and the workspace they are trying to access. To make sure data is handled safely the back-end has to filter the data before passing it on to the front-end. Based on the workspace details (i.e., which headers have been requested and approved) the back-end filters the D-dataset, the filtered (sub)set is then displayed.\
+Lastly, the RESTful API was supplemented with (read, store, edit, delete) functions for newly introduced data concepts (e.g., data requests). These concepts will be described below.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 The data model\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 Unlike the architecture the data model needed alterations. These can be divided into changes to already existing objects and additions of new objects.\
+\pard\pardeftab720\fi300\qj
+\cf0 To make data filtering possible support for limiting data headers had to be added. This is achieved by tagging the 
+\f1 Datum
+\f0  objects with a 
+\f1 WorkspaceTag
+\f0 . The 
+\f1 WorkspaceTag
+\f0  object was extended with a set that holds the data headers that were requested and should be accessible. Back-end functions for 
+\f1 Datum
+\f0  objects check the tag and filter the available data.\
+Rosemary does not differentiate between different types of workspaces. The D-gateway has three types of workspaces: the 
+\i master
+\i0  workspace containing the whole D-dataset, clinic workspaces containing data specific to a clinic, and request workspaces. This is reflected by adding a workspace type field to the 
+\f1 WorkspaceTag
+\f0  object.\
+To support data requests the following five objects were added to the model: 
+\f1 Research
+\f0 , 
+\f1 Approval
+\f0 , 
+\f1 Data Request
+\f0 , 
+\f1 DownloadNotif
+\f0 , 
+\f1 RequestNotif
+\f0 . The two notification objects are used to determine how notification information is displayed in the front-end. They both inherit from the 
+\f1 Notification
+\f0  object, which remains unchanged compared to Rosemary. This means that the methods used to extract information are standardised, and that new notification objects can directly be used in the system without further need for customisation.\
+The other three objects are related to each other: each 
+\f1 Research
+\f0  contains an 
+\f1 Approval
+\f0  object and a 
+\f1 Data Request
+\f0  object. These related objects are used to capture data regarding the request progress. The 
+\f1 Data Request
+\f0  contains the requested headers. The 
+\f1 Approval
+\f0  keeps record of which committee members need to give permissions, and which votes were already cast. Lastly, the 
+\f1 Research
+\f0  object is used to capture information used to base a voting decision on, e.g., research question, study description, etc.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 User interface design\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 In this project there was no time available for a user-centred design approach, where prototypes are iterated until the best design solution is achieved. The front-end design was strongly based on the existing Rosemary UI style, and for each new function a page was created where necessary.\
+\pard\pardeftab720\fi300\qj
+\cf0 Figures 3.5 and 3.6 show the wireframe representations of the implemented layout for the data management in the D-prototype. The menu is shown on the left and the notifications are on the right. When a user browses pages only the middle part updates (i.e., web application feel). The user may switch between pages through the menu. All available functions have their own menu button (e.g., request, workspaces, messages). All accessible workspaces for a user are listed: these can be any of the three types mentioned earlier (i.e., master, clinic, request).\
+Changes to the Rosemary design included the addition of a data summary panel, removal of superfluous filter possibilities, and the addition of a download button to the basket. The filter panel embodies the searching functionality of the gateway. The basket supports selection and acquisition (downloading), while the summary and data components handle the different views on data.\
+\pard\pardeftab720\fi300\sb240\qc
+\cf0  \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 3.5:  Wireframe representation of the UI layout, showing the data management features: filter, view, select. \
+\pard\pardeftab720\fi300\sb480\qc
+
+\fs20 \cf0  \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 3.6:  Wireframe representation of the UI for filter and basket layout, showing the search and select data management tools. (Details of the filter and basket blocks in figure 3.5). \
+\pard\pardeftab720\fi300\qj
+
+\fs20 \cf0 \page \pard\pardeftab720\sb240\sa120
+
+\b\fs40 \cf0 Chapter 4\
+System Evaluation\
+\pard\pardeftab720\sb240\qj
+
+\b0\fs20 \cf0 The D-prototype was evaluated based on the implemented functions. These functions are structured to the research workflow as described in figure 3.1. This workflow will now be referred to as the \'91process\'92 of the system.\
+\pard\pardeftab720\fi300\qj
+\cf0 For the purpose of the evaluation the D-prototype code was running on the local environment of a laptop. No connection to the internet was necessary for testing, therefore performance issues were out of the question. The used dataset was randomly generated (strings of letters), because the D-dataset was not available yet. Screenshots of the running gateway are shown in figures 4.1 and 4.2.\
+\pard\pardeftab720\fi300\sb240\qc
+\cf0  \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 4.1:  Running D-gateway data management view showing the standard display of the data (i.e., summary on top and raw data at the bottom). \
+\pard\pardeftab720\fi300\sb480\qc
+
+\fs20 \cf0  \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 4.2:  Running D-gateway data graph view showing the (sunburst) graph display of the data. \
+\pard\pardeftab720\fi300\sb240\qj
+
+\fs20 \cf0 All evaluations were done in an informal open-talk setting with no predefined questions, the testers were encouraged to think aloud. First, the purpose of the meeting was explained in a few sentences. Each user had to perform tasks using the prototype according to the assigned case: researcher, committee, administrator. There were three testers, and some were assigned two cases because they fit in the field of experience of the respective user role.\
+\pard\pardeftab720\fi300\qj
+\cf0 Tasks were described according to the system schema presented in figure 2.5. No explanation was given about the user interface and the concepts (e.g., filter or basket components), these had to be discovered by the tester. The interviewer only gave directions during the evaluation after the tester indicated that they did not know how to proceed. If a bottleneck was encountered testers were asked to suggest design or process alternatives.\
+The cases presented below are loose transcripts of the evaluation sessions. The transcripts will be structured like: task description, how the task should be performed, how the tester performed the task, and comments and difficulties. After these the results are summarised in section 4.2. First the design will be summarised using Nielsen\'92s ten heuristics [designHeuristics] and then general notes about the system are described.\
+\pard\pardeftab720\sb240\sa120
+
+\b\fs32 \cf0 4.1  User sessions transcripts\
+\pard\pardeftab720\sb180\sa120
+
+\fs24 \cf0 Researcher Role\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 From all the cases this is arguably the largest as it has the most extensive (implemented) functions. The tasks that had to be performed were: search the data dictionary for headers, use these data headers to compose and submit a request, download the requested data.\
+\pard\pardeftab720\fi300\qj
+\cf0 Testers had to find the data dictionary and use the filter function to search for the headers they wanted to use. They could also use the graph shown in figure 4.2 to find what they were looking for. After finding the wanted headers they are added to the basket by selecting them - when using the data dictionary the basket is used for \'91shopping\'92 data where the request is the \'91checkout\'92 and submitting the request places the \'91order\'92.\
+After the basket is filled with the wanted data the user navigates to the \'91new request\'92 form. In this form the headers from the basket are automatically added and the user fills out the other required information (e.g., research question, description). When the request is submitted the user waits for approval; for the evaluation an approved request was provided for the download task.\
+Downloading data is achieved by navigating to the wanted workspace in the menu on the left side of the screen. Users can either make a small selection or click the \'91select all\'92 button to add data to their basket. By clicking the \'91download\'92 button in the basket the system provides a downloadable file.\
+Finding the data dictionary was no problem for the testers. The next step is filtering, which is relatively easy as the input is text based and the search itself is fuzzy. More extensive functions of the filter are not directly apparent but after a short explanation users could apply them to search for items based on name, description, and keywords.\
+Two of the testers did not notice that the search is instantaneous (like google search). This resulted in pressing \'92enter\'92 and clicking the \'91apply filter\'92 button multiple times before noticing that the data had already changed at the bottom of the screen. One of the testers prefers to search the data off-line, i.e., print the fields and later select the wanted items in the interface.\
+Because in the prototype the descriptions are nonsense, it was difficult to find the wanted data headers. Therefore, testers were asked to select a couple of random headers. Selection was straightforward but the testers did not notice that selected items were added to the basket. Therefore, two asked \'91how do I keep this selection when I start searching again?\'92. This also resulted in two of the testers using the \'91select all\'92 function on the basket. Clicking this will make a selection of 
+\i all
+\i0  the items in the workspace, basically overwriting the previous basket and losing all the progress.\
+To proceed in the task of making a request the testers looked for a button on the basket. However, the buttons are specific to a \'92data view\'92 and do not make sense in a \'92dictionary view\'92 of the system. The testers needed to be explained that the basket is kept in the back of the system and can be used over multiple views. After this comment the tester could quickly find the \'91new request\'92 form fill it out and submit it.\
+Data download is straightforward. No problems were found here, one of the testers noted that in principle 
+\i all
+\i0  data will be downloaded every time. In this case the \'91select all\'92 button on the basket helped them.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 Committee Member Role\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 The committee tasks are the shortest, as the list only contains the request approval function. It breaks down into finding the requests which are open for approval, evaluating them against already approved requests, optionally communicating with other committee members, and voting. Viewing requests that are ready for approval is done by selecting the \'91request\'92 button from the left menu. Now a list is shown of all these requests and the data that is necessary for making the decision. Clicking on one of the requests redirects to \'91new message\'92, the user can create a message which (upon clicking send) is automatically send to all committee members. Approval is given (or not) by selecting a approve or disprove button, a vote remains open for change until all committee members have casted their vote. The actual vote is shown both with a symbol (/\'d7) as with a colour (green/red).\
+\pard\pardeftab720\fi300\qj
+\cf0 Generally the process was clear to the tester, finding the proper request and voting went smoothly. The tester tried to click on a request to view more information, even though all the available information was already shown. The click leads to the \'91new message\'92 which confused the tester. There was a suggestion to add a comments thread to the request itself, instead of the separate message construction. And even though they did not explicitly say it, it can be discerned that the tester needed more information on the request.\
+One tester (an P.I.) mentioned that the request management functions might help them when doing grant applications. Saying that many funding sources require that after the funded research is completed that data is available for reuse. Demoing the system and adding it to the grant application might give them a better position for getting the fund. What was also mentioned is that giving data deliverers (i.e., key persons from each clinic) the possibility to keep a certain \'91hold\'92 over their own data might increase their willingness to provide their data.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 Data administrator Role\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 Lastly, the data administrator performed the user management functions. This is done by finding the needed user in a list and changing the wanted setting (i.e., is committee member, is active, is approved). After selecting the \'91users\'92 button from the left menu the list of users is shown. Each user contains buttons to change each of the settings, i.e., make (or unmake) committee member, make (in)active, and (un)approve. The status for each of these settings is given with a symbol (/\'d7) and with a colour (green/red).\
+\pard\pardeftab720\fi300\qj
+\cf0 User management was clear and would be easy to use in a real-life scenario. However, the tester noticed that a system requirement was not discovered yet. If one of the users of the system changes institutions, most of the time the data manager is not informed, this is left to the P.I.s (which are not included in the D-gateway requirements). This is important when, for example, a committee user starts working for a different clinic thereby losing the role of committee member. Or when a researcher changes institutions and access to a previous data request should be revoked. Therefore the system should contain functions for non-administrators to view the list of users and communicating with the data manager about what actions should be taken. \
+\pard\pardeftab720\sb240\sa120
+
+\b\fs32 \cf0 4.2  Summary\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 As with brainstorming, creating a system\'92s process and user interface is not an exact science. For evaluation ends design heuristics are used and the results of the evaluation interviews can be mapped against these. The used list is from Nielsen [designHeuristics] which contains ten famous heuristics, they are marked bold in the summary below.\
+\pard\pardeftab720\fi300\qj
+\cf0 Design-wise the data view is a perfect example for the 
+\b user freedom
+\b0  and 
+\b flexibility
+\b0  heuristics. There are three ways of viewing namely: raw data, graph, and aggregated. The user may switch between these views and can pick whichever they prefer for their current task. On the other hand, the fact that the data view does not support (analogue) printing of data shows lack in flexibility.\
+There are things to clean up, most of the encountered problems can be related to the 
+\b system status visibility
+\b0 . For example, when the user is in the data dictionary the buttons on the basket do not account for this. Which means that two out of the three buttons are completely out of context for what the user is doing. System visibility problems are also reflected in the fact that testers tried to \'91start\'92 the search by hitting enter and not noticing that the results had already updated. Lastly, selecting data and putting it in the basket caused confusion, i.e., the purpose of the basket is not well understood.\
+As for the heuristic 
+\b recognition rather than recall
+\b0  a few issues were found as well. The \'91select all\'92 function on the basket confused the user, thinking they would select all data which was already 
+\i in
+\i0  the basket. Clicking this button made the user loose all progress made so far, resulting in a problem with the heuristic 
+\b recognising and recovering from errors
+\b0 . Also, going from a basket selection to preparing a request was unclear, as they were looking in the wrong place. Lastly, the link from a request to \'91new message\'92 was experienced as unexpected behaviour, the tester expected to find more information about the request in its place.\
+The results described mostly do not influence the process of the system itself. While flaws in the design may slow a user down, so far no fundamental problems with the process were found which would restrict the user in performing their tasks. There are two exceptions to this. One exception is that a tester expected more information on data requests, whether this is a flaw in the system or a user expectancy problem is unknown. The other that an undiscovered requirement came up during the evaluation, namely, that non-administrators need access to the list of users to notify the administrator of changes (for example, in a user\'92s institution). For now the data administrator and non-administrators can work together (off-line) to handle these tasks. Now general notes which do not belong to one of the heuristics will be summarised.\
+Nonsense randomly generated data caused confusing for the testers. This can be credited to a flaw in the evaluation design. It was expected that this type of data would avoid distraction for the testers, but as it turns out it was exactly the other way around.\
+Based on the system\'92s process and the potential as a supporting factor in doing research the system got positive feedback. One of the testers mentioned that the system as a prototype might be used for demoing purposes for funding institutions or data deliverers. Relatively simple functions from the system can show that thought went into the process of data security and requests. From multiple perspectives the system can show what requests are in progress and information is available to make request \'91dashboards\'92 for management purposes. This also brings possibilities for monitoring by data owners. Thereby persuading data deliverers and providing more trust.\
+Overall testers were able to find the different management functions (i.e., data management, request management, user management) in the system easily. The web application feel helped the testers to quickly learn the navigation of the system. However, there are some components in the system which in their current implementation cause confusion for new users. These are the search and selection, implemented through the filter and basket. After explanation of how they work the users knew how to use them for their needs, so these problems might be avoided by clear descriptions in a logical (and visible) place.
+\b\fs32 \
+\pard\pardeftab720\sb300\sa120
+\cf0 \page \pard\pardeftab720\sb60\sa120
+
+\fs40 \cf0 Chapter 6\
+\pard\pardeftab720\sb240\sa120
+\cf0 Bibliography\
+\pard\pardeftab720\sb240\qj
+
+\b0\fs20 \cf0 [heading=none]\
+\pard\pardeftab720\sb240\sa120
+
+\b\fs40 \cf0 Appendix A\
+Abbreviations\
+\page Appendix B\
+Brainstorm Schemas\
+\pard\pardeftab720\sb480\qc
+
+\b0\fs20 \cf0  \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 2.1:  Side by side comparison of system functionalities before and after brainstorm as described in 2. \
+\pard\pardeftab720\sb240\sa120
+
+\b\fs40 \cf0 \page Appendix C\
+Security Review\
+\pard\pardeftab720\sb240\qj
+
+\b0\fs20 \cf0 Security is an integral and important part of the DARTS! gateway because it deals with linked data that potentially can be used to re-identify individuals and, in this case, also institutions (clinics).\
+\pard\pardeftab720\fi300\qj
+\cf0 The question we seek to answer in this literature study is what regulations and conventions should be taken into account when storing and processing data specific to this system? We could start with answering the question \'91how do I secure data?\'92, but before doing this it is important to describe what the incentives are for re-using the data. We do this to give context to the found security issues and proposed solutions for them.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 Medical big data ethics and security\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 In 2013 Groves [s20Groves2013] estimated big data strategies could increase profits in US healthcare by $100 billion [s13Patil2014]. However to make this possible healthcare management has to change their business model. Old models worked with increasing or decreasing the amount of patients while the outcome (quality) remained the same; Patil [s13Patil2014] calls these \'93volume-based business models\'94. To make the increase in profits possible, new models revolving around cost versus quality are used, called \'93value-based business models\'94. Much more is written about the pros and cons of this type of healthcare management by gurus like M.E. Porter [s21Porter2006], but this is outside the scope of this paper.\
+\pard\pardeftab720\fi300\qj
+\cf0 In order to measure the quality indicators in the new strategies big data can be applied [s6West2009]. Through data mining, patient outcomes can be connected with treatment, environmental factors, or any other information. When this is done right choosing the best treatment for any given new patient will be a matter of checking the charts. This way of delivering healthcare is also supported by the European Union which describes it as \'93Free Movement\'94 for patients between institutions, obtaining quality, and efficient healthcare [s8FernandezAleman2013].\
+The new healthcare set-up closely fits to a research set-up, in the sense that patient data is used for improving the healthcare process. Data in patient records is mainly used to provide information for caretakers, but it can be very valuable in research as well [s15Fenz2014]. Because the current model of healthcare data is not fully compatible to the \'93value-based business models\'94 extraction of data is not very straightforward. Also, caution should be kept as there are security and privacy pitfalls.\
+Even though these problems exist, according to Fenz [s15Fenz2014] patients will not withhold their data for research purposes. However, there are concerns that data can be accessed by persons with unwanted intentions: marketing, insurance, or data loss through breaches. It is a good thing that big data can help the improvement of healthcare 
+\i and
+\i0  patients are willing to give their data towards this end. But data breaches should never be dismissed, which makes the application of big data an ethical question: Does the benefit of the big data overcome the possible negative effects of a data breach?\
+Kluge [s7Kluge2007] looked into this ethical question by taking a context: \'93What should be the driver of its [the systems\'92] development and implementation?\'94. And splitting the main question into four sub-questions, respectively: Should it be the technology itself? Should it be the interests of service providers? Should it be the interests of governments? Should it be the interests of patients? Each of these questions are applicable to the DARTS!:\
+\pard\tx283\pardeftab720\li600\fi-300\sb50\sa120
+\cf0 \'95	
+\b Should it be the technology itself? -
+\b0  Because this system is developed in the interest of research, the technology has a stake in the driver of development. However, it should not become the main driver as a fully optimised system does not necessarily translate into improved quality and efficiency of care. Which, in an ethical sense, should always be the main driver as patient \'91donate\'92 their data for this purpose. \
+\'95	
+\b Should it be the interests of service providers? -
+\b0  If the D-gateway is implemented in a broad scope it should also include feedback. This is in the interest of the service providers (i.e., clinics) as they will finally be able to get a impartial comparison between each other. If the feedback to providers is delivered in the right manner this should provide both the incentive 
+\i and
+\i0  the knowledge to improve efficiency. However, in the current scope of the DARTS!, feedback is not accounted for. \
+\'95	
+\b Should it be the interests of governments? -
+\b0  Because the DARTS! is the first to look into the coupling of outcome data with IVF data the holy grail to be reached is that the system provides the same services as registries like the NICE or BHN. Providing reports to the government makes it possible to make informed guidance and policy decisions. \
+\'95	
+\b Should it be the interests of patients? -
+\b0  The main outcome of the DARTS! is to provide insight in differences in outcome between different IVF treatments. A study with these outcome measurements and this size has not been performed yet in the Netherlands. The outcomes of a study will be able to determine what the best treatment is, and to conduct a study the D-gateway will support the researchers. \
+\pard\pardeftab720\fi300\sb60\qj
+\cf0 There are some ethical issues that also involve legal aspects like the USA Patriot Act, this will be touched upon in the paragraph 
+\i the legal side of security
+\i0 .\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 The \'91how?\'92 and \'91why?\'92 of security\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 When speaking of security in the medical sector the topic can be discerned into several fields according to Perakslis [s2Perakslis2014]: data loss, monetary theft, attacks on medical devices, and attack on infrastructure. Because the main scope of security in this study is clinical research data, and thus protecting patient privacy, we will focus on data loss. The term \'91data loss\'92 is used in a broad sense here, loss refers to all manners of breaches where data can be accessed by unauthorised persons. To prevent these losses data security is applied.\
+\pard\pardeftab720\fi300\qj
+\cf0 The use of technology is increasing in the healthcare sector and this results in systems with increased complexity, diversity, and timeliness [s13Patil2014]. As these systems grow in both size and complexity it becomes harder and harder to prevent data breaches. Furthermore, recently (2014) it has been shown that the healthcare domain is being heavily targeted: 94% of all institutions dealt with attacks on their systems [s2Perakslis2014].\
+It is reported that there is more risk of insider attackers, both intentional and unintentional (e.g., regular employees not following policies) [s1Zamosky2014]. The most common breaches are unauthorised data access (63%) and exposure (i.e., being available to unauthorised persons) of sensitive data (57%) [s18Kum2014]. Only 7% of all breaches are caused by hacking while mundane errors like stolen laptops are more common [s1Zamosky2014].\
+About 48% of data breaches can be traced back to theft, with identity theft being the most important one [s1Zamosky2014]. An obvious factor in this is that the value of stolen data is much higher than in other domains. The per-record value is directly bound to the amount of data in the record; typically medical records contain more information than for example financial records which makes them more valuable [s1Zamosky2014].\
+It has been estimated that the cost for the institution (for legal actions, recovery, etc.), after confidentiality has been breached, is approximately $233 per record in healthcare. While the mean of all industries is $136 [s2Perakslis2014]. Some other incentives for hackers to crack a system are to deface an institution or to show that security is lacking.\
+There are three goals that work towards achieving a secure system: 
+\i confidentiality
+\i0 , 
+\i integrity
+\i0 , and 
+\i availability
+\i0  [s8FernandezAleman2013]. 
+\i Confidentiality
+\i0  refers to the rights of the patient concerning their personal medical data, which will be described in the next paragraph. 
+\i Integrity
+\i0  refers to completeness and correctness of data, and 
+\i availability
+\i0  is reached when the correct person can access the correct data at the correct time (e.g., clinician accesses a patients\'92 file during a consult).\
+As the D-gateway does not influence patient care directly 
+\i availability
+\i0  is of less importance. The importance of 
+\i confidentiality
+\i0  however, is reflected in the following quote: \'93They [clinicians] wanted to help achieve these benefits but also wanted to be sure that patients\'92 rights were protected and that clinicians were not in danger of breaking patient confidentiality and the law\'94 taken from Sanderson [s5Sanderson2004]. Clinicians see the benefits of systems supporting them in their daily work, but they need to be sure that these systems are safe to work with. Furthermore, Layman [s4Layman2008] states that the chance of achieving success with a health informatics system decreases when confidentiality is violated. 
+\i Integrity
+\i0  is of importance in research as the correctness and completeness of the data directly mirror the quality of the dataset. Thus, 
+\i integrity
+\i0  of the data directly influences the quality and value of the conclusions drawn from it.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 The legal side of security\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 While systems grow and hackers become more eager in hacking them, lawmakers have put regulations and laws in place to protect patients. IT is agile while regulations (unfortunately) are mostly slow-moving [s20Groves2013], which makes it difficult for the regulations to follow the security standards of the present day. Therefore, it should be noted that compliance to these regulations will not necessarily be sufficient for good security [s20Groves2013]. Thus, institutions that do not look for further security measurements are likely in danger of data breaches. This paragraph will describe what regulations are in place. Only major points will be discussed as an in-depth explanation is outside the scope of this research.\
+\pard\pardeftab720\fi300\qj
+\cf0 Healthcare institutions have to comply to regulations like the European Union (EU) or United States (US) privacy directive. Respectively the EU directive is 95/46/EG and the US directive Health Insurance Portability and Accountability Act (HIPAA). If institutions do not comply, there are acts in place that allow government bodies to impose fines. These fines are becoming larger as the importance of protection of privacy is growing [s1Zamosky2014]. For Dutch institutions only the EU directives apply but the HIPAA also gives a good insight into the important topics concerning privacy protection.\
+The EU and US directives are comparable to each other which makes it easier to find technical privacy solutions (described in C.2). In the Netherlands the EU directives are implemented and supplemented with other acts. Mouw [s19Mouw2012] describes what the implementation means in real life. The parts of the acts applicable to the D-gateway are described below:\
+\pard\tx283\pardeftab720\li600\fi-300\sb50\sa120
+\cf0 \'95	Data Protection Act (WBP) - Wet Bescherming Persoonsgegevens (WBP), this is the implementation of the EU directive. This act describes when and how data can be collected from a person. The most important point to take from this regulation is that specific consent is required before data can be collected and processed. Furthermore, a government body is granted permission to enforce privacy regulations and impose fines when these are breached. \
+\'95	Medical Contract Bill (WGBO) - Wet Geneeskundige Behandelingsovereenkomst (WGBO), this is an overall act for medical treatment that also describes regulations for record keeping. The most important regulation here is article 458: statistical or medical research in the benefit of public health are exempted from consent regulations if the consent required is impossible or unreasonable to obtain. \
+\'95	Medical Research Involving Human Subjects Act (WMO) - Wet Medisch-wetenschappelijk Onderzoek met mensen (WMO), this regulation is an extension to the WGBO and requires an ethical committee\'92s approval for each new medical research. \
+\'95	Code of Conduct for Medical Research (FMWV) - This code of conduct provides concrete examples and implementations of each law mentioned above. This makes it easier for medical researchers to comply to each of these laws. The code requires that personal data is only accessible by the researcher or those directly under their authority. \
+\pard\pardeftab720\fi300\sb60\qj
+\cf0 There is one US act that is also of interest for institutions world-wide, namely the US-based Patriot Act. The Patriot Act is mentioned here because it endangers patient privacy, even for countries outside of the US. If a third-party is used for data storage, and this third-party has its head quarter in the US, government bodies from the US can request (and will most likely receive) insight into this data [s7Kluge2007]. This issue should be considered while developing a distributed system that handles patient data.\
+\pard\pardeftab720\fi300\qj
+\cf0 Next to legal items there are also some standards that can be applied, namely ISO EN13606 and the NEN7510. For example the EN13606 defines confidentiality as: \'93process that ensures that information is accessible only to those authorised to have access to it\'94 [s8FernandezAleman2013].\
+Summarising, the laws state that in principle patient data cannot be stored or processed. However if there is a public interest, like public health, some data may be used [s19Mouw2012]. In any case personal (i.e., identifying) data should always be separated from the rest of the data. Types of data such as religion, race, and sexual preference are excluded and may only be stored when the law explicitly permits it [s19Mouw2012]. When there is a public interest, data storage and processing is possible when each included patient gives his/her explicit consent. When consent is asked, a clear description of the goals for the data should be given. Also, the patient remains the right to inspection and removal of his/her data from the dataset. An exception to the consent rule is made when requests are impossible or unreasonable to make. Furthermore, the law states that medical research can only be done when : \'93(I) new scientific insights in medicine are expected, (II) those insights cannot be gained in another, less risky way, and (III) the risks for and interest of the participants is well balanced against the importance of the research.\'94 [s19Mouw2012].\
+The FMWV code of conduct describes the following points which are applicable to this research:\
+\pard\tx283\pardeftab720\li600\fi-300\sb50\sa120
+\cf0 \'95	For personal data, the reason of use should be described. \
+\'95	The persons authorised to view personal data should be listed. \
+\'95	Provisions taken to protect the data should be listed. \
+\pard\pardeftab720\fi300\sb60\qj
+\cf0 Lastly, an ethical committee is needed to check the usage of data versus the goal of the research. If it is found that the means do not serve the goal the research cannot continue.\
+\pard\pardeftab720\fi300\qj
+\cf0 The intent of these laws can be captured in a great quote from Aleman [s8FernandezAleman2013]: "the claim of individuals, groups, or institutions to determine for themselves when, how, and to what extent information about them is communicated to others". \
+\pard\pardeftab720\sb240\sa120
+
+\b\fs32 \cf0 C.1  Interview\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 Next to the literature search a semi-structured interview was held with a system security and medical registration system expert to provide examples for the laws and regulations which are quite abstract. This interview technique leaves the interviewee free to roam to other subjects which might prove useful in the design of the D-gateway. During the interview firstly the vision of the D-gateway was explained in a few sentences. The following questions were used to give structure to the interview:\
+\pard\tx283\pardeftab720\li600\fi-300\sb50\sa120
+\cf0 \'95	What can we do to make sure we are not processing personal data? \
+\'95	What are the criteria for something to be personal data or not? \
+\'95	If personal data is being processed how can we comply to the extensive rules? \
+\'95	How are things handled in existing registries? \
+\'95	Are these registries also used for research? \
+\'95	Aggregate data in public databases can become individually identifiable when the databases are integrated or the data are cross referenced. How do you account for this? \
+\'95	Facing problems with getting go-ahead from ethical commissions for gathering data, how can a system like the D-gateway support in getting consent? \
+\pard\pardeftab720\fi300\sb60\qj
+\cf0 In the following section the term 
+\i personal data
+\i0  refers to identifying data which can lead back to one individual.\
+\pard\pardeftab720\sb120\sa120
+
+\b\fs24 \cf0 Interpreted transcript.\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 The interview was with an expert on the topic of an intensive care registry in the Netherlands: National Intensive Care Evaluation (NICE), which contains sensitive data for which consent would normally be required. However, patients at Intensity Care (IC) are generally non-responsive, which means that getting consent is an unreasonable requirement and can be disregarded.\
+\pard\pardeftab720\fi300\qj
+\cf0 Considering consent, there is a difference between historical data and 
+\i active
+\i0  data. When using historical data it is difficult to get consent from each patient, which provides more room for the interpretation of the law. For active data it is fairly easy to provide patients with a consent form when they visit the healthcare provider, thereby binding the researchers to acquire consent. \
+It is difficult to avoid processing personal data, i.e., what is defined by \'91personal data\'92 is open to interpretation. Therefore, each of the used data items that might be debatable should be supported by a goal (i.e., purpose of data use). Goals may vary but most of the time they describe why a certain data item is inevitable to use when doing research with the dataset.\
+A good guideline when creating a dataset is to take the minimum amount of data items while still being able to fulfil the research goal. Some categories of data weight more in a decision than others. For example, 
+\i sensitive
+\i0  items (e.g., race, sexual preference) are more likely to be turned down. Once more, for ethical commissions the purpose of data collection and processing is a leading factor in a decision. A well described protocol and the application of standards (e.g., NEN7510) are other factors.\
+It is impossible to guarantee that privacy is kept at all times. This is due to factors like public datasets, news, and all other sorts of information sources. When aggregating these datasets into one big dataset it becomes easier to identify individuals. For example, the Dutch queen is hospitalised and this information is published in a newspaper, from other sources (e.g., Wikipedia) age and gender can be gathered. With this information, even though the NICE registry is considered anonymous, the subset of possible patients could hypothetically be reduced until only one patient remains that could compare to the queen.\
+In order to avoid these kinds of data breaches some precautions can be taken, but these will never be completely safe as there is a human factor. Precautions that should be considered are: take notice of, and implement, modern technical security techniques; keep external access to data either off-line or require to go through an internal administrator (e.g., data extraction requests); aggregate data that is communicated to external sources which removes the likelihood of an individual being identified; when direct access to data is needed (e.g., administrators, data mining research) use confidentiality documents; make direct access to data bound by location (e.g., on one specific computer or inside a network).\
+As a side note, two topics came up while talking about trust that a people have in a system: accountability and integrity.\
+The NICE registry makes it possible for ICs to benchmark themselves against data of other clinics. However, all clinics remain anonymous, which avoids discussion about 
+\i accountability
+\i0 . For example, it is highly likely that the worst ranked IC will receive less income once the ranking is known to others (less patients willing to go there, insurance is unwilling to pay, etc.).\
+The second topic, 
+\i integrity
+\i0 , refers to objectiveness of outcome measures. Quality indicators that are presented by the system should never be directly influenced by humans as this introduces data playing problems. When this happens clinics artificially try to improve their scores by giving patients better outcomes than they actually have. \
+\pard\pardeftab720\sb240\sa120
+
+\b\fs32 \cf0 C.2  Technical & Procedural Cornerstones of Security\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 The outcomes of the interviews were combined with the literature study to compile a practical list with security issues and solutions that are relevant in this project. The list is described in table C.1, ordered by type and paper.\
+\pard\pardeftab720\fi300\qj
+\cf0 Furthermore, two checklists were found in the literature. These lists give a number of points which a system should comply to in order to cover all identified security areas. The first list describes items used to test the safety of an implementation of a patient-centred eHealth solution [s17Dehling2014]. This check list (Checklist A) can be found in appendix E.1.\
+The second list describes questions used to test EHR systems on security and privacy [s8FernandezAleman2013]. This check list (Checklist B) can be found in appendix E.2.\
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0 [Sorry. Ignored 
+\f1 \\begin\{longtabu\} ... \\end\{longtabu\}
+\f0 ]\
+\pard\pardeftab720\fi300\sb240\sa120\qc
+\cf0 This table describes the procedural and technical problems and solutions that were found. The list is sorted according to type of point (either procedural or technical and either a problem or a solution). *: Reference, either refers to a citation (with brackets []) or an interview (section numbering e.g., C.1). \
+\pard\pardeftab720\sb240\sa120
+
+\b\fs32 \cf0 C.3  Security Analysis: the DARTS! Gateway Case\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 Points taken from this security study will be described and reviewed here in the context of the D-gateway.\
+\pard\pardeftab720\fi300\qj
+\cf0 Starting with consent, for the DARTS! it can be viewed from multiple perspectives: patient, clinic, and registry. When a researcher wants to use the dataset available in the D-gateway, they will use data coming from the clinics, which in turn gather data from patients. This patient data is then linked to the PRN registry data. Each of the parties involved should to some extent be able to determine if they allow their data to be used.\
+Patient consent is a difficult problem to tackle in research in general. When giving consent, patients need to know what they are signing for and handling data outside of the goal which was described is forbidden. However, when using datasets for which it is unreachable and unreasonable to acquire consent from each patient in them, there are exceptions in the Dutch consent regulations. This exception is what the D-gateway currently leans on. It uses historical data for the years 2000 to 2010 and according to the nationwide IVF report [ivfReportNVOG] there are approximately 4000 pregnancies per year. Which means that there are about 40.000 patients in the dataset in total. Given the size and age of the dataset it was deemed unreasonable to require consent. To determine if consent is not a requirement, advice from external parties should be acquired. In this case these were: the AMC chief privacy officer, medical ethical commissions of data suppliers, and the PRN privacy commission.\
+Consent from clinics and registries can be compared to patient consent. They all give permission to use 
+\i their
+\i0  data for a specific cause as described in the consent. The main difference between these data providers in giving consent is that their considerations are based on different interests. For example, a patient might be concerned about his/her privacy. Of course a clinic will also take this into account when a dataset is requested but they also have interests like: what research will be performed with the data. If this clashes with a research of their own it is less likely the clinic will give consent. In the D-gateway these different levels of consent must be taken into account to be able to perform the function of providing research data.\
+In order to fulfil regulations and ethical needs a dataset should be minimised, so that no superfluous items are left in the dataset. For each of the data items in the dataset a purpose should be described. A proper purpose is leading in ethical discussions about whether to accept a data item in the dataset or not. Having a well-defined protocol with the D-gateway can provide more confidence in the system by users, leads to better understanding of the system, and provides evidence that choices about data items were made with certain considerations.\
+For data linkage some identifying (i.e., private) data items are needed. This can be described in the purpose of the data item, but there are also methods for avoiding these data items. Hashing of data with the application of Bloom filters [s22schnell2009] makes it possible to link two datasets without revealing the identifying data. On-line data linkage is only mentioned as a future work for the D-gateway. In the first implementation, linkage is provided by a third-party and the linked data itself is seen as an external service in figure xx.\
+Anonymisation and pseudonymisation should be used to de-identify individuals. While identification through data aggregation and cross-referencing is still possible to happen, these steps should make it more difficult. The D-gateway will use both techniques to provide privacy, datasets are mostly kept clean by removing all identifying data at the data gathering step. Whatever identifying data is left (through linkage) will be pseudonymised before it is accepted into the system.\
+In order to decrease the chances of cross-referencing and data breaches in general, auditing should be applied. This means keeping logs on who uses what data at what point in time and what version of data existed at that time. Apart from privacy this also makes it possible to keep people accountable and to provide research data management functionalities such as archival and provenance.\
+Lastly, exploring and using present day standard security measures are a must-have for a good system. During the software engineering cycle of the D-gateway searches will be done for the appropriate security measures for each part of the system. Also the expertise of developers, engineers, and system administrators with multiple years of experience each will be used.\
+\page \pard\pardeftab720\sb240\sa120
+
+\b\fs40 \cf0 Appendix D\
+Provenance Review\
+\pard\pardeftab720\sb480\sa120
+
+\fs32 \cf0 D.1  Data Provenance\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 A topic with growing interest in the e-Science field is provenance, sometimes also referred to as lineage or pedigree. It has been borrowed from the world of art where it describes the \'91life\'92 of an artwork. Mostly this will be the record of ownership but it can also describe things like restorations. From provenance data the quality, state, and originality of the work can be discerned. In e-Science the same can be applied on a piece of data [dsp4moreau].\
+\pard\pardeftab720\fi300\qj
+\cf0 Concerning data, provenance is stored metadata describing the process by which the data got to a certain state from a specific source [dsp4moreau, dsp2buneman]. To describe the path data has taken the W3C (World Wide Web Consortium) has made a standard described in the PROV Model Primer [dsp8gil]. The gist of provenance is that it is built from a small set of assertions made by the different services that are involved in the data process [dsp4moreau]. To actually 
+\i use
+\i0  provenance data a standard for schemas is described which are usable for human consumption; an example is shown in figure D.2.\
+Provenance is explored because it can be considered as an extension to data security. Since provenance directly contains data traceability information, and is can be consumable by humans, it provides another level of security compared to the described solutions in the review in appendix C.\
+\pard\pardeftab720\fi300\sb240\qc
+\cf0 \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 4.1:  Example model showing the three core data types (
+\f1 agent
+\f0 , 
+\f1 entity
+\f0 , and 
+\f1 activity
+\f0 ) and a few of all possible 
+\f1 relations
+\f0  between them. Taken from PROV Model Primer [dsp8gil].\
+\pard\pardeftab720\sb360\sa120
+
+\b \cf0 The \'91why?\'92 of provenance\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 When collecting provenance metadata has to be captured at different steps in the data process. This creates a overhead when using a system for a specific task. Capturing and keeping provenance data is almost never the main functionality of a system. However, exposing the provenance data may help users (i.e., researchers).\
+\pard\pardeftab720\fi300\qj
+\cf0 In e-Science data is gathered and generated at a fast pace. Provenance of this data can help researchers determine whether data is:\
+\pard\tx283\pardeftab720\li600\fi-300\sb50\sa120
+\cf0 \'95	Usable in a certain context, the metadata stored can describe the different uses of a specific data item [dsp1simmhan], e.g., types of software that accept a data item as input. \
+\'95	Acceptable, a researcher can discern from provenance whether to trust the accuracy and timeliness and accept if for further use [dsp1simmhan, dsp3buneman]. \
+\'95	Protected by intellectual property (IP) or should be credited, as for the acceptability of data the path can also be backtracked to the original creators and/or IP holders [dsp1simmhan]. \
+\pard\pardeftab720\sb180\sa120
+
+\b\fs24 \cf0 The \'91how?\'92 of provenance\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 The provenance building blocks (as described by the W3C [dsp8gil]) consist of three core data types (
+\f1 agent
+\f0 , 
+\f1 entity
+\f0 , and 
+\f1 activity
+\f0 ) and 
+\f1 relations
+\f0  between them. Furthermore, 
+\f1 attributes
+\f0  can be assigned to provide metadata for data types or 
+\f1 relations
+\f0 . Figure D.1 shows the standardised display methods for the data types and 
+\f1 relations
+\f0 , 
+\f1 attributes
+\f0  are displayed with a \'91document\'92 symbol as shown in figure D.2. Also, an applied provenance example is given in figure D.2.\
+\pard\pardeftab720\fi300\qj
+\cf0 The concepts as described in PROV Model Primer [dsp8gil] are:\
+\pard\tx283\pardeftab720\li600\fi-300\sb50\sa120
+\cf0 \'95	Entity, physical, digital, conceptual, or another type of \'91thing\'92. \
+\'95	Activity, the process of instantiating or the process of changing an entity. \
+\'95	Agent, holds (a part of) the responsibility for activities and entities. \
+\'95	Relation, describes the interaction between two instances of the data types. \
+\pard\pardeftab720\fi300\sb300\qc
+\cf0 \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 4.2:  Real life example model which implements the model as shown in figure D.1. This example describes the creation of a chart, the original data used, the intermediate data generated during the process, the used software, who was responsible for the work, and who this person was working for. An addition to figure D.1 is the use of 
+\f1 attributes
+\f0 , these are displayed with document icons and provide metadata on the object they are related to. In this case that is the name and email address for one the agents and the company name for the other agent. Taken from PROV Model Primer [dsp8gil]. \
+\pard\pardeftab720\sb360\sa120
+
+\b \cf0 The use of provenance for security\
+\pard\pardeftab720\sb60\qj
+
+\b0\fs20 \cf0 Three types of assertions can be described which account to provenance: relationship (object B was retrieved by applying function X to object A), interaction (received object A, sent object B), and service state (it took three seconds to send object B after receiving object A) [dsp4moreau].\
+\pard\pardeftab720\fi300\qj
+\cf0 Different applications of provenance can be accomplished with these assertions e.g., data quality, audit trail, replication recipes, attribution, and informational [dsp1simmhan]. Data quality uses the provenance metadata as a check, like described with the art example at the beginning of this review, the user tries to discover who did what with the data. The same applies for an audit trail, but it is used for other ends, being able to maintain responsibilities. Replication recipes are an extension of data quality, a user can execute the exact same steps on the same or a different piece of data to check the work or to improve on the work done. In the case of data ownership, attribution can be used to trace who should be contacted for consent on data usage. Lastly, informational provenance helps with data discovery and providing context for data, which helps with (for example) reuse.\
+There are many applications of provenance in security, different levels can be supplied by mixing computerised surveillance with human insight. One of the clearest examples is the data audit functionality. The necessary metadata for an audit is collected automatically during the operation of the system. Outcomes of this audit can be partly analysed by a computer, but can also additionally be translated into an human understandable format. Further actions that lead to actual security should be captured in standardised processes, therefore provenance is only a tool and not an security end-point.\
+\page \pard\pardeftab720\sb240\sa120
+
+\b\fs40 \cf0 Appendix E\
+Security Checklists\
+\pard\pardeftab720\sb480\sa120
+
+\fs32 \cf0 E.1  Checklist A\
+\pard\tx283\pardeftab720\li600\fi-300\sb50\sa120
+
+\b0\fs20 \cf0 \'95	No unauthorized person must be able to access patients\'92 information; \
+\'95	The real identity of patients must not be revealed; \
+\'95	Access must be limited to necessary information and data segregation must be ensured; \
+\'95	Unnecessary access rights must be revoked; \
+\'95	It cannot be possible to force patients to reveal information they do not want to reveal; \
+\'95	Eavesdropping has to be prevented during transmission and storage; \
+\'95	It must not be possible to reveal relationships between items through observation; \
+\'95	It must be ensured that information content is as intended and not unintentionally changed; \
+\'95	Up-to-date information must be available whenever needed; \
+\'95	Redundancy must be employed to ensure that data can be restored; \
+\'95	It must be possible to store information as long as it is required (even a lifetime or longer); \
+\'95	It must be possible to restore lost information to a specific point in time; \
+\'95	Failure of single nodes must not impede the performance of the whole service; \
+\'95	Systems have to be adaptable to changing performance needs; \
+\'95	There cannot be a significant delay between data entry and dissemination to patients; \
+\'95	Accesses to and uses of information must be attributed to the respective party and it must not be possible to deny such actions afterwards; \
+\'95	Relevant activity (e.g. document accesses) must be logged; \
+\'95	It must be determined who is using the software and verified that they are who they claim to be; \
+\'95	The boundaries of trusted access to the information system must be known and controlled; \
+\'95	Unintended actions and/or activity must be detected; \
+\'95	Unauthorized access must be avoided and access rights must be managed; \
+\'95	Impairment of hardware (theft, natural disasters, ...) has to be prevented; \
+\'95	System vulnerabilities must be detected; \
+\'95	Important information has to be easily accessible; \
+\'95	Patients have to be able to control who can access what information; \
+\'95	Authorization details must be substitutable (loss, technological obsolescence); \
+\'95	User ethics, obligations, and proficiency must be reinforced; \
+\'95	In case of emergency, medical professionals must be able to access required information; \
+\'95	Patients have to agree to uses of their information and patient consent must be managed; \
+\'95	Patients have to be able to retrieve information stored on them. \
+\pard\pardeftab720\sb300\sa120
+
+\b\fs32 \cf0 E.2  Checklist B\
+\pard\tx283\pardeftab720\li600\fi-300\sb50\sa120
+
+\b0\fs20 \cf0 \'95	What standards and regulations does the system satisfy? \
+\'95	Does the system use pseudo anonymity techniques? \
+\'95	Is the user data encrypted? \
+\'95	What authentication systems are used? \
+\'95	Can access policies be overridden in the case of an emergency? \
+\'95	If the system needs user roles, who defines them? \
+\'95	Who grants the access to the data? \
+\'95	What kind of information is exchanged? \
+\'95	Are there audit logs? \
+\'95	Are the systems\'92 users trained in security and privacy issues? \
+\pard\pardeftab720\sb300\sa120
+
+\b\fs32 \cf0 \page \pard\pardeftab720\sb60\sa120
+
+\fs40 \cf0 Appendix F\
+\pard\pardeftab720\sb240\sa120
+\cf0 Identified Functions\
+\pard\pardeftab720\sb480\qc
+
+\b0\fs20 \cf0  \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 6.1:  All identified functions grouped by the four function groups. Underlying requirement analysis described in 2.3. \
+\pard\pardeftab720\sb240\sa120
+
+\b\fs40 \cf0 \page Appendix G\
+Unedited Rosemary Data Model\
+\pard\pardeftab720\sb480\qc
+
+\b0\fs20 \cf0  \
+\pard\pardeftab720\sb120\sa120\qc
+
+\fs24 \cf0  \
+\pard\pardeftab720\sb120\sa120
+\cf0 Figure 7.1:  The full unedited data model as implemented in the Rosemary project 
+\f1 https://github.com/AMCeScience/Rosemary
+\f0 . Describes the workspace, tagging, application, submission, datums, and notification models. Taken from 
+\f1 https://github.com/AMCeScience/Rosemary/blob/master/docs/general/rosemary-dm.png
+\f0 . \
+}

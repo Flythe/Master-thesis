@@ -1,7 +1,3 @@
-%\section{Implications}
-
-%\silvia{i dont understand this title neither the need for this section}. 
-
 Below we present ...
 \silvia{explain the rationale to organize the topics as you have. also important to distinguish discussion (you are free to discuss whatever you want) and conclusions (you can only conclude things for which you have evidence)}
 
@@ -12,129 +8,154 @@ There are several treatments used to assist in reproduction these are among othe
 While it is known how many treatments result in a pregnancy, it is relatively unknown what the outcomes are for children born out of these pregnancies.
 For this end the \project{} was started to gather and analyse data from both the fertility clinics as the national birth registry (\ie{} \PRN{}).
 
-Because considerable effort went into data gathering, reuse of data should be supported to get the most gain out of it.
-From this vision, the idea for the \ivfsystem{} was formulated, as a system to support data management for reuse.
-Initially no data was available, which made requirement analysis with stakeholders a tough process.
+Because considerable effort went into data gathering, data management should be supported to get the most gain out of it.
+From this vision, the idea for the \ivfsystem{} was formulated.
+Initially no data was available, which made requirement analysis with stakeholders a difficult process.
 A study was performed resulting in an initial system concept, which was then used as input for the brainstorm session with stakeholders.
-During the session it appeared that there are many more aspects which lead to effective research (and thus, data reuse).
-\silvia{im not sure what appeared was about "effective research". i think it was more about "data management for reuse", and we had to add all types of other mng objects (request, committee, publication, etc). the researcher has not benefited a bit from the system, as we thought to be doing in the beginning...}
+During the session it appeared that there are many more aspects which should be incorporated into the system.
+The most important aspects leading to data reuse.
 Identified requirements were separated into management groups: user, request, data, and publication.
 
 Data management is the most extensive requirement group, thus four existing information management systems were evaluated for potential reuse.
 An in-house developed project, Rosemary, was chosen as a development starting point for the \ivfsystem{}.
 With minimal changes to the data model it was possible to store and use the \projectdata{}.
 Due to time restrictions the functions for user, request, and data management were partially implemented.
-Publication management and auditing functions were not addressed by the implemented prototype.
+Publication management functions were not addressed by the implemented prototype.
 
 During the evaluation of the prototype with users, it became clear that for a successful demo more polishing of the system's workflow (\ie{} the manner in which a user moves through the system) is needed.
 Also we estimate that one or two iterations of user-centred design should still be applied to remove most of the fundamental confusions in the interface.
 
-\section{Connecting the dots}
+\section{Discussion}
 
-\silvia{i dont get the motivation for this title. need to put one sentence in intro to explain this}
-%How do we implement a user-friendly system in a IVF medical domain which covers problems concerning: data security, data access, data browsing, and data querying?
+\paragraph{Gathering the \projectdata{}}
+%What are the biggest blocking factors in doing research with sensitive data and how can these be overcome?
 %What needs to be changed in the current attitude towards data usage to promote big data in a IVF medical domain?
 
-\paragraph{Supporting administrative tasks}
-\silvia{misleading title - administrative is too broad. i believe you are talking about management of data for reuse. This part is too verbose and does not have a clear structure. think again what are the main topics that you want to address, and make sure to have concrete evidence in your study for claiming something - or refer to external sources to reinforce your opinions}
+In this study the \projectdata{} is considered `fixed' and would be delivered by the \project{} at the start.
+Data gathering should be outside the scope of this study.
+However, data was not available causing problems with development as described in chapter \ref{requirements}.
+It was decided that the gathering would be a joint effort.
+The section below describes the experiences and impressions during the data gathering process.
 
-During the development of the \ivfsystem{} many hurdles in the current research workflow came to light. \silvia{only for darts, right? be explicit here. we cant conclude things outside the scope of this project - you can discuss, but not conclude}
-Normally these might be hidden to outside spectators as researchers have found workarounds.
-This paragraph will discuss the importance of supporting administrative tasks.
+Data gathering hurdles are encountered roughly in the following order.
+Firstly stakeholders at the fertility clinics have to be persuaded to cooperate in the study.
+This is done by explaining the goal of the study, the study protocol, and data contract (\ie{} for what purpose is the data gathered and how will it be used).
+Then the protocol and contract have to be evaluated by an ethical committee.
+Each clinic has its own ethical committee, thus the documents are evaluated for each clinic individually.
+When permission is granted to deliver the data there is the question of who is going to gather the data.
+Some clinics have data managers but others required the \project{} researchers to gather the data themselves.
 
-Starting with one of the most important aspects for sensitive data: security.
+The last (technical) step in the process is where support was given.
+%When data managers collected the data the delivered datasets are neatly structured and clean.
+%Researchers from the \project{} were not equipped with the necessary expertise to collect datasets from the clinics that did not deliver themselves.
+%We helped the data gathering by giving technical advice and creating data queries.
+There are thirteen fertility clinics in the Netherlands with a wide array of electronic patient records (EHRs) between them.
+Luckily during the \project{} most clinics were switching to a standardised EHR from a single vendor.
+%Therefore, one data query could potentially be used at multiple clinics.
+
+The first problem encountered was intellectual property restrictions.
+Researchers could not get access to the data dictionary of the EHR.
+Therefore, trial and error with existing queries, four visits with an expert fertility clinician, and approximately 50 query versions were needed.
+Also, due to the accessible data dictionary the query could not be fully optimised which resulted in `dirty' data.
+
+Furthermore, the EHR could be implemented on database software from two different vendors (Microsoft or Oracle).
+Queries (executed from within the EHR) written for one of the vendors did not work for the other.
+Therefore, the query had to be translated and debugged again.
+
+The actual gathering took about six months.
+Even though at the start of the project many heads of clinics were enthusiastic the preparation steps took longer, about one year.
+Many decisions have to be taken and certainly the ethical committee evaluation can take quite some time.
+
+Stakeholders will try to protect the interests of the clinic.
+A strict limitation was set that no comparison between clinics would be done with the \projectdata{}.
+Furthermore, during the security review (appendix \ref{security-appendix}) the following quote was found in literature: ``They [clinicians] wanted to help achieve these benefits but also wanted to be sure that patients' rights were protected and that clinicians were not in danger of breaking patient confidentiality and the law''.
+We assume that the same holds in the case of the \project{}.
+This leads to the impression that the real consideration for stakeholders is related to control over their data.
+
+Currently each data request is evaluated by the data owner, which gives them great control over who they deliver data too.
+Furthermore, data has value this can be monetary but also academic (\ie{} scientific value in the form of potential publications).
+Gathering data and putting it in a repository weakens (or removes) ownership of the data and the owner loses the potential profits.
+
+To summarise, technically there are a lot of issues to overcome, \eg{} data is geographically spread, restrictions by intellectual property, or there is no standard data model.
+But what took the most time in the \project{} data gathering was to go through the bureaucratic process.
+While this stresses the notion that data should not be discarded after the project ends but should be reused.
+Moreover, we think that a \ivfsystem{} can give back control to the data owners.
+
+\paragraph{Supporting requests}
+%How do we implement a user-friendly system in a IVF medical domain which covers problems concerning: data security, data access, data browsing, and data querying?
+
+During the development process some interesting changes occurred.
+The focus of the \ivfsystem{} changed during the requirement discovery phase (see chapter \ref{requirements}).
+What these changes are and their implications will be discussed now.
+
+Originally the idea was to support researchers in doing their research.
+The initial system concept (section \ref{process-analysis}, figure \ref{fig:brainstorm-before}) describes functions aimed at researchers: data querying, data analysis.
+We assumed that these functions would be important for our prospective users.
+During the brainstorm session (section \ref{brainstorm}) many hurdles in the current research workflow came to light.
+Normally these might be hidden to spectators as workarounds are used.
+The most critical for the \ivfsystem{} being the major task of data requests on datasets like the \projectdata{}.
+Moreover, the stakeholders representing the researchers said that data analysis was an uninteresting feature (\ie{} a `could have').
+
+With the focus on data requests also a new user of the system was introduced, namely the committee member (section \ref{brainstorm}, figure \ref{fig:brainstorm-after}).
+These users are key stakeholders from each clinic which supplied data to the \projectdata{}.
+Requests are presented in a transparent way and evaluated by them.
+Data is only delivered when they give permission. 
+Thereby partly giving the ownership back to the data owner.
+This links back to the impression from the previous session: bureaucracy of data gathering is such a lengthy progress because owners do not want to lose ownership.
+
+Implications for the \ivfsystem{} are that instead of supporting researchers in doing their research the system is now more of a data reuse system.
+Reuse of sensitive data is a difficult problem as there are many aspects to take into account.
+One of the most important aspects for sensitive data is security.
 It is known that when humans are involved errors are inevitable when time goes by.
-Humans make errors, but it is possible to help them in making less errors.
 Providing overviews and insights in the process they are working with can achieve error prevention.
 
 As shown in the development of the \ivfsystem{} multiple actors are involved in the data management process.
-A lot of communication will occur between these actors, which currently (without the \ivfsystem{})  mostly done asynchronously and partly off-line.
-\silvia{?This problem gives a clear example of security through structure.}
-Providing the actors with a communication channel keeps the conversation encapsulated in a single system, \silvia{? and therefore in a single dataset. dataset is data, not management information}
+A lot of communication will occur between these actors, which currently (without the \ivfsystem{}) are mostly done asynchronously and partly off-line.
+Providing the actors with a communication channel keeps the conversation encapsulated in a single system.
 This dataset can be leveraged to provide managers with insight in the process and can help them spot possible errors and prevent these.
 
-Lastly, there is also inherent technical security from a well designed system.
-If all actors are involved in the design and execution of the system this will lead to a better technical security as well.
-In a properly executed system design cycle, all requirements should be identified and then analysed on whether they are important for the system.
-Because specific domain knowledge is necessary when creating a system in a clinical domain, in order to identify all requirements many experts should be involved.
-Each of these will input their ideas giving a better coverage on the flaws that should be expected.
-
-A well developed (and documented!) system also leads to another aspect: understanding of underlying processes.
-The system should be the embodiment of existing research processes, and  sometimes parts of these can be `black boxed'.
-Therefore for people outside of the `box' it is unknown what is going on and at which step the process is.
-\silvia{?? Supporting the unravelling of black box processes gives the possibility to provide outsiders with cherry picked or aggregated data.}
-
-This idea can prove useful for processes like security, data restriction, or request approval.
-Right now the steps taken in these have been mostly hidden from data consumers and data deliverers.
-Involving these actors in the system design in the future will lead to understanding and ultimately to trust.
-Trust can be directed towards the system, as well as at the institution providing the system, which in this study is also the data gatherer and owner.
-
-\silvia{ too far fetched: In that sense the system can be used as a marketing product.
-Laying bare the inner workings of the institution and showing that errors might exist but also how they are resolved.
-Next to data providers institutions providing grants are highly important.
-Nowadays they require that their investment in data gathering should lead to high returns for the scientific community.
-Mostly this will mean that data reuse is of high priority. 
-Supporting a funding grants with the \ivfsystem{} will show exactly how the requester plans to provide this.
-}
-
-Ultimately the goal of the \ivfsystem{} is to provide reuse capabilities for datasets.
-Unfortunately in research (especially in the clinical domain) this is not something that comes naturally.
-Data has value, a lot of effort goes into gathering and further management.
-Researchers and institutions want to hold on to their data or at least gain something from reuse.
-
-When making data open access it is hard to check whether if the right references are used in publications.
+When making data reusable it is hard to check whether if the right references are used in publications.
 On the other hand data reuse can lead to better research, for example publications can be checked by an independent institute.
 With a \ivfsystem{} data can be restricted while the line of communication between data owner and consumer remains short.
 This will bring all the benefits of data reuse while the data owner still has a grip on what happens with it.
 
+Furthermore, as one of the system's testers noted (section \ref{evaluation}): the system can be used as a demo.
+Next to data providers, institutions providing grants are highly important.
+Nowadays they require that their investment in data gathering should lead to high returns for the scientific community.
+Mostly this will mean that data reuse is of high priority. 
+Supporting a funding grants with the \ivfsystem{} will show exactly how the requester plans to provide this.
+
+Summarising, the system's goal audience changed from researchers to committee members (or data owners).
+While the purpose changed from doing research to managing data reuse.
+Lastly, the prospective users of the system see it as a opportunity for showcasing their intentions considering data reuse towards funding institutions.
+This is interesting because there are currently no other systems which provide these functions.
 
 \paragraph{Extrapolate to other domains}
 %How can this specific system be used in other settings/knowledge domains?
 
-The previous section argued the benefits of a \ivfsystem{}, however it is specific to the domain of the \projectdata{}, \ie{} \IVF{} and \PRN{} data.
-There are other projects that aim at building towards something similar, but no complete system exists yet. \silvia{name some projects and put references}
-Most follow a stepwise implementation of blocks, introducing user, data, request, and publication management one by one.
-Leaving each domain to their own experts however will create a fragmentation of many different implementations of (in principal) the same functionality.
+The previous section argued the benefits of the \ivfsystem{}, however it is specific to the domain of the \projectdata{}, \ie{} \IVF{} and \PRN{} data.
+Now we will discuss how the system might be used in other domains.
 
-It is a good idea to work towards a modular solution which implements core elements of each of the management groups.
-Different domains can pick what they need and add their specific `sugar' while the functionality remains largely the same.
-This will require an investment into research on how to make the system's modules abstract enough for reuse in other domains.
-And even when abstract modules exist, process and requirement analysis for each implementation project will take a considerable amount of time.
+It is a good idea to work towards a modular solution which implement core elements of user, data, request, and publication management.
+Different domains can pick what they need from these modules and add their specific `sugar'.
+For simplicity we will split the whole process into two parts: data gathering and data reuse.
 
-Before the \ivfsystem{} is suitable for this type of reuse many hurdles need to be overcome.
-These lie both in social fields as in regulation.
-The social aspects relate to building trust, managing expectation, \silvia{and ..?.  avoid "etc", because it seems you are bluffing}
-Regulations in the Netherlands for sensitive data are strict (as to be expected).
-The \projectdata{} is relatively light on sensitive data and skirts around some of the regulations.
-When more interest is shown in the \ivfsystem{} these \silvia{which? above or below} are some of the areas for further research.
+There are other projects that aim at building towards something similar as the \ivfsystem{} (\eg{} the Yoda project \cite{yodaGithub, yodaPresentation}).
+The scope of these projects is much broader, they include data gathering and data reuse (among possible other aspects).
+Also, no complete system exists yet.
 
-\paragraph{Further development}
-The \ivfsystem{} is not ready for demoing purposes yet. \silvia{explain this purpose}
-Evaluation of the prototype shows there is room for much improvement.
-Some are time consuming and are not directly visible, like integrating data provenance.
-Others will take less time and are highly visible, like updating the user interface.
-%This study answers the question of what is needed to implement a successful system but not all solutions could be translated into a working prototype.
+Multiple systems exist which perform data gathering (and management) functions.
+For example, OpenClinica and DADOS prospective.
+Of course there are many more systems that perform about the same functions (see section \ref{evaluation}).
+For the sake of this section all these systems will be considered as Clinical Trial Management (CTM) software.
 
-During the brainstorm a lot of functions came up which were not implemented because of time restrictions.
-One of the plus points, the fact that a system like this does not exists yet, is also one of the stumbling points.
-There is no template to follow and as almost everything is possible users expect a lot from the system.
-Most notably, better user interfaces for data filtering and selection should be implemented (chapter \ref{evaluation}).
-No user-centred process was used, which means that most of the identified flaws in the system are simply differences in interpretation by the developer.
+Each of the reviewed CTM systems in section \ref{evaluation} at least provide data gathering and data retrieval functionality.
+Most of them implement gathering with flexible input form creation which, after defined, are to be strictly followed during a certain trial.
+Data retrieval (mostly) consists of a downloadable formatted file of the data, specific for statistical packages like SPSS.
 
-Furthermore, more development is needed to complete the implementation of request and publication management.
-Then a significant security revision should take place to prepare the system for testing and certification.
-Right now security has been patched up in the front-end by hiding information for certain users, but this should change into solutions in the back-end to prevent information provision to begin with.
-
-%A good example of this is the search function, when used with a basic text search term the search is fuzzy.
-%It searches over all the available fields and returns whatever matches to it.
-%However, the search precision can be extended by restricting each term to a specific field (\eg{} description:pregnant).
-%These specific searches can then be coupled with the `and/or' keywords (\eg{} description:pregnant and keywords:embryo).
-%This shows the flexibility of this function, because the search is wrapped with a dedicated engine it is fast as well.
-%The engine used is Lucene\footnote{https://lucene.apache.org/}, and it can provide results in a matter of milliseconds.
-
-\paragraph{Blocking factors}
-\allard{TODO once position paper is done}
-%What are the biggest blocking factors in doing research with sensitive data and how can these be overcome?
-
-
-
+In CTM software data may be shifted around by adding other users as members of a dataset.
+But the reuse use-case found in this study cannot be fulfilled with this functionality.
+The \ivfsystem{} can deliver these functions.
+When handling data gathering and reuse as two separate parts it becomes easier to implement in different domains.
+CTM software might be used for data gathering and when the dataset is complete it is exported to the \ivfsystem{} to enable reuse.
+We believe that the abstraction of the data model implemented in the \ivfprototype{} is of such a level that almost any type of data can be fit with minimal changes (see section \ref{implementation}).
