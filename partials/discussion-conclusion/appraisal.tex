@@ -8,7 +8,7 @@ This resulted in many design shortcomings in the front-end and minimal implement
 Features that are not directly visible in the front-end are not critical for a successful prototype.
 However, a good user experience with the system should be reached before pitching all the systems' benefits.
 
-Even though the thesis contains a rather extensive research into security, most of the found solutions were not used in the \ivfsystem{}implementation yet.
+Even though the thesis contains a rather extensive research into security, most of the found solutions were not used in the \ivfsystem{} implementation yet.
 Even now, after the first prototype is finished, it would not be advisable to start introducing these to the system.
 First another iteration of function and design development should be ran before it becomes feasible to use intricate security constructs.
 For the purposes of a prototype this is not a big problem as long as security issues and solutions are kept in mind before starting to use the system in a live environment.
@@ -17,62 +17,52 @@ While the system's prototype might be lacking user-centred design and functional
 In the evaluation users noted that the ideas of research workflow management can be used to attract funding.
 Furthermore, big data literature states that the value of an investment into data gathering is increased when sharing and reuse capabilities are added (see chapter \ref{introduction}).
 
-
-
-
-\silvia{i dont understand this : Next to these inherit profits of a system like this,} it also supports direct users (\ie{} researchers, data manager, committee members).
-Researchers are currently supported along a big part of their research workflow.
-While the data manager and committee members have an all-in-one system for communication and management tasks.
-As said before, with another development cycle this side of the system's potential can be fully shown.
-
 When considering the system itself, and how it is currently placed in one specific domain, it is hard to tell how it will extrapolate to other domains.
 Because the data model of the implementation is very flexible this should not lead to problems.
-However, the set-up is currently that the dataset is fixed after system initialisation.
+The set-up is currently that the dataset is fixed after system initialisation.
 This implicates at least two things: there is no data input or edits, and consent for data use is handled by the research committee only.
 Data editing and input are functional requirements which are easily implemented.
 Consent and lawful procedures are quite  challenging and might change between domains.
+However, as discussed before data gathering and data reuse could be separated into two individual systems.
+Where the \ivfsystem{} handles the reuse once a fixed dataset is reached by the gathering process.
 
-One last limitation of the system is that for reuse only open-source software was considered.
+One last limitation of the system is that for reuse only open-source software fitting the requirements were considered.
 This is also due to time restrictions.
-However, the drawbacks here are that well implemented existing systems with functions like data gathering or data export were not considered.
+The drawbacks here are that well implemented existing systems with functions like data gathering or data export were not considered.
 Using these as building blocks in a larger cooperating framework might be more advantageous.
-This would also mean that a gateway has to be developed to encompass all the different systems into one interface, otherwise this might \silvia{?rebuff} prospective users.
+This would also mean that a gateway has to be developed to encompass all the different systems into one interface.
 
 \paragraph{Future research and development considerations}
-%future research mostly refers to further development considerations
+Future research mostly refers to further development considerations
+The \ivfsystem{} is only a prototype and not ready for real life usage.
+Evaluation of the prototype shows there is room for much improvement.
+Some are time consuming and are not directly visible, like integrating data provenance.
+Others will take less time and are highly visible, like updating the user interface.
+This study answers the question of what is needed to implement a successful system but not all solutions could be integrated into the prototype.
 
-%The \ivfsystem{} is not ready for demoing purposes yet. \silvia{explain this purpose}
-%Evaluation of the prototype shows there is room for much improvement.
-%Some are time consuming and are not directly visible, like integrating data provenance.
-%Others will take less time and are highly visible, like updating the user interface.
-%%This study answers the question of what is needed to implement a successful system but not all solutions could be translated into a working prototype.
-%
 %During the brainstorm a lot of functions came up which were not implemented because of time restrictions.
-%One of the plus points, the fact that a system like this does not exists yet, is also one of the stumbling points.
-%There is no template to follow and as almost everything is possible users expect a lot from the system.
-%Most notably, better user interfaces for data filtering and selection should be implemented (chapter \ref{evaluation}).
-%No user-centred process was used, which means that most of the identified flaws in the system are simply differences in interpretation by the developer.
-%
-%Furthermore, more development is needed to complete the implementation of request and publication management.
-%Then a significant security revision should take place to prepare the system for testing and certification.
-%Right now security has been patched up in the front-end by hiding information for certain users, but this should change into solutions in the back-end to prevent information provision to begin with.
+One of the plus points, the fact that a system like this does not exists yet, is also one of the stumbling points.
+There is no template to follow and as almost everything is possible users expect a lot from the system.
+Most notably, better user interfaces for data filtering and selection should be implemented (chapter \ref{evaluation}).
+No user-centred process was used, which means that most of the identified flaws in the system are simply differences in interpretation by the developer.
 
+Furthermore, more development is needed to complete the implementation of missing functionality.
+Then a significant security revision should take place to prepare the system for testing and certification.
+Right now security has been patched up in the front-end by hiding information for certain users. 
+But this should change into solutions in the back-end to prevent information provision to begin with.
 
-\silvia{how does this paragraph relate to the previous "further development"?}
 The \ivfsystem{} should be further developed and used in further data management research in the clinical domain.
 In this domain a vast network of interweaving interests, guidelines, and laws exists.
 Untangling this network should be the aim of further research into this area.
-Research could be done on different levels: government and lawmakers, hospitals and clinics, or patient groups.
-It also could approach different perspectives: ethical, technical, or social.
-Furthermore, research into further development of the \ivfsystem{} can be performed.
+\begin{itemize}
+	\item How can clinician be persuaded to provide patient data for research?
+	\item How should data be structured to maximise research benefits while making sure privacy is kept?
+\end{itemize}
 
-\silvia{these are interesting questions, but i do not see their value without a clear origin or more discussion about how to perform this. It now reads as a random wish list of things with totally different nature and scale, and without much substance. }
+Furthermore, research into further development of the \ivfsystem{} should be performed.
 Examples of research questions are:
 
 \begin{itemize}
-	\item How can clinician be persuaded to provide patient data for research?
 	\item What type of technology can be used to improve data reuse considering patient consent?
-	\item How should data be structured to maximise research benefits while making sure privacy is kept?
-	\item How can user expectations for the \ivfsystem{} be managed?
 	\item How can the system provide better support to users while they perform data management tasks?
 \end{itemize}

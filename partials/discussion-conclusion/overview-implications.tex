@@ -45,7 +45,7 @@ Each clinic has its own ethical committee, thus the documents are evaluated for 
 When permission is granted to deliver the data there is the question of who is going to gather the data.
 Some clinics have data managers but others required the \project{} researchers to gather the data themselves.
 
-The last (technical) step in the process is where support was given.
+The last (technical) step in the process is where we gave support to the \project{} researchers.
 %When data managers collected the data the delivered datasets are neatly structured and clean.
 %Researchers from the \project{} were not equipped with the necessary expertise to collect datasets from the clinics that did not deliver themselves.
 %We helped the data gathering by giving technical advice and creating data queries.
@@ -80,8 +80,9 @@ To summarise, technically there are a lot of issues to overcome, \eg{} data is g
 But what took the most time in the \project{} data gathering was to go through the bureaucratic process.
 While this stresses the notion that data should not be discarded after the project ends but should be reused.
 Moreover, we think that a \ivfsystem{} can give back control to the data owners.
+Potentially making them more willing to deliver data and thereby shortening the bureaucratic process.
 
-\paragraph{Supporting requests}
+\paragraph{Supporting reuse}
 %How do we implement a user-friendly system in a IVF medical domain which covers problems concerning: data security, data access, data browsing, and data querying?
 
 During the development process some interesting changes occurred.
@@ -94,18 +95,19 @@ We assumed that these functions would be important for our prospective users.
 During the brainstorm session (section \ref{brainstorm}) many hurdles in the current research workflow came to light.
 Normally these might be hidden to spectators as workarounds are used.
 The most critical for the \ivfsystem{} being the major task of data requests on datasets like the \projectdata{}.
-Moreover, the stakeholders representing the researchers said that data analysis was an uninteresting feature (\ie{} a `could have').
+Moreover, the stakeholders representing the researchers said that data analysis was an rather uninteresting feature (\ie{} a `could have').
+Even though big data literature describes the benefits of computerised decision making and data mining, see `What is big data?' and `Big data for \project{} research' in chapter \ref{introduction}.
 
 With the focus on data requests also a new user of the system was introduced, namely the committee member (section \ref{brainstorm}, figure \ref{fig:brainstorm-after}).
 These users are key stakeholders from each clinic which supplied data to the \projectdata{}.
-Requests are presented in a transparent way and evaluated by them.
-Data is only delivered when they give permission. 
+Requests are presented in a transparent way and evaluated.
+Data is only delivered when the committee members give permission. 
 Thereby partly giving the ownership back to the data owner.
-This links back to the impression from the previous session: bureaucracy of data gathering is such a lengthy progress because owners do not want to lose ownership.
+This links back to the impression from the previous session: bureaucracy of data gathering is a lengthy progress partly because of ownership and interests.
 
 Implications for the \ivfsystem{} are that instead of supporting researchers in doing their research the system is now more of a data reuse system.
 Reuse of sensitive data is a difficult problem as there are many aspects to take into account.
-One of the most important aspects for sensitive data is security.
+One of the most important aspects for sensitive data is security (see section \ref{security-summarisation-analysis} and appendix \ref{security-appendix}).
 It is known that when humans are involved errors are inevitable when time goes by.
 Providing overviews and insights in the process they are working with can achieve error prevention.
 
@@ -119,9 +121,10 @@ On the other hand data reuse can lead to better research, for example publicatio
 With a \ivfsystem{} data can be restricted while the line of communication between data owner and consumer remains short.
 This will bring all the benefits of data reuse while the data owner still has a grip on what happens with it.
 
-Furthermore, as one of the system's testers noted (section \ref{evaluation}): the system can be used as a demo.
+Lastly, as one of the system's testers noted (section \ref{evaluation}): the system can be used as a demo.
 Next to data providers, institutions providing grants are highly important.
 Nowadays they require that their investment in data gathering should lead to high returns for the scientific community.
+This statement is also supported by big data literature, see `Big data for \project{} research' in chapter \ref{introduction}.
 Mostly this will mean that data reuse is of high priority. 
 Supporting a funding grants with the \ivfsystem{} will show exactly how the requester plans to provide this.
 

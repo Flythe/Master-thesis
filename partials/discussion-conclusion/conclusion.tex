@@ -1,22 +1,58 @@
 \section{Conclusion}
 
-%\begin{enumerate}
-%	\item How do we implement a user-friendly system in a IVF medical domain which covers problems concerning: data security, data access, data browsing, and data querying?
-%	\item What needs to be changed in the current attitude towards data usage to promote big data in a IVF medical domain?
-%\end{enumerate}
-%
-%\begin{itemize}
-%	\item What are the functions of this system and which parts of the research process should this system support?
-%	\item Who are the users and what are the use-cases for these users?
-%	\item What are the legal and security aspects of this system?
-%	\item What is the data model for this system?
-%	\item What functions were actually implemented in the prototype? \silvia{this is no research question. maybe 'what is a minimum prototype to demonstrate ...'}
-%	\item To what extent does this system meet the expectations of users?
-%\end{itemize}
-%
-%\begin{itemize}
-%	\item What are the blocking aspects of data usage?
-%	\item What are the promoting aspects of data usage?
-%	\item What alignment needs to take place to promote data usage?
-%	\item How can IT be leveraged to achieve this goal?
-%\end{itemize}
+The focus of the developed system changed drastically during this study.
+Initially the system would be supporting researchers in doing research which was the basis for the first research question:
+How do we implement a user-friendly system in a \IVF{}--\PRN{} medical domain which covers problems concerning: data security, data access, data browsing, and data querying?
+The conclusion to this question will be structured through its sub-questions.
+
+While the requirements have changed there are still aspects of the system which attribute to the problems we wanted to address.
+Required functions which should be supported and the prospective users have been identified.
+These are listed in section \ref{brainstorm} in figure \ref{fig:brainstorm-after} and section \ref{functional-design} in figure \ref{fig:functions-workflow}.
+Researchers, the data manager, and committee members need to be supported in functions belonging to: user, data, request, and publication management.
+Most notable is that the focus of the system now lies on request management and the committee members.
+
+Ofcourse, because the \projectdata{} contains sensitive medical data security is an important aspect of the system.
+An extensive security review, both in literature as with an interview, lists the possible issues and proposes solutions to them.
+This review can be found in appendix \ref{security-appendix} and an summary is described in section \ref{security-summary}.
+
+To store the data in the system the data model of an existing system was reused.
+This is the in-house project Rosemary, originally it was developed for a neuroscience domain.
+With minimal changes the data model could fit to the \projectdata{} which is described in section \ref{implementation} and shown in figure \ref{fig:implementation-rosemary-dm}.
+
+Functions which would be implemented into the \ivfprototype{} were decided upon with educated guesses.
+The basic functions like data access, browsing, and querying were mostly covered through the reuse of Rosemary.
+Most extensive development went into request management and supporting the committee users.
+This prototype is not completed yet.
+More functionality should be added, but most important the user interface should be redesigned.
+This could, for example, be done with a user-centred design process.
+However, the prototype shows what a completed system is capable of which is reflected in the evaluation in chapter \ref{evaluation}.
+
+The second research question considers the underlying processes of a system like the \ivfsystem{}.
+It tries to tie together the \projectdata{} with the concepts of big data with the research question: What needs to be changed in the current attitude towards data usage to promote big data in a \IVF{}--\PRN{} medical domain?
+The conclusion to this question will be structured through its sub-questions.
+
+Big data literature is mostly about possibilities and positive aspects.
+Aspects related to the system's dataset are described in `What is big data?' and `Big data for \project{} research' in chapter \ref{introduction}.
+Most notable are preservation, reuse, and analysis or decision making.
+The literature describes that funding institutions push for effort into data preservation.
+These efforts should lead to more data reuse even after the end of the funding grant.
+
+The strength of big data lies with the possibilities of decision making.
+Computers are better capable to analyse data and find correlations within them.
+In the case of the \project{} this could be used to determine what possible hypothesis can be answered with the data.
+
+This idea of data analysis was captured in the system's initial concept (section \ref{process-analysis} figure \ref{fig:brainstorm-before}).
+During the brainstorm session these functions were considered `nice to have' but not essential.
+Hypothesis are formulated by researchers and then tested on the \projectdata{}.
+
+To support this the preservation and reuse aspects are important.
+Data should be accessible for researchers that want to test a certain hypothesis.
+However, the sensitive nature of the data and the associated regulations make this difficult.
+This is shown in the consent discussion in the security review (section \ref{security}).
+But also in the fact that committee members are an important user of the system.
+
+Preservation and reuse are addressed in the \project{}.
+We discussed that through transparency and giving back control over data the owners are more willing to expose their data for research ends.
+Analysis is not currently in the system and therefore this question remains open.
+We expect that the system can overcome some (if not all) of the identified blocking aspects.
+However, further research where the system is used in production should show this.

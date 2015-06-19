@@ -53,11 +53,12 @@ For data linkage some identifying (\ie{} private) data items are needed.
 This can be described in the purpose of the data item, but there are also methods for avoiding these data items.
 Hashing of data with the application of Bloom filters \cite{s22schnell2009} makes it possible to link two datasets without revealing the identifying data.
 Online data linkage is only mentioned as a future work for the \ivfsystem{}.
-In the first implementation, linkage is provided by a third-party and the delivery of linked data itself is seen as an offline external component of the system.
+In the first implementation, linkage is provided by a third-party and the delivery of anonymised linked data itself is seen as an offline external component of the system.
 
 Anonymisation and pseudonymisation should be used to de-identify individuals.
 While identification through data aggregation and cross-referencing is still possible to happen, these steps should make it more difficult.
-The \ivfsystem{} will use both techniques to provide privacy. Datasets are mostly kept clean by removing all identifying data at the data gathering step.
+The \ivfsystem{} will use both techniques to provide privacy. 
+Datasets are mostly kept clean by removing all identifying data at the data gathering step.
 And whatever identifying data is left (through linkage) will be pseudonymised before it is accepted into the system.
 
 In order to decrease the chances of cross-referencing and data breaches in general, auditing should be applied.
