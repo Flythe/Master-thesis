@@ -5,19 +5,19 @@ Initially the system would be supporting researchers in doing research which was
 How do we implement a user-friendly system in a \IVF{}--\PRN{} medical domain which covers problems concerning: data security, data access, data browsing, and data querying?
 The conclusion to this question will be structured through its sub-questions.
 
-While the requirements have changed there are still aspects of the system which attribute to the problems we wanted to address.
+While the requirements have changed, there are still aspects of the system which attribute to the problems we wanted to address.
 Required functions which should be supported and the prospective users have been identified.
 These are listed in section \ref{brainstorm} in figure \ref{fig:brainstorm-after} and section \ref{functional-design} in figure \ref{fig:functions-workflow}.
-Researchers, the data manager, and committee members need to be supported in functions belonging to: user, data, request, and publication management.
+Researchers, the data manager, and committee members need to be supported in functions belonging to user, data, request, and publication management.
 Most notable is that the focus of the system now lies on request management and the committee members.
 
-Ofcourse, because the \projectdata{} contains sensitive medical data security is an important aspect of the system.
+Of course, because the \projectdata{} contains sensitive medical, data security is an important aspect of the system.
 An extensive security review, both in literature as with an interview, lists the possible issues and proposes solutions to them.
 This review can be found in appendix \ref{security-appendix} and an summary is described in section \ref{security-summary}.
 
 To store the data in the system the data model of an existing system was reused.
-This is the in-house project Rosemary, originally it was developed for a neuroscience domain.
-With minimal changes the data model could fit to the \projectdata{} which is described in section \ref{implementation} and shown in figure \ref{fig:implementation-rosemary-dm}.
+This is the in-house project Rosemary, originally   developed for the neuroscience domain.
+With minimal changes the data model could fit to the \projectdata{}, which is described in section \ref{implementation} and shown in figure \ref{fig:implementation-rosemary-dm}.
 
 Functions which would be implemented into the \ivfprototype{} were decided upon with educated guesses.
 The basic functions like data access, browsing, and querying were mostly covered through the reuse of Rosemary.
@@ -40,19 +40,17 @@ These efforts should lead to more data reuse even after the end of the funding g
 The strength of big data lies with the possibilities of decision making.
 Computers are better capable to analyse data and find correlations within them.
 In the case of the \project{} this could be used to determine what possible hypothesis can be answered with the data.
-
 This idea of data analysis was captured in the system's initial concept (section \ref{process-analysis} figure \ref{fig:brainstorm-before}).
-During the brainstorm session these functions were considered `nice to have' but not essential.
+During the brainstorm session these functions were considered `nice to have', but not essential.
 Hypothesis are formulated by researchers and then tested on the \projectdata{}.
-
-To support this the preservation and reuse aspects are important.
+To support this,  preservation and reuse aspects are important.
 Data should be accessible for researchers that want to test a certain hypothesis.
 However, the sensitive nature of the data and the associated regulations make this difficult.
 This is shown in the consent discussion in the security review (section \ref{security}).
-But also in the fact that committee members are an important user of the system.
+But also in the fact that committee members have become  important users of the system.
 
-Preservation and reuse are addressed in the \project{}.
+Preservation and reuse are addressed in the \project{} project with the support of \ivfsystem{}.
 We discussed that through transparency and giving back control over data the owners are more willing to expose their data for research ends.
 Analysis is not currently in the system and therefore this question remains open.
-We expect that the system can overcome some (if not all) of the identified blocking aspects.
+We expect that the system in the future can overcome some (if not all) of the identified blocking aspects.
 However, further research where the system is used in production should show this.
