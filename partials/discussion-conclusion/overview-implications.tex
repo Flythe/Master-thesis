@@ -1,5 +1,10 @@
-Below we present ...
-\silvia{explain the rationale to organize the topics as you have. also important to distinguish discussion (you are free to discuss whatever you want) and conclusions (you can only conclude things for which you have evidence)}
+Below the discussion portion of this paper is presented.
+First a short summary of the contents is described.
+Then three major aspects concerning the \ivfsystem{} are discussed.
+These are: bottlenecks found during the data gathering process of the \projectdata{} and how these influence the \ivfsystem{}, how the focus of the \ivfsystem{} changed and what the implications are, and how the \ivfsystem{} can be extrapolated to other domains.
+
+Then the critical appraisal is described with the strengths and limitations of this study and possible future research and development considerations.
+Lastly, the conclusion is given which ties together the results and discussion of this study and provides answers to the research questions.
 
 \section{Summary}
 
@@ -24,7 +29,7 @@ Publication management functions were not addressed by the implemented prototype
 
 During the evaluation of the prototype with users, it became clear that for a successful demo more polishing of the system's workflow (\ie{} the manner in which a user moves through the system) is needed.
 Also we estimate that one or two iterations of user-centred design should still be applied to remove most of the fundamental confusions in the interface.
-\silvia{security?}
+Furthermore, missing functionality and security should be added to the system.
 
 \section{Discussion}
 
@@ -39,34 +44,14 @@ It was decided that the gathering would be a joint effort with other participant
 The experiences and impressions during the data gathering process are described below.
 
 Data gathering hurdles are encountered roughly in the following order.
-Firstly stakeholders at the fertility clinics have to be persuaded to cooperate in the study.
+First stakeholders at the fertility clinics have to be persuaded to cooperate in the study.
 This is done by explaining the goal of the study, the study protocol, and data contract (\ie{} for what purpose is the data gathered and how will it be used).
 Then the protocol and contract have to be evaluated by an ethical committee.
 Each clinic has its own ethical committee, thus the documents are evaluated for each clinic individually.
 When permission is granted to deliver the data there is the question of who is going to gather the data.
 Some clinics have data managers, but others required the \project{} researchers to gather the data themselves.
 
-The last (technical) step in the process seemed more complex than anticipated, and significant support was needed by the \project{} researchers to obtain the data.
-%When data managers collected the data the delivered datasets are neatly structured and clean.
-%Researchers from the \project{} were not equipped with the necessary expertise to collect datasets from the clinics that did not deliver themselves.
-%We helped the data gathering by giving technical advice and creating data queries.
-There are thirteen fertility clinics in the Netherlands with a wide range of electronic patient records (EHRs).
-Luckily during the \project{} most clinics were switching to a standardised EHR from a single vendor.
-%Therefore, one data query could potentially be used at multiple clinics.
-
-The first problem encountered was intellectual property restrictions.
-Researchers could not get access to the data dictionary of the EHR.
-Therefore, trial and error with existing queries, four visits with an expert fertility clinician, and approximately 50 query versions were needed.
-Also, due to the accessible data dictionary the query could not be fully optimised which resulted in `dirty' data.
-
-Furthermore, the EHR could be implemented on database software from two different vendors (Microsoft or Oracle).
-Queries (executed from within the EHR) written for one of the vendors did not work for the other.
-Therefore, the query had to be translated and debugged again.
-
-\silvia{i have the feeling that from here you go back in time, to the phases that came BEFORE the technical phase. Also, was it one year or six months. the text below is confusing}
-
-The actual gathering took about six months.
-Even though at the start of the project many heads of clinics were enthusiastic, the preparation steps took much longer, about one year.
+Even though at the start of the project many heads of clinics were enthusiastic, the preparation phases took about one year.
 Many decisions had to be taken and certainly the ethical committee evaluation can take quite some time. 
 
 Stakeholders will try to protect the interests of the clinic.
@@ -79,8 +64,23 @@ Currently each data request is evaluated by the data owner, which gives them gre
 Furthermore, data has value that can be monetary but also academic (\ie{} scientific value in the form of potential publications).
 Gathering data and putting it in a repository weakens (or removes) ownership of the data and the owner loses the potential profits.
 
+The last (technical) phase in the process seemed more complex than anticipated, and significant support was needed for the \project{} researchers to obtain the data.
+This phase took about six months.
+There are thirteen fertility clinics in the Netherlands with a wide range of electronic patient records (EHRs).
+However, during the \project{} most clinics were switching to a standardised EHR from a single vendor.
+
+The first problem encountered was intellectual property restrictions.
+Researchers could not get access to the data dictionary of the EHR.
+Therefore, trial and error with existing queries, four visits with an expert fertility clinician, and approximately 50 query versions were needed.
+Also, due to the accessible data dictionary the query could not be fully optimised which resulted in `dirty' data.
+
+Furthermore, the EHR could be implemented on database software from two different vendors (Microsoft or Oracle).
+Queries (executed from within the EHR) written for one of the vendors did not work for the other.
+Therefore, the query had to be translated and debugged again.
+
 To summarise, technically there are a lot of issues to overcome, \eg{} data is geographically spread, restrictions by intellectual property, or there is no standard data model.
-But what took the most time in the \project{} data gathering was to go through the bureaucratic process.
+Overcoming these problems took approximately six months.
+But what took the most time in the \project{} data gathering was to go through the bureaucratic process, which took about one year.
 This stresses the notion that data should not be discarded after the project ends, but should be reused.
 Moreover, we think that a \ivfsystem{} can give back control and trust to the data owners,
 potentially making them more willing to deliver data and thereby shortening the bureaucratic process.
