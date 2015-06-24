@@ -10,10 +10,10 @@ Lastly, the conclusion is given which ties together the results and discussion o
 
 In the Netherlands about 5\% to 8\% of all couples remain childless due to infertility or subfertility.
 There are several treatments used to assist in reproduction, for example IUI, IVF, and ICSI.
-While it is known how many treatments result in a pregnancy, it is relatively unknown what the outcomes are for children born out of these pregnancies.
-For this end the \project{} was started: to gather and analyse data from both the fertility clinics as the national birth registry (\ie{} \PRN{}).
+While it is known how many fertility treatments result in a pregnancy, it is relatively unknown what the outcomes are for children born out of these pregnancies.
+For this end a study (\project{}) was started: to gather, link, and analyse data from both the fertility clinics as the national perinatal registry (\ie{} \PRN{}).
 
-Because considerable effort went into data gathering, data management should be supported to get the most gain out of this valuable data set.
+Because considerable effort went into data gathering of the fertility clinics, data management should be supported to get the most gain out of this valuable data set.
 From this vision, the idea for the \ivfsystem{} was formulated.
 Initially no data was available, which made requirement analysis with stakeholders a difficult process.
 A study was performed, resulting in an initial system concept that was then used as input for the brainstorm session with stakeholders.
@@ -38,7 +38,7 @@ Furthermore, missing functionality and security should be added to the system.
 
 In this study the \projectdata{} is considered `fixed' and would be delivered by the \project{} at the start.
 Data gathering should be outside the scope of this study.
-However, data was not available, causing problems with development as described in chapter \ref{requirements}.
+However, fertility datasets were not available, causing problems with development as described in chapter \ref{requirements}.
 It was decided that the gathering would be a joint effort with other participants of the \project{}.
 The experiences and impressions during the data gathering process are described below.
 
@@ -58,8 +58,10 @@ A strict limitation was set that no comparison between clinics would be done wit
 Furthermore, during the security review (appendix \ref{security-appendix}) the following quote was found in literature: ``They [clinicians] wanted to help achieve these benefits, but also wanted to be sure that patients' rights were protected and that clinicians were not in danger of breaking patient confidentiality and the law''.
 We assume that the same holds in the case of the \project{}.
 This leads to the impression that the real consideration for stakeholders is related to control over their data.
+Most likely the same issues occur at the \PRN{}.
+However, the \PRN{} was not accounted for in this study.
 
-Currently each data request is evaluated by the data owner, which gives them great control over who they deliver data too.
+Currently each data request is evaluated by the data owner, which gives them control over who they deliver data too.
 Furthermore, data has value that can be monetary but also academic (\ie{} scientific value in the form of potential publications).
 Gathering data and putting it in a repository weakens (or removes) ownership of the data and the owner loses the potential profits.
 
@@ -96,7 +98,7 @@ We assumed that these functions would be important for our prospective users.
 During the brainstorm session (section \ref{brainstorm}) many hurdles in the current research workflow came to light.
 Normally these might be hidden to spectators as workarounds are used.
 The most critical for the \ivfsystem{} is the need to support data requests for datasets like the \projectdata{}.
-Moreover, the stakeholders representing the researchers said that data analysis was an rather uninteresting feature (\ie{} a `could have').
+Moreover, the stakeholders representing the researchers said that on-line data analysis was an rather uninteresting feature (\ie{} a `could have').
 This in contrary to the vision put forward by big data literature about the benefits of computerised decision making and data mining (see chapter \ref{introduction}).
 
 With the focus on data requests, also a new user of the system was introduced, namely the committee member (section \ref{brainstorm}, figure \ref{fig:brainstorm-after}).
@@ -136,7 +138,7 @@ This is interesting because there are currently no other systems which provide t
 \paragraph{Extrapolate to other domains}
 %How can this specific system be used in other settings/knowledge domains?
 
-The previous section argued the benefits of the \ivfsystem{}; however, it is specific to the domain of the \projectdata{}, \ie{} \IVF{} and \PRN{} data.
+The previous section argued the benefits of the \ivfsystem{}; however, it is specific to the domain of the \projectdata{}, \ie{} linked \IVF{} and \PRN{} data.
 Now we will discuss how the system might be used in other domains.
 
 It is a good idea to work towards a modular solution that implements core elements of user, data, request, and publication management.
